@@ -53,12 +53,16 @@ export const ImageGallerry = ({sub_productos, setTitulo, setCodigo, setMedida, s
     const [muestra, setMuestra] = useState(`https://banck-end.herokuapp.com${sub_productos[0].portada.url}`);
 
      useEffect(() => {
-        setTitulo(sub_productos[0].nombre);
-        setCodigo(sub_productos[0].codigo);
-        setMedida(sub_productos[0].medidas);
-        setDescripcion(sub_productos[0].descripcion);
+        halndeIncio();
      }, [])
 
+
+     const halndeIncio = () => {
+        // setTitulo(sub_productos[0].nombre);
+        // setCodigo(sub_productos[0].codigo);
+        // setMedida(sub_productos[0].medidas);
+        // setDescripcion(sub_productos[0].descripcion);
+     }
     const changeBackground = (e, t, c, m, d) => {
         setMuestra(e);
         setTitulo(t);

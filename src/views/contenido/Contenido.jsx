@@ -43,11 +43,11 @@ export const Contenido = () => {
     let { id } = useParams();
    
     const { loading, data } = useFetch(`https://banck-end.herokuapp.com/productos/${id}`);
-
-    const [titulo, setTitulo] = useState('')
-    const [codigo, setCodigo] = useState('')
-    const [medida, setMedida] = useState('')
-    const [descripcion, setDescripcion] = useState('')
+    
+    const [titulo, setTitulo] = useState(loading?'':data.sub_productos[0].nombre)
+    const [codigo, setCodigo] = useState(loading?'':data.sub_productos[0].codigo)
+    const [medida, setMedida] = useState(loading?'':data.sub_productos[0].medidas)
+    const [descripcion, setDescripcion] = useState(loading?'':data.sub_productos[0].descripcion)
 
     const [open, setOpen] = React.useState(false);
 
@@ -67,7 +67,7 @@ export const Contenido = () => {
                         {
                             loading?(
                                 <h1>loading</h1>
-                            ):( <ImageGallerry  loading={loading}
+                            ):( <ImageGallerry  
                                 sub_productos={data.sub_productos}
                                 setTitulo={setTitulo} 
                                 setCodigo={setCodigo}
