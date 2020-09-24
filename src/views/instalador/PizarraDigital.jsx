@@ -1,0 +1,314 @@
+import React, { useState } from 'react'
+import { makeStyles, CssBaseline, Grid, Card, CardMedia, CardContent, Typography, CardActions, CardActionArea, Box, Container, useTheme, AppBar, Tabs, Tab, Checkbox, List, ListItem, ListItemIcon, ListItemText } from '@material-ui/core';
+import Rating from '@material-ui/lab/Rating';
+import { Swipeable } from '../../components/Swipeable';
+import SwipeableViews from 'react-swipeable-views';
+import { pizzarra } from './pizzarra';
+import { SpringModal } from '../../components/SpringModal';
+import { Context } from '../../components/Context';
+
+const useStyles = makeStyles((theme) => ({
+    root: {
+        flexGrow: 1,
+        flexDirection: 'column'
+    },
+    titulo: {
+        fontSize: 25,
+        [theme.breakpoints.up('sm')]: {
+            fontSize: 40
+        },
+    },
+    contendor: {
+        display: 'flex',
+    },
+    paper: {
+        padding: theme.spacing(1),
+        textAlign: 'center',
+        margin: 5
+    },
+    card: {
+        height: '100%',
+        display: 'flex',
+        flexDirection: 'column',
+    },
+    media: {
+        paddingTop: 300,
+    },
+    acciones: {
+        display: 'flex',
+        justifyContent: 'center',
+    },
+    modal: {
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+    },
+
+}));
+
+function TabPanel({ children, value, index, ...other }) {
+    return (
+        <div
+            role="tabpanel"
+            hidden={value !== index}
+            id={`full-width-tabpanel-${index}`}
+            aria-labelledby={`full-width-tab-${index}`}
+            {...other}
+        >
+            {value === index && (
+                <Box p={3}>
+                    <Container maxWidth="xl">
+                        {children}
+                    </Container>
+                </Box>
+            )}
+        </div>
+    );
+}
+
+function a11yProps(index) {
+    return {
+        id: `full-width-tab-${index}`,
+        'aria-controls': `full-width-tabpanel-${index}`,
+    };
+}
+
+const opciones = [{
+    nombre: 'Tabiqueria'
+}, {
+    nombre: 'Formica'
+}, {
+    nombre: 'Cielo Falso'
+}, {
+    nombre: 'Cerchas Metálicas'
+}, {
+    nombre: 'Alucobest'
+}, {
+    nombre: 'Policarbonatos'
+}, {
+    nombre: 'Puertas Precolgadas'
+}, {
+    nombre: 'Pintura'
+}, {
+    nombre: 'TegaHome'
+}, {
+    nombre: 'Aislantes Térmicos'
+}, {
+    nombre: 'Cielo Acústico'
+}, {
+    nombre: 'Impermeabilizantes'
+}, {
+    nombre: 'Piso Vinilico'
+}, {
+    nombre: 'Pisos Flotantes'
+}, {
+    nombre: 'Muros'
+}];
+const opciones2 = [
+    {
+        nombre:'Melamina'
+    },
+    {
+        nombre:'Formica'
+    },
+    {
+        nombre:'Multilaminado'
+    },
+    {
+        nombre:'MDF Trupan'
+    },
+    {
+        nombre:'Tablero OSB'
+    },
+    {
+        nombre:'Accesorio Madera'
+    },
+    {
+        nombre:'Aglomerado'
+    },
+    {
+        nombre:'Hardboard Liso'
+    },
+    {
+        nombre:'Herrajes'
+    },
+    {
+        nombre:'Tablero Ranurado'
+    },
+    {
+        nombre:'Venestas'
+    },
+    {
+        nombre:'Tablas Tableros Pino'
+    },
+    {
+        nombre:'Vinilico'
+    },
+    {
+        nombre:'Flotantes'
+    },
+    {
+        nombre:'Muros'
+    }
+];
+
+export const PizarraDigital = () => {
+
+    const classes = useStyles();
+    const theme = useTheme();
+    const [value, setValue] = useState(0);
+    const [pizzara] = useState(pizzarra);
+    const [checked, setChecked] = useState([0]);
+    const [open, setOpen] = useState(false);
+    const [lista, setLista] = useState(pizzarra[0].personas);
+    
+    const handleToggle = (value) => () => {
+        console.log(value);
+        const currentIndex = checked.indexOf(value);
+        const newChecked = [...checked];
+        if (currentIndex === -1) {
+            newChecked.push(value);
+            const filtro = lista.filter(p => p.melamina === currentIndex || p.formica === false);
+            setLista(filtro);
+
+            setChecked(newChecked);
+        } else {
+            newChecked.splice(currentIndex, 1);
+            setLista(pizzarra[currentIndex].personas);
+
+        }
+        setChecked(newChecked);
+        
+
+    };
+    const handleChange = (event, newValue) => {
+        const pers =  pizzara.filter((v,i) => i === newValue).map((v) => {
+            return v.personas
+        });
+        setLista(pers[0]);
+        setValue(newValue);
+    };
+    const handleChangeIndex = (index) => {
+        setValue(index);
+    };
+    const handleOpen = () => {
+        setOpen(true);
+    };
+
+    const handleClose = () => {
+        setOpen(false);
+    };
+    return (
+        <Context.Consumer>
+            {
+                ({azul}) => {
+
+                    const arreglo = azul?opciones2 : opciones;
+                    return(
+                        <div className={classes.root}>
+                        <CssBaseline />
+                        <AppBar position="static" color="default">
+                            <Tabs
+                                value={value}
+                                onChange={handleChange}
+                                indicatorColor= {azul?'primary':'secondary'} 
+                                textColor={azul?'primary':'secondary'} 
+                                variant="fullWidth">
+                                {
+                                    pizzara.map((value, index) => {
+                                        return (
+                                            <Tab key={index} label={value.lugar} {...a11yProps(index)} />
+                                        )
+                                    })
+                                }
+                            </Tabs>
+                        </AppBar>
+                        <SwipeableViews
+                            axis={theme.direction === 'rtl' ? 'x-reverse' : 'x'}
+                            index={value}
+                            onChangeIndex={handleChangeIndex}>
+                            {
+                                pizzara.map((record, index) => {
+                                    return (
+                                        <TabPanel key={record.lugar}
+                                            value={value}
+                                            index={index}
+                                            dir={theme.direction}>
+                                            <Grid container className={classes.contendor}>
+                                                <Grid item xs={3}>
+                                                    <List className={classes.root}>
+                                                        {            
+                                                        arreglo.map((value, index) => {
+                                                            const labelId = `checkbox-list-label-${value.nombre}`;
+                                                            return (
+                                                                <ListItem key={index} role={undefined} dense button onClick={handleToggle(value.nombre)}>
+                                                                    <ListItemText id={labelId} primary={value.nombre} />
+                                                                    <ListItemIcon>
+                                                                        <Checkbox
+                                                                            edge="start"
+                                                                            checked={checked.indexOf(value.nombre) !== -1}
+                                                                            tabIndex={-1}
+                                                                            disableRipple
+                                                                            color={azul?'primary':'secondary'} 
+                                                                            inputProps={{ 'aria-labelledby': labelId }}
+                                                                        />
+                                                                    </ListItemIcon>
+                                                                </ListItem>
+                                                            );
+                                                        })}
+                                                    </List>
+                                                </Grid>
+                                                <Grid item xs={9} >
+                                                    <div className={classes.paper}>
+                                                        <Grid container spacing={2}>
+                                                            {
+                                                                lista.map((p, l) => {
+                                                                    return (
+            
+                                                                        <Grid item key={l} xs={12} sm={6} md={4}>
+                                                                            <Card className={classes.card}>
+                                                                                <CardActionArea onClick={handleOpen}>
+                                                                                    <CardMedia
+                                                                                        className={classes.media}
+                                                                                        image="https://source.unsplash.com/random"
+                                                                                        title="Contemplative Reptile"
+                                                                                    />
+                                                                                </CardActionArea>
+                                                                                <CardContent className={classes.cardContent}>
+                                                                                    <Typography gutterBottom variant="h5" component="h2">
+                                                                                        {p.nombre}
+                                                                                    </Typography>
+                                                                                    <Typography>
+                                                                                        <b>Celular:</b> {p.celular}
+                                                                                    </Typography>
+                                                                                </CardContent>
+                                                                                <CardActions className={classes.acciones}>
+                                                                                    <Rating name="simple-controlled"
+                                                                                        value={4}
+                                                                                        disabled />
+                                                                                </CardActions>
+                                                                            </Card>
+                                                                        </Grid>
+                                                                    )
+                                                                })
+                                                            }
+            
+                                                        </Grid>
+                                                    </div>
+                                                </Grid>
+                                            </Grid>
+                                        </TabPanel>
+                                    )
+                                })
+                            }
+                        </SwipeableViews>
+                        <SpringModal open={open} handleClose={handleClose}>
+                            <Swipeable />
+                        </SpringModal>
+                    </div>
+                    );
+                }
+            }
+        </Context.Consumer>
+    )
+}
