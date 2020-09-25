@@ -7,6 +7,7 @@ import { Context } from '../../components/Context';
 import PictureAsPdfIcon from '@material-ui/icons/PictureAsPdf';
 import { PDFDownloadLink } from '@react-pdf/renderer';
 import { Reporte } from '../../utils/Reporte';
+import { ReporteMadera } from '../../utils/ReporteMadera';
 const useStyles = makeStyles((theme) => ({
     root: {
         flexGrow: 1,
@@ -245,6 +246,25 @@ export const Calculadora = () => {
                                  
                                 </form>
                                 <Grid container spacing={2}>
+                                {
+                                        cotizador.length > 0 ?(
+                                        <Grid item xs={12} sm={4} style={{display: 'flex', alignItems:'center'}}>
+                                                <Card className={classes.card}>
+                                                <CardActions>
+                                                    <PDFDownloadLink document={<ReporteMadera resultado = {cotizador} 
+                                                                                             m2Azul = {m2Azul} 
+                                                                                             tipo = {tipo}
+                                                                                             operacion = {(Math.round((suma + suma * 0.08) * 100) / 100).toFixed(2)}
+                                                                                             />} fileName="calculo.pdf">
+                                                        <IconButton aria-label="pdf"
+                                                                    color="primary">
+                                                        <PictureAsPdfIcon />
+                                                    </IconButton> 
+                                                    </PDFDownloadLink>
+                                                </CardActions>
+                                            </Card>
+                                        </Grid>):null
+                                        }
                                 <Grid item  xs={12} sm={12}>
                                     <br/>
                                     <TableContainer component={Paper}>
@@ -411,7 +431,7 @@ export const Calculadora = () => {
                                     }
                                     <br/>
                                     </Grid>
-                                     
+                                   
                                 </Grid>
                             </Container>
                                 )

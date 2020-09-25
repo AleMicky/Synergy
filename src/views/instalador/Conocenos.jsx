@@ -1,5 +1,5 @@
 import React from 'react'
-import { makeStyles, CssBaseline, Grid, Container, Card, CardMedia, CardContent, Typography, CardActionArea, CardHeader, Button, CardActions } from '@material-ui/core';
+import { makeStyles, CssBaseline, Grid, Container, Card, CardMedia, CardActionArea, CardHeader, Button, CardActions, Typography } from '@material-ui/core';
 import { Post } from '../../components/Post';
 import { useHistory } from "react-router-dom";
 import GetAppIcon from '@material-ui/icons/GetApp';
@@ -46,24 +46,37 @@ export const Conocenos = () => {
         history.push(url);
     };
     return (
-
-
         <Context.Consumer>
             {
                 ({ azul }) => {
-
                     return (
                         <div className={classes.root}>
                             <CssBaseline />
                             <div className="animate__animated animate__bounceInUp animate__repeat-4">
                                 <Post post={mainFeaturedPost} azul={azul} />
                             </div>
-                            <Container className={classes.cardGrid} maxWidth="md">
+                            <Container className={classes.cardGrid} maxWidth="xl">
                                 <Grid container
-                                    justify="center"
-                                    alignItems="center"
-                                    spacing={4}>
-                                    <Grid item xs={12} sm={6} md={4}>
+                                        justify="center"
+                                        alignItems="center"
+                                        spacing={4}>
+                                    <Grid item xs={12} sm={3} md={3}>
+                                    <div className="animate__animated animate__bounceInLeft animate__repeat-4">
+                                            <Card className={classes.card}>
+                                            <CardHeader title={'Como Utilizo Mi Tarjeta'} />
+
+                                                <CardActionArea onClick={() => hanlderNav('/home/mi-tarjeta')}>
+                                                    <CardMedia
+                                                        className={classes.cardMedia}
+                                                        image="https://source.unsplash.com/random"
+                                                        title="Image title"
+                                                    />
+                                                </CardActionArea>
+                                               
+                                            </Card>
+                                        </div>
+                                    </Grid>
+                                    <Grid item xs={12} sm={3} md={3}>
                                         <Card className={classes.card}>
                                             <CardHeader title={'Beneficios'} />
                                             <CardActionArea onClick={() => console.log(1)}>
@@ -79,11 +92,11 @@ export const Conocenos = () => {
                                                 </Button>
                                                 <Typography component="h6" variant="h6">
                                                     Ver
-                                </Typography>
+                                                </Typography>
                                             </CardActions>
                                         </Card>
                                     </Grid>
-                                    <Grid item xs={12} sm={6} md={4}>
+                                    <Grid item xs={12} sm={3} md={3}>
                                         <Card className={classes.card}>
                                             <CardHeader title={'Politicas'} />
                                             <CardActionArea onClick={() => console.log(1)}>
@@ -99,20 +112,15 @@ export const Conocenos = () => {
                                                 </Button>
                                                 <Typography component="h6" variant="h6">
                                                     Ver
-                                </Typography>
+                                                </Typography>
                                             </CardActions>
                                         </Card>
                                     </Grid>
-                                </Grid>
-                            </Container>
-                            <Container className={classes.cardGrid} maxWidth="xl">
-                                <Grid container
-                                    justify="center"
-                                    alignItems="center"
-                                    spacing={4}>
-                                    <Grid item xs={12} sm={6} md={4}>
-                                        <div className="animate__animated animate__bounceInLeft animate__repeat-4">
+                                    <Grid item xs={12} sm={3} md={3}>
+                                    <div className="animate__animated animate__bounceInLeft animate__repeat-4">
                                             <Card className={classes.card}>
+                                            <CardHeader title={'Capacitaciones'} />
+
                                                 <CardActionArea onClick={() => hanlderNav('/home/capacitacion')}>
                                                     <CardMedia
                                                         className={classes.cardMedia}
@@ -120,36 +128,13 @@ export const Conocenos = () => {
                                                         title="Image title"
                                                     />
                                                 </CardActionArea>
-                                                <CardContent className={classes.cardContent}>
-                                                    <Typography gutterBottom variant="h5" component="h2">
-                                                        Capacitaciones
-                            </Typography>
-                                                </CardContent>
-                                            </Card>
-                                        </div>
-                                    </Grid>
-                                    <Grid item xs={12} sm={6} md={4}>
-                                        <div className="animate__animated animate__bounceInLeft animate__repeat-4">
-                                            <Card className={classes.card}>
-                                                <CardActionArea onClick={() => hanlderNav('/home/mi-tarjeta')}>
-                                                    <CardMedia
-                                                        className={classes.cardMedia}
-                                                        image="https://source.unsplash.com/random"
-                                                        title="Image title"
-                                                    />
-                                                </CardActionArea>
-                                                <CardContent className={classes.cardContent}>
-                                                    <Typography gutterBottom variant="h5" component="h2">
-                                                        Como Utilizo Mi Tarjeta
-                        </Typography>
-                                                </CardContent>
+                                                
                                             </Card>
                                         </div>
                                     </Grid>
                                 </Grid>
                             </Container>
                         </div>
-
                     )
                 }
             }

@@ -3,13 +3,17 @@ import React from 'react'
 import { RedSocial } from '../../utils/DatosGenerales';
 import Social from '../Social';
 import { useStyles } from './FooterStyle';
-// import { Link } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 
 export default function Footer({sections}) {
 
     const classes = useStyles();
+    let history = useHistory();
 
 
+    const halderNavegacion = url => {
+        history.push(url);
+    }
     return (
         <div className={classes.footer}>
             <CssBaseline />
@@ -22,10 +26,8 @@ export default function Footer({sections}) {
                                     return (
                                         <li key={index}
                                             className={classes.seccion}>
-                                            {/* <Link to={value.url}>{value.title}</Link> */}
-
                                             <Link
-                                                href={value.url}
+                                                onClick={()=> halderNavegacion(value.url)}
                                                 className={classes.text}>
                                                 {value.title}
                                             </Link> 

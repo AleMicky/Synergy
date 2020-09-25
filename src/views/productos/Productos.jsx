@@ -2,11 +2,11 @@ import React, { useEffect, useState } from 'react'
 import { makeStyles, Grid, List, ListItem, ListItemText, Checkbox, Divider, CardActionArea, CardMedia, Card, CardHeader, Typography } from '@material-ui/core';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import { useHistory } from "react-router-dom";
-// import data from './Data';
 import { Search } from '../../components/Search';
 import { useFetch } from '../../hooks/useFetch';
 import Axios from 'axios';
 import { Context } from '../../components/Context';
+
 const useStyles = makeStyles((theme) => ({
   root: {
     display: 'flex',
@@ -35,48 +35,6 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const product = [
-  {
-    nombre: 'Martillo',
-    imagen: 'https://source.unsplash.com/random'
-  },
-  {
-    nombre: 'Piso I',
-    imagen: 'https://source.unsplash.com/random'
-  },
-  {
-    nombre: 'Piso II',
-    imagen: 'https://source.unsplash.com/random'
-  },
-  {
-    nombre: 'Piso III',
-    imagen: 'https://source.unsplash.com/random'
-  },
-  {
-    nombre: 'Color I',
-    imagen: 'https://source.unsplash.com/random'
-  },
-  {
-    nombre: 'Color II',
-    imagen: 'https://source.unsplash.com/random'
-  },
-  {
-    nombre: 'Color III',
-    imagen: 'https://source.unsplash.com/random'
-  },
-  {
-    nombre: 'Madera I',
-    imagen: 'https://source.unsplash.com/random'
-  },
-  {
-    nombre: 'Madera II',
-    imagen: 'https://source.unsplash.com/random'
-  },
-  {
-    nombre: 'Madera III',
-    imagen: 'https://source.unsplash.com/random'
-  }
-]
 
 export const Productos = () => {
 
@@ -88,7 +46,7 @@ export const Productos = () => {
   const [checked, setChecked] = useState([]);
   const [portafolio, setPortafolio] = useState([]);
   const [titulo, subTitulo] = useState('');
-  const [buscar, setBuscar] = useState('')
+  const [buscar, setBuscar] = useState('');
 
   const { loading, data } = useFetch(`https://banck-end.herokuapp.com/categorias`);
 
@@ -105,6 +63,8 @@ export const Productos = () => {
       .then(function () {
      
       });
+
+
   }, [])
   
   const handleListItemClick = (event, index, record, nombre) => {
@@ -124,29 +84,22 @@ export const Productos = () => {
     }
     setChecked(newChecked);
 
-
     Axios.get(`https://banck-end.herokuapp.com/sub-categorias/${id}`)
       .then(function (response) {
-        // handle success
-        console.log(response.data.productos);
         setPortafolio(response.data.productos)
       })
       .catch(function (error) {
-        // handle error
         console.log(error);
       })
       .then(function () {
-        // always executed
       });
-
-
   };
 
   const hanlderNav = (id) => {
     history.push(`/home/contenido/${id}`);
   };
   const handleBuscar = () => {
-    setPortafolio(product);
+    setPortafolio([]);
     const resultado = portafolio.filter(name => name.nombre.includes(buscar)).map(resul => {
       return resul
     });
@@ -160,7 +113,7 @@ export const Productos = () => {
       });
       setPortafolio(resultado);
     } else {
-      setPortafolio(product);
+      setPortafolio([]);
     }
   }
   const handletitulo = (string) => {
