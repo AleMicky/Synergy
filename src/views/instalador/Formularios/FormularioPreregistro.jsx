@@ -46,7 +46,7 @@ export const FormularioPreregistro = () => {
                                                     
                         const handlerSubmint = (e , v) => {
                             e.preventDefault();
-                            Axios.post('https://banck-end.herokuapp.com/preregistro-maderas', {
+                            Axios.post('https://banck-end.herokuapp.com/contruccion-registros', {
                             nombres: v.nombres,
                             apellidos: v.apellidos,
                             celular: v.celular, 
@@ -55,7 +55,7 @@ export const FormularioPreregistro = () => {
                             ci: v.ci, 
                             nit: v.nit, 
                             correo: v.correo, 
-                            personas: v.grupo_trabajo, 
+                            grupo_trabajo: v.grupo_trabajo, 
                             antiguedad :v.antiguedad,    
                             tabiqueria : v.tabiqueria,
                             cieloFalso : v.cielo_falso,
@@ -71,8 +71,9 @@ export const FormularioPreregistro = () => {
                             pisosFlotantes : v.pisos_flotantes,
                             muros : v.muros,
                             ciudad: v.ciudad,
-                            qr: host+'/qr/'+v.ci,
+                            qr: 'https://'+host+'/qr/'+v.ci,
                             capacitarte: v.capacitarte
+
                         }).then(response => {
                                 handleClick();
                             }).catch(e => {
