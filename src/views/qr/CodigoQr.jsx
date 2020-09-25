@@ -76,7 +76,7 @@ export const CodigoQr = () => {
 
   useEffect(() => {
     
-    fetch('https://banck-end.herokuapp.com/preregistro-maderas/'+ci)
+    fetch('https://banck-end.herokuapp.com/contruccion-registros/'+ci)
     .then(resp => resp.json())
     .then(data => {
       setPersonal(data);
