@@ -1,8 +1,9 @@
 import React from 'react'
-import { makeStyles, CssBaseline, Grid, Container, Card, CardMedia, CardActionArea, CardHeader, Button, CardActions, Typography } from '@material-ui/core';
+import { makeStyles, CssBaseline, Grid, Container, Card, CardMedia, CardActionArea, CardHeader } from '@material-ui/core';
+// import { makeStyles, CssBaseline, Grid, Container, Card, CardMedia, CardActionArea, CardHeader, Button, CardActions, Typography } from '@material-ui/core';
 import { Post } from '../../components/Post';
 import { useHistory } from "react-router-dom";
-import GetAppIcon from '@material-ui/icons/GetApp';
+// import GetAppIcon from '@material-ui/icons/GetApp';
 import { Context } from '../../components/Context';
 
 const useStyles = makeStyles((theme) => ({
