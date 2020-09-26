@@ -54,18 +54,23 @@ const sucursal = [
              fax: ''
             },
             {
-                nombre:'Sucursal Banzer: Av. Cristo Redentor (Banzer) km7',
+                nombre:'Suc. Mutualista: 4to anillo entre Av. Mutualista y Av. Paraguá',
+                telefono: '(591-3) 346 5909',
+                fax: ''
+            },
+            {
+                nombre:'Suc. Banzer: Av. Cristo Redentor (Banzer) km7',
                 telefono: '(591-3) 365 0345',
                 fax: ''
             },
             {
-                nombre:'Sucursal Santos Dumont: Av. Santos Dumont entre 4to y 5to Anillo (frente a Villa Olímpica)',
+                nombre:'Suc. Santos Dumont: Av. Santos Dumont entre 4to y 5to Anillo (frente a Villa Olímpica)',
                 telefono: '(591-3) 356 4144',
                 fax: ''
             },
             {
-                nombre:'Sucursal Mutualista: 4to anillo entre Av. Mutualista y Av. Paraguá',
-                telefono: '(591-3) 346 5909 / (591-3) 346 3202',
+                nombre:'Suc. Montero: Circunvalacion Este/Calle Luis Gius',
+                telefono: '(591-3) 922 7875',
                 fax: ''
             }
         ]
@@ -74,18 +79,23 @@ const sucursal = [
         nombre: 'Cochabamba',
         oficina:[
             {
-                nombre:'Oficina Central: Av. Blanco Galindo Km1',
+                nombre:'Oficina Central: Av. Blanco Galindo Km1 N° 1184 esq. Av. Peru',
                 telefono: '(591-4) 424 7147',
                 fax: '(591-4) 411 4792'
             },
             {
-                nombre:'Sucursal Norte Este: Av. Villazón (Carretera a Sacaba) Km 2 1/2',
+                nombre:'Sucursal BG2: Av. Blanco Galindo Km 4 ½ entre Abel Rivas y Av. Segunda, Zona Busch',
+                telefono: '(591-4) 424 4021',
+                fax: ''
+            },
+            {
+                nombre:'Suc. Sacaba: Av. Villazón Km 2 1/2 acera sud (carretera a Sacaba)',
                 telefono: '(591-4) 449 6372',
                 fax: ''
            },
            {
-                nombre:'Sucursal Norte Este: Av. Blanco Galindo Km 4 ½ entre Abel Rivas y Av. Segunda, Acera Sud',
-                telefono: '(591-4) 434 4021',
+                nombre:'Sucursal Beijing: Av. Beijing N° 115 entre C.23 de Enero y Yuracare',
+                telefono: '(591-4) 443 2305',
                 fax: ''
           }
         ]
@@ -94,22 +104,27 @@ const sucursal = [
         nombre: 'La Paz',
         oficina:[
             {
-                nombre:'Oficina Central: Miraflores, Av. Saavedra',
+                nombre:'Suc. Miraflores: Av. Saavedra N° 1513 (Plaza Uyuni)',
                 telefono: '(591-2) 224 3479',
                 fax: '(591-2) 211 8976'
             },
             {
-                nombre:'Sucursal Calacoto: Av. Ballivián Esq. c.24 zona Calacoto N°7881',
+                nombre:'Suc. Cota Cota: C.25 N° 23 Cota Cota esq. Av. Ballivian ',
                 telefono: '(591-2) 277 3600',
                 fax: ''
             },
             {
-                nombre:'Showroom: Av. Ballivián Esq. Calle 21 Zona Calacoto N° 1417',
-                telefono: '(591-2) 277 4285 / (591-2) 277 6144',
+                nombre:'Suc. Calacoto: Av. Ballivián  N°7881 esq. C/24 Zona Calacoto',
+                telefono: '(591-2) 214 6229',
                 fax: ''
             },
             {
-                nombre:'Sucursal Cota Cota: Av. C. 25 Cota Cota Esq. Av. Ballivian N° 23',
+                nombre:'Oficina Central: C.21 Calacoto N° 7721 esq. Gabino Villanueva',
+                telefono: '(591-2) 277 4285',
+                fax: ''
+            },
+            {
+                nombre:'Suc. Cota Cota: C.348 N° 402 esq. Av. La Merced',
                 telefono: '(591-2) 277 2496',
                 fax: ''
             }
@@ -119,12 +134,12 @@ const sucursal = [
         nombre: 'EL Alto',
         oficina:[
             {
-             nombre:'Sucursal Rio Seco - El Alto: Av. Juan Pablo II Galón 8 y 9 N° 100',
-             telefono: '(591-2) 286 0174',
+             nombre:'Suc. Rio Seco: Av. Juan Pablo II N° 100 - Galpón 8 y 9 ',
+             telefono: '(591-2) 284 5677',
              fax: ''
             },
             {
-                nombre:'Sucursal Villa Abaroa - El Alto: Av. Ladislao Cabrera N° 100',
+                nombre:'Suc. Villa Avaroa: Av. Ladislao Cabrera N° 100',
                 telefono: '(591-2) 282 5393',
                 fax: ''
             }
@@ -133,8 +148,8 @@ const sucursal = [
     {
         nombre: 'Tarija',
         oficina:[{
-             nombre:'Oficina Central: Prolongación Ballivián y Av. Circunvalación (Frente a Cadepia)',
-             telefono: '(591-4) 665 4535',
+             nombre:'Oficina Central: Prolongación Ballivián y Av. Circunvalación S/N frente a Cadepia',
+             telefono: '(591-4) 665 8606',
              fax: ''
         }]
     }

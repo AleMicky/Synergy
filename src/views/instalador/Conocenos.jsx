@@ -63,16 +63,16 @@ export const Conocenos = () => {
                                     <Grid item xs={12} sm={3} md={3}>
                                     <div className="animate__animated animate__bounceInLeft animate__repeat-4">
                                             <Card className={classes.card}>
-                                            <CardHeader title={'Como Utilizo Mi Tarjeta'} />
+                                            <CardHeader title={'Capacitaciones'} />
 
-                                                <CardActionArea onClick={() => hanlderNav('/home/mi-tarjeta')}>
+                                                <CardActionArea onClick={() => hanlderNav('/home/capacitacion')}>
                                                     <CardMedia
                                                         className={classes.cardMedia}
                                                         image="https://source.unsplash.com/random"
                                                         title="Image title"
                                                     />
                                                 </CardActionArea>
-                                               
+                                                
                                             </Card>
                                         </div>
                                     </Grid>
@@ -86,14 +86,14 @@ export const Conocenos = () => {
                                                     title="sads"
                                                 />
                                             </CardActionArea>
-                                            <CardActions>
+                                            {/* <CardActions>
                                                 <Button href="https://drive.google.com/file/d/1JrqmiHX2tz5OiB6AO3GYMHHSSE9yRRxb/view?usp=sharing" target="_blank">
                                                     <GetAppIcon className={classes.playIcon} />
                                                 </Button>
                                                 <Typography component="h6" variant="h6">
                                                     Ver
                                                 </Typography>
-                                            </CardActions>
+                                            </CardActions> */}
                                         </Card>
                                     </Grid>
                                     <Grid item xs={12} sm={3} md={3}>
@@ -106,29 +106,29 @@ export const Conocenos = () => {
                                                     title="sads"
                                                 />
                                             </CardActionArea>
-                                            <CardActions>
+                                            {/* <CardActions>
                                                 <Button href="https://drive.google.com/file/d/1JrqmiHX2tz5OiB6AO3GYMHHSSE9yRRxb/view?usp=sharing" target="_blank">
                                                     <GetAppIcon className={classes.playIcon} />
                                                 </Button>
                                                 <Typography component="h6" variant="h6">
                                                     Ver
                                                 </Typography>
-                                            </CardActions>
+                                            </CardActions> */}
                                         </Card>
                                     </Grid>
                                     <Grid item xs={12} sm={3} md={3}>
                                     <div className="animate__animated animate__bounceInLeft animate__repeat-4">
                                             <Card className={classes.card}>
-                                            <CardHeader title={'Capacitaciones'} />
+                                            <CardHeader title={'Como Utilizo Mi Tarjeta'} />
 
-                                                <CardActionArea onClick={() => hanlderNav('/home/capacitacion')}>
+                                                <CardActionArea onClick={() => hanlderNav('/home/mi-tarjeta')}>
                                                     <CardMedia
                                                         className={classes.cardMedia}
                                                         image="https://source.unsplash.com/random"
                                                         title="Image title"
                                                     />
                                                 </CardActionArea>
-                                                
+                                               
                                             </Card>
                                         </div>
                                     </Grid>
