@@ -44,7 +44,7 @@ export default function Footer({sections}) {
                 <Grid item xs={12} sm={3} >
                     <Container maxWidth="xl" >
                         <div className={classes.asistencia}>
-                            <Link href="#"
+                            <Link href="/home/conocenos"
                                 className={classes.text}>
                                 {'Asistencia Tecnica '}
                             </Link>
