@@ -17,6 +17,8 @@ import Inicio2 from '../assets/pics/Inicio2.jpg';
 import Inicio3 from '../assets/pics/Inicio3.jpg';
 import Inicio4 from '../assets/pics/Inicio4.jpeg';
 
+
+
 export const caroselRojo = [
     {
         imagen: Cons20,
@@ -52,11 +54,11 @@ export const caroselRojo = [
          imagen: Inicio1,
          ruta: 'productos'
      },
-     {
-        titulo: 'Servicios',
-        imagen: Inicio2,
-        ruta: 'servicios'
-    },
+      {
+          titulo: 'Servicios',
+          imagen: Inicio2,
+          ruta: 'servicios'
+      },
     {
         titulo: 'Pizarra Digital',
         imagen: Inicio3,
@@ -90,4 +92,12 @@ export const caroselRojo = [
       ruta: 'capacitacion',
       icon: <MenuBookIcon style={{fontSize: 70,  color: '#fafafa'}}/>
     }
+ ];
+ export const noImg = [
+  {
+    nombre: 'noImg',
+    imagen: {
+      url : Cons20
+    },
+  }
  ]

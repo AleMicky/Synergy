@@ -44,24 +44,6 @@ export const MenuRojo = [
     { 
         title: 'Club del Instalador', 
         url: '/home/conocenos'
-        // submenu:[
-        //     {
-        //         title: 'Conocenos', 
-        //         url: '/home/conocenos',
-        //     },
-        //     {
-        //         title: 'Instaladores De Calidad', 
-        //         url: '/home/pizarra-digital',
-        //     },
-        //     {
-        //         title: 'Formulario de Preregistro', 
-        //         url: '/home/formulario-preregistro',
-        //     },
-        //     {
-        //         title: 'Calculadora', 
-        //         url: '/home/calculadora',
-        //     }
-        // ] 
     },
     { 
         title: 'Contactos', 
@@ -89,24 +71,6 @@ export const MenuAzul = [
     { 
         title: 'Club del Carpintero', 
         url: '/home/conocenos',
-        // submenu:[
-        //     {
-        //         title: 'Conocenos', 
-        //         url: '/home/conocenos',
-        //     },
-        //     {
-        //         title: 'Carpinteros De Calidad', 
-        //         url: '/home/pizarra-digital',
-        //     },
-        //     {
-        //         title: 'Formulario de Preregistro', 
-        //         url: '/home/formulario-preregistro',
-        //     },
-        //     {
-        //         title: 'Calculadora', 
-        //         url: '/home/calculadora',
-        //     }
-        // ] 
     },
     { 
         title: 'Contactos', 

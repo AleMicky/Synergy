@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { makeStyles, CssBaseline, Grid, Card, CardMedia, CardContent, Typography, CardActions, CardActionArea, Box, Container, useTheme, AppBar, Tabs, Tab, Checkbox, List, ListItem, ListItemIcon, ListItemText } from '@material-ui/core';
 import Rating from '@material-ui/lab/Rating';
 import { Swipeable } from '../../components/Swipeable';
@@ -6,6 +6,8 @@ import SwipeableViews from 'react-swipeable-views';
 import { pizzarra } from './pizzarra';
 import { SpringModal } from '../../components/SpringModal';
 import { Context } from '../../components/Context';
+import { useFetch } from '../../hooks/useFetch';
+import { apiImg, apiURL } from '../../config';
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -160,8 +162,19 @@ export const PizarraDigital = () => {
     const [pizzara] = useState(pizzarra);
     const [checked, setChecked] = useState([0]);
     const [open, setOpen] = useState(false);
-    const [lista, setLista] = useState(pizzarra[0].personas);
+    const [lista, setLista] = useState([]);
+
+    const { loading, data } = useFetch(`${apiURL}contruccion-registros`);
+
+    useEffect(() => {
+        if(!loading){
+           setLista(data.filter(v => v.ciudad === 'Cochabamba' &&  v.activo === true))
+        }
+    }, [loading, data])
     
+    
+
+
     const handleToggle = (value) => () => {
         console.log(value);
         const currentIndex = checked.indexOf(value);
@@ -182,10 +195,14 @@ export const PizarraDigital = () => {
 
     };
     const handleChange = (event, newValue) => {
-        const pers =  pizzara.filter((v,i) => i === newValue).map((v) => {
-            return v.personas
+       
+        const lugar = newValue === 0? 'Cochabamba':'Santa_Cruz';
+        
+        const personas =  data.filter(v => v.ciudad === lugar &&  v.activo === true).map((v) => {
+            return v
         });
-        setLista(pers[0]);
+        console.log(personas);
+        setLista(personas);
         setValue(newValue);
     };
     const handleChangeIndex = (index) => {
@@ -270,21 +287,22 @@ export const PizarraDigital = () => {
                                                                                 <CardActionArea onClick={handleOpen}>
                                                                                     <CardMedia
                                                                                         className={classes.media}
-                                                                                        image="https://source.unsplash.com/random"
+                                                                                        image={apiImg+p.foto.url} 
                                                                                         title="Contemplative Reptile"
                                                                                     />
                                                                                 </CardActionArea>
                                                                                 <CardContent className={classes.cardContent}>
                                                                                     <Typography gutterBottom variant="h5" component="h2">
-                                                                                        {p.nombre}
+                                                                                        {`${p.nombres} ${p.apellidos}`}
                                                                                     </Typography>
                                                                                     <Typography>
                                                                                         <b>Celular:</b> {p.celular}
+                                                                                       
                                                                                     </Typography>
                                                                                 </CardContent>
                                                                                 <CardActions className={classes.acciones}>
                                                                                     <Rating name="simple-controlled"
-                                                                                        value={4}
+                                                                                        value={p.calificacion}
                                                                                         disabled />
                                                                                 </CardActions>
                                                                             </Card>

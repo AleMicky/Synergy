@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Button, ButtonGroup } from '@material-ui/core';
+import { saveItem } from '../../../utils/storage';
 
 export default function ButtoActive({tabAzul, tabAzulOut}) {
 
@@ -9,11 +10,14 @@ export default function ButtoActive({tabAzul, tabAzulOut}) {
     const handleContruccion = () => {
         tabAzulOut();
         setColor(!color)
+        saveItem('pagina','Contruccion')
     }
 
     const handleMadera = () => {
         tabAzul();
-        setColor(!color)
+        setColor(!color);
+        saveItem('pagina','Madera');
+
     }
     return (
         <ButtonGroup aria-label="outlined primary button group">

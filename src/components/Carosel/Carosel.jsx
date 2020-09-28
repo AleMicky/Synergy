@@ -2,6 +2,7 @@ import React from 'react';
 import { Carousel } from 'react-responsive-carousel';
 import { makeStyles } from '@material-ui/core';
 import "react-responsive-carousel/lib/styles/carousel.min.css";
+import { apiImg } from '../../config';
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -22,8 +23,8 @@ export default function Carosel({record}) {
                         return(
                         <div key={index}>
                             <img className={classes.root}
-                                 src={data.imagen}  
-                                 alt={data.nombre}/>
+                                        src={ data.nombre === 'noImg'? data.imagen.url:apiImg+data.imagen.url}  
+                                        alt={data.nombre}/>
                         </div>
                         );
                     })

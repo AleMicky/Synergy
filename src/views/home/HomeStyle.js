@@ -5,6 +5,10 @@ export const useStyles = makeStyles((theme) => ({
       display: 'flex',
       flexDirection: 'column'
     },
+    backdrop: {
+      zIndex: theme.zIndex.drawer + 1,
+      color: '#fff',
+    },
     titulo: {
       fontSize: 25,
       alignSelf: 'center',
