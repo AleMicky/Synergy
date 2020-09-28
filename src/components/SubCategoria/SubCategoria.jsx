@@ -21,36 +21,39 @@ export default function SubCategoria({subCategotia, setProducto, pagina}) {
           newChecked.splice(currentIndex, 1);
         }
         setChecked(newChecked);
-        productoApi(id);
+        handleApi(id);
         
     };
 
-    const productoApi = (id) => {
+    const handleApi = id => {
+     Axios.get(`${apiURL}sub-categorias/${id}`)
+      .then(function (response) {
+        const producto = [];
+       const  rest =  response.data.productos.map((value) => {
 
-      Axios.get(`${apiURL}sub-categorias/${id}`)
+            let objeto = {
+              id : value.id,
+              nombre : value.nombre,
+              portada : value.portada,
+              sub_categoria : {
+                pagina: pagina
+              } 
+            }
 
-          .then(function (response) {
+            producto.push(objeto);
 
-            const producto = [];
-            response.data.productos.map((value) => {
-
-                let objeto = {
-                  id : value.id,
-                  nombre : value.nombre,
-                  portada : value.portada,
-                  sub_categoria : {
-                    pagina: pagina
-                  } 
-                }
-
-                producto.push(objeto);
-            });
-            setProducto(producto)
-          })
-          .catch(function (error) {
-            console.log(error);
+            return true;
+        });
+        console.log(rest);
+        if(rest){
+          setProducto(producto)
+        }
+      })
+      .catch(function (error) {
+        console.log(error);
       });
-    } 
+    }
+
 
     return (
         <List>
