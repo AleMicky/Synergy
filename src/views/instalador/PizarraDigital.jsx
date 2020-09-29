@@ -223,6 +223,7 @@ export const PizarraDigital = () => {
                             resultado.push(e);
                         }
                     }
+                    return true
                 })
             }else{
                 lista.map(e => {
@@ -231,8 +232,10 @@ export const PizarraDigital = () => {
                             resultado.push(e);
                         }
                     }
+                    return true
                 })
             }
+            return true
         })
        console.log('--->',resultado);
       if(resultado.length > 0){
