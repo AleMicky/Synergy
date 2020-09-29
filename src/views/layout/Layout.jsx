@@ -64,16 +64,20 @@ export const Layout = ({ children, window }) => {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
   const [azul, setAzul] = useState(false);
+  const [pagina, setPagina] = useState('Construccion');
+
 
   const synergy = useMemo(() => {
     return {
         tabAzul: () => {
             setIsLoading(false)
             setAzul(true)
+            setPagina('Madera')
         },
         tabAzulOut: () => {
             setIsLoading(false)
             setAzul(false)
+            setPagina('Construccion')
         }
     }
   }, []);
@@ -94,7 +98,7 @@ export const Layout = ({ children, window }) => {
     return <h1>Loading</h1>
   }
   return (
-    <Context.Provider value={{synergy, azul}}>
+    <Context.Provider value={{synergy, azul, pagina}}>
       <div className={classes.root}>
         <CssBaseline />
         <Header menuSeccion ={azul?MenuAzul:MenuRojo} handleDrawerToggle={handleDrawerToggle} />

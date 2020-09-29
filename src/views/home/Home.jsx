@@ -17,6 +17,8 @@ export const Home = () => {
 
   let history = useHistory();
 
+  
+
   const { loading, data } = useFetch(`${apiURL}carosels`);
 
   const handleOpen = (url) => {

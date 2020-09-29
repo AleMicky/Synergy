@@ -8,29 +8,29 @@ import { Paper } from '@material-ui/core';
 const useStyles = makeStyles((theme) => ({
   root: {
     display: 'flex',
-    flexWrap: 'wrap',
+    // flexWrap: 'wrap',
     minWidth: 300,
     width: '100%',
   },
   image: {
-    position: 'relative',
+    //position: 'relative',
     height: 200,
-    [theme.breakpoints.down('xs')]: {
-      width: '100% !important', // Overrides inline-style
-      height: 100,
-    },
-    '&:hover, &$focusVisible': {
-      zIndex: 1,
-      '& $imageBackdrop': {
-        opacity: 0.15,
-      },
-      '& $imageMarked': {
-        opacity: 0,
-      },
-      '& $imageTitle': {
-        border: '4px solid currentColor',
-      },
-    },
+    // [theme.breakpoints.down('xs')]: {
+    //   width: '100% !important', // Overrides inline-style
+    //   height: 100,
+    // },
+    // '&:hover, &$focusVisible': {
+    //   zIndex: 1,
+    //   '& $imageBackdrop': {
+    //     opacity: 0.15,
+    //   },
+    //   '& $imageMarked': {
+    //     opacity: 0,
+    //   },
+    //   '& $imageTitle': {
+    //     border: '4px solid currentColor',
+    //   },
+    // },
   },
   focusVisible: {},
   imageButton: {

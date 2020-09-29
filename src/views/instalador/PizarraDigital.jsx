@@ -211,6 +211,8 @@ export const PizarraDigital = () => {
         } else {
             newChecked.splice(currentIndex, 1);
            
+            setLista([]);
+            console.log(lista);
         }
         setChecked(newChecked);
         const resultado = [];

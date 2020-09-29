@@ -1,9 +1,9 @@
 import React from 'react'
 import { makeStyles, CssBaseline, Grid } from '@material-ui/core';
-import { Accordions } from '../../components/Accordions';
 import { FormContacto } from '../../components/FormContacto';
 import { Context } from '../../components/Context';
 import { Banner } from '../../components/Banner';
+import Sucursal from '../../components/Sucursal';
 const useStyles = makeStyles((theme) => ({
     root: {
         flexGrow: 1,
@@ -35,12 +35,13 @@ export const Contacto = () => {
                         <Banner post={mainFeaturedPost} />
 
                             <Grid container>
-                                <Grid item xs={12} sm={6}>
-                                    <div className={classes.paper}>
+                                <Grid item xs={12} sm={12}>
+                                    <Sucursal/>
+                                    {/* <div className={classes.paper}>
                                         <Accordions azul = {azul}/>
-                                    </div>
+                                    </div> */}
                                 </Grid>
-                                <Grid item xs={12} sm={6}>
+                                <Grid item xs={12} sm={12}>
                                     <div className={classes.paper}>
                                         <FormContacto azul = {azul}/>
                                     </div>
