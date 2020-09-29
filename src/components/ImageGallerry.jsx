@@ -4,7 +4,7 @@ import { makeStyles, Grid, Paper } from '@material-ui/core';
 const useStyles = makeStyles((theme) => ({
     root: {
         flexGrow: 1,
-        maxWidth: 640,
+        maxWidth: 840,
         maxHeight: 500,
        // border: '1px solid #060606'
     },

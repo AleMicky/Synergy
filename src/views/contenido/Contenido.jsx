@@ -1,7 +1,8 @@
 import React, { useState } from 'react'
-import { makeStyles, Grid, Link, Modal, Fade, Backdrop, CssBaseline } from '@material-ui/core';
+// import { makeStyles, Grid, Link, Modal, Fade, Backdrop, CssBaseline } from '@material-ui/core';
+import { makeStyles, Grid, Link, CssBaseline } from '@material-ui/core';
 import { ImageGallerry } from '../../components/ImageGallerry';
-import { Swipeable } from '../../components/Swipeable';
+// import { Swipeable } from '../../components/Swipeable';
 import { useParams } from "react-router-dom";
 import { useFetch } from '../../hooks/useFetch';
 
@@ -49,15 +50,15 @@ export const Contenido = () => {
     const [medida, setMedida] = useState(loading?'':data.sub_productos[0].medidas)
     const [descripcion, setDescripcion] = useState(loading?'':data.sub_productos[0].descripcion)
 
-    const [open, setOpen] = React.useState(false);
+    // const [open, setOpen] = React.useState(false);
 
-    const handleOpen = () => {
-        setOpen(true);
-    };
+    // const handleOpen = () => {
+    //     setOpen(true);
+    // };
 
-    const handleClose = () => {
-        setOpen(false);
-    };
+    // const handleClose = () => {
+    //     setOpen(false);
+    // };
     return (
         <div className={classes.root}>
             <CssBaseline />
@@ -82,14 +83,15 @@ export const Contenido = () => {
                             <h3>Nombre: {titulo}</h3>
                             <h3>Medidas: {medida}</h3>
                             <h3><b>Descripcion:</b>{descripcion}</h3>
-                            <h3>Proyectos en lo que se usa los materiales:  <Link href="https://synerx.com.bo/"
+                            <h3>Proyectos en lo que se utilizo estos materiales:</h3>
+                            <h3><Link href="https://synerx.com.bo/"
                                                                                             target="_blank"
                                                                                             >
                                                                                 <img className={classes.logotipo}
                                                                                         src={require('../../assets/ayn.png')}
                                                                                         alt='logotipo' /> 
-                                                                            </Link> </h3>
-                            <Link href="#" onClick={handleOpen}>
+                                                                            </Link></h3>                                                
+                            {/* <Link href="#" onClick={handleOpen}>
                                 Lorem, ipsum dolor sit amet consectetur
                                 
                            </Link>
@@ -110,7 +112,7 @@ export const Contenido = () => {
                                   
                                     <Swipeable />           
                                 </Fade>
-                            </Modal>
+                            </Modal> */}
                         </div>
                     </Grid>
                 </Grid>
