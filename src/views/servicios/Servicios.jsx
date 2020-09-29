@@ -29,7 +29,7 @@ export const Servicios = () => {
   // const [pagina, setpagina] = useState('');
   const { loading, data } = useFetch(`${apiURL}sistema-especializados`);
 
-
+console.log(data);
 
   // console.log(pagina);
 
@@ -46,14 +46,18 @@ export const Servicios = () => {
     <div className={classes.root}>
       <CssBaseline />
       <Banner post={mainFeaturedPost2} />
-      <Container className={classes.cardGrid} maxWidth="xl">
-        <Grid container spacing={4}>
+      <Container  maxWidth="xl">
+        <Grid container  direction="row"
+  justify="center"
+  alignItems="center" className={classes.cardGrid} >
           {
             loading ? (
               <h2>loading</h2>
             ) : (
                 data.map((card, index) => (
-                  <Grid item key={index} xs={12} sm={6} md={4}>
+                  <Grid item key={index} xs={12} sm={3} md={3} xl={3}>
+
+                  
                     <ButtonBases title={card.nombre}
                       width={'80%'}
                       url={'https://source.unsplash.com/random'}

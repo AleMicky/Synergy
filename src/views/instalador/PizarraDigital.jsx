@@ -75,82 +75,108 @@ function a11yProps(index) {
     };
 }
 
-const opciones = [{
-    nombre: 'Tabiqueria'
-}, {
-    nombre: 'Formica'
-}, {
-    nombre: 'Cielo Falso'
-}, {
-    nombre: 'Cerchas Metálicas'
-}, {
-    nombre: 'Alucobest'
-}, {
-    nombre: 'Policarbonatos'
-}, {
-    nombre: 'Puertas Precolgadas'
-}, {
-    nombre: 'Pintura'
-}, {
-    nombre: 'TegaHome'
-}, {
-    nombre: 'Aislantes Térmicos'
-}, {
-    nombre: 'Cielo Acústico'
-}, {
-    nombre: 'Impermeabilizantes'
-}, {
-    nombre: 'Piso Vinilico'
-}, {
-    nombre: 'Pisos Flotantes'
-}, {
-    nombre: 'Muros'
-}];
+const opciones = [
+    {
+        nombre: 'Tabiqueria',
+        value: 'tabiqueria'
+    },
+    {
+        nombre: 'Cielo Falso',
+        value: 'cielo_falso'
+    },
+    {
+        nombre: 'Cerchas Metálicas',
+        value: 'cerchas_metálicas'
+    },
+    {
+        nombre: 'Alucobest',
+        value: 'alucobest'
+    },
+    {
+        nombre: 'Policarbonatos',
+        value: 'policarbonatos'
+    },
+    {
+        nombre: 'Puertas Precolgadas',
+        value: 'puertas_precolgadas'
+    },
+    {
+        nombre: 'Pintura',
+        value: 'pintura'
+    },
+    {
+        nombre: 'TegaHome',
+        value: 'tega_home'
+    },
+    {
+        nombre: 'Aislantes Térmicos',
+        value: 'aislantes_termicos'
+    },
+    {
+        nombre: 'Cielo Acústico',
+        value: 'cielo_acustico'
+    },
+    {
+        nombre: 'Impermeabilizantes',
+        value: 'impermeabilizantes'
+    },
+    {
+        nombre: 'Piso Vinilico',
+        value: 'piso_vinilico'
+    },
+    {
+        nombre: 'Pisos Flotantes',
+        value: 'pisos_flotantes'
+    },
+    {
+        nombre: 'Muros',
+        value: 'muros'
+    }];
 const opciones2 = [
     {
-        nombre:'Melamina'
+        nombre: 'Melamina'
     },
     {
-        nombre:'Formica'
+        nombre: 'Formica'
     },
     {
-        nombre:'Multilaminado'
+        nombre: 'Multilaminado'
     },
     {
-        nombre:'MDF Trupan'
+        nombre: 'MDF Trupan'
     },
     {
-        nombre:'Tablero OSB'
+        nombre: 'Tablero OSB'
     },
     {
-        nombre:'Accesorio Madera'
+        nombre: 'Accesorio Madera'
     },
     {
-        nombre:'Aglomerado'
+        nombre: 'Aglomerado'
     },
     {
-        nombre:'Hardboard Liso'
+        nombre: 'Hardboard Liso'
     },
     {
-        nombre:'Herrajes'
+        nombre: 'Herrajes'
     },
     {
-        nombre:'Tablero Ranurado'
+        nombre: 'Tablero Ranurado'
     },
     {
-        nombre:'Venestas'
+        nombre: 'Venestas'
     },
     {
-        nombre:'Tablas Tableros Pino'
+        nombre: 'Tablas Tableros Pino'
     },
     {
-        nombre:'Vinilico'
+        nombre: 'Vinilico'
     },
     {
-        nombre:'Flotantes'
+        nombre: 'Flotantes'
     },
     {
-        nombre:'Muros'
+        nombre: 'Muros'
     }
 ];
 
@@ -167,41 +193,63 @@ export const PizarraDigital = () => {
     const { loading, data } = useFetch(`${apiURL}contruccion-registros`);
 
     useEffect(() => {
-        if(!loading){
-           setLista(data.filter(v => v.ciudad === 'Cochabamba' &&  v.activo === true))
+        if (!loading) {
+            setLista(data.filter(v => v.ciudad === 'Cochabamba' && v.activo === true))
         }
     }, [loading, data])
-    
-    
+
+
 
 
     const handleToggle = (value) => () => {
-        console.log(value);
+       
         const currentIndex = checked.indexOf(value);
         const newChecked = [...checked];
         if (currentIndex === -1) {
             newChecked.push(value);
-            const filtro = lista.filter(p => p.melamina === currentIndex || p.formica === false);
-            setLista(filtro);
-
             setChecked(newChecked);
         } else {
             newChecked.splice(currentIndex, 1);
-            setLista(pizzarra[currentIndex].personas);
-
         }
         setChecked(newChecked);
+        const resultado = [];
         
+        checked.map(va => {
+            if (va !== 0){
+                lista.map(e => {
+                    for (const [key , val] of Object.entries(e)) {
+                        if(key === va && val){
+                            
+                            resultado.push(e);
+                        }
+                    }
+                })
+            }else{
+                lista.map(e => {
+                    for (const [key , val] of Object.entries(e)) {
+                        if(key === value && val){
+                            resultado.push(e);
+                        }
+                    }
+                })
+            }
+        })
+       console.log('--->',resultado);
+      if(resultado.length > 0){
+          setLista(resultado)
+      }
+        
+
 
     };
     const handleChange = (event, newValue) => {
-       
-        const lugar = newValue === 0? 'Cochabamba':'Santa_Cruz';
-        
-        const personas =  data.filter(v => v.ciudad === lugar &&  v.activo === true).map((v) => {
+
+        const lugar = newValue === 0 ? 'Cochabamba' : 'Santa_Cruz';
+
+        const personas = data.filter(v => v.ciudad === lugar && v.activo === true).map((v) => {
             return v
         });
-        console.log(personas);
+        // console.log(personas);
         setLista(personas);
         setValue(newValue);
     };
@@ -218,112 +266,117 @@ export const PizarraDigital = () => {
     return (
         <Context.Consumer>
             {
-                ({azul}) => {
+                ({ azul }) => {
 
-                    const arreglo = azul?opciones2 : opciones;
-                    return(
+                    const arreglo = azul ? opciones2 : opciones;
+                    return (
                         <div className={classes.root}>
-                        <CssBaseline />
-                        <AppBar position="static" color="default">
-                            <Tabs
-                                value={value}
-                                onChange={handleChange}
-                                indicatorColor= {azul?'primary':'secondary'} 
-                                textColor={azul?'primary':'secondary'} 
-                                variant="fullWidth">
+                            <CssBaseline />
+                            <AppBar position="static" color="default">
+                                <Tabs
+                                    value={value}
+                                    onChange={handleChange}
+                                    indicatorColor={azul ? 'primary' : 'secondary'}
+                                    textColor={azul ? 'primary' : 'secondary'}
+                                    variant="fullWidth">
+                                    {
+                                        pizzara.map((value, index) => {
+                                            return (
+                                                <Tab key={index} label={value.lugar} {...a11yProps(index)} />
+                                            )
+                                        })
+                                    }
+                                </Tabs>
+                            </AppBar>
+                            <SwipeableViews
+                                axis={theme.direction === 'rtl' ? 'x-reverse' : 'x'}
+                                index={value}
+                                onChangeIndex={handleChangeIndex}>
                                 {
-                                    pizzara.map((value, index) => {
+                                    pizzara.map((record, index) => {
                                         return (
-                                            <Tab key={index} label={value.lugar} {...a11yProps(index)} />
+                                            <TabPanel key={record.lugar}
+                                                value={value}
+                                                index={index}
+                                                dir={theme.direction}>
+                                                <Grid container className={classes.contendor}>
+                                                    <Grid item xs={3}>
+                                                        <List className={classes.root}>
+                                                            {
+                                                                arreglo.map((value, index) => {
+                                                                    const labelId = `checkbox-list-label-${value.nombre}`;
+                                                                    return (
+                                                                        <ListItem key={index}
+                                                                            role={undefined}
+                                                                            dense
+                                                                            button
+                                                                            onClick={handleToggle(value.value)}>
+                                                                            <ListItemText id={labelId} primary={value.nombre} />
+                                                                            <ListItemIcon>
+                                                                                <Checkbox
+                                                                                    edge="start"
+                                                                                    checked={checked.indexOf(value.value) !== -1}
+                                                                                    tabIndex={-1}
+                                                                                    disableRipple
+                                                                                    color={azul ? 'primary' : 'secondary'}
+                                                                                    inputProps={{ 'aria-labelledby': labelId }}
+                                                                                />
+                                                                            </ListItemIcon>
+                                                                        </ListItem>
+                                                                    );
+                                                                })}
+                                                        </List>
+                                                    </Grid>
+                                                    <Grid item xs={9} >
+                                                        <div className={classes.paper}>
+                                                            <Grid container spacing={2}>
+                                                                {
+                                                                    lista.map((p, l) => {
+                                                                        //  console.log(p);
+                                                                        return (
+
+                                                                            <Grid item key={l} xs={12} sm={6} md={4}>
+                                                                                <Card className={classes.card}>
+                                                                                    <CardActionArea onClick={handleOpen}>
+                                                                                        <CardMedia
+                                                                                            className={classes.media}
+                                                                                            image={apiImg + p.foto.url}
+                                                                                            title="Contemplative Reptile"
+                                                                                        />
+                                                                                    </CardActionArea>
+                                                                                    <CardContent className={classes.cardContent}>
+                                                                                        <Typography gutterBottom variant="h5" component="h2">
+                                                                                            {`${p.nombres} ${p.apellidos}`}
+                                                                                        </Typography>
+                                                                                        <Typography>
+                                                                                            <b>Celular:</b> {p.celular}
+
+                                                                                        </Typography>
+                                                                                    </CardContent>
+                                                                                    <CardActions className={classes.acciones}>
+                                                                                        <Rating name="simple-controlled"
+                                                                                            value={p.calificacion}
+                                                                                            disabled />
+                                                                                    </CardActions>
+                                                                                </Card>
+                                                                            </Grid>
+                                                                        )
+                                                                    })
+                                                                }
+
+                                                            </Grid>
+                                                        </div>
+                                                    </Grid>
+                                                </Grid>
+                                            </TabPanel>
                                         )
                                     })
                                 }
-                            </Tabs>
-                        </AppBar>
-                        <SwipeableViews
-                            axis={theme.direction === 'rtl' ? 'x-reverse' : 'x'}
-                            index={value}
-                            onChangeIndex={handleChangeIndex}>
-                            {
-                                pizzara.map((record, index) => {
-                                    return (
-                                        <TabPanel key={record.lugar}
-                                            value={value}
-                                            index={index}
-                                            dir={theme.direction}>
-                                            <Grid container className={classes.contendor}>
-                                                <Grid item xs={3}>
-                                                    <List className={classes.root}>
-                                                        {            
-                                                        arreglo.map((value, index) => {
-                                                            const labelId = `checkbox-list-label-${value.nombre}`;
-                                                            return (
-                                                                <ListItem key={index} role={undefined} dense button onClick={handleToggle(value.nombre)}>
-                                                                    <ListItemText id={labelId} primary={value.nombre} />
-                                                                    <ListItemIcon>
-                                                                        <Checkbox
-                                                                            edge="start"
-                                                                            checked={checked.indexOf(value.nombre) !== -1}
-                                                                            tabIndex={-1}
-                                                                            disableRipple
-                                                                            color={azul?'primary':'secondary'} 
-                                                                            inputProps={{ 'aria-labelledby': labelId }}
-                                                                        />
-                                                                    </ListItemIcon>
-                                                                </ListItem>
-                                                            );
-                                                        })}
-                                                    </List>
-                                                </Grid>
-                                                <Grid item xs={9} >
-                                                    <div className={classes.paper}>
-                                                        <Grid container spacing={2}>
-                                                            {
-                                                                lista.map((p, l) => {
-                                                                    return (
-            
-                                                                        <Grid item key={l} xs={12} sm={6} md={4}>
-                                                                            <Card className={classes.card}>
-                                                                                <CardActionArea onClick={handleOpen}>
-                                                                                    <CardMedia
-                                                                                        className={classes.media}
-                                                                                        image={apiImg+p.foto.url} 
-                                                                                        title="Contemplative Reptile"
-                                                                                    />
-                                                                                </CardActionArea>
-                                                                                <CardContent className={classes.cardContent}>
-                                                                                    <Typography gutterBottom variant="h5" component="h2">
-                                                                                        {`${p.nombres} ${p.apellidos}`}
-                                                                                    </Typography>
-                                                                                    <Typography>
-                                                                                        <b>Celular:</b> {p.celular}
-                                                                                       
-                                                                                    </Typography>
-                                                                                </CardContent>
-                                                                                <CardActions className={classes.acciones}>
-                                                                                    <Rating name="simple-controlled"
-                                                                                        value={p.calificacion}
-                                                                                        disabled />
-                                                                                </CardActions>
-                                                                            </Card>
-                                                                        </Grid>
-                                                                    )
-                                                                })
-                                                            }
-            
-                                                        </Grid>
-                                                    </div>
-                                                </Grid>
-                                            </Grid>
-                                        </TabPanel>
-                                    )
-                                })
-                            }
-                        </SwipeableViews>
-                        <SpringModal open={open} handleClose={handleClose}>
-                            <Swipeable />
-                        </SpringModal>
-                    </div>
+                            </SwipeableViews>
+                            <SpringModal open={open} handleClose={handleClose}>
+                                <Swipeable />
+                            </SpringModal>
+                        </div>
                     );
                 }
             }

@@ -14,8 +14,11 @@ export const useStyles = makeStyles((theme) => ({
       marginTop: theme.spacing(4),
     },
     cardGrid: {
-      paddingTop: theme.spacing(8),
-      paddingBottom: theme.spacing(8),
+      //  display: 'flex',
+      //  alignItems: 'center',
+      //  justifyContent: 'center',
+      //   paddingTop: theme.spacing(8),
+      //  paddingBottom: theme.spacing(8),
     },
     card: {
       height: '100%',
@@ -35,7 +38,7 @@ export const useStyles = makeStyles((theme) => ({
       backgroundSize: 'cover',
       backgroundRepeat: 'no-repeat',
       backgroundPosition: 'center',
-      width:600,
+      width:1200,
       height:600
     },
   }));
