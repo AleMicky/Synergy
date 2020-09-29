@@ -73,7 +73,7 @@ export const caroselRojo = [
 
  export const innovamoRojo = [
    {
-     titulo: 'Calculador Cotizador',
+     titulo: 'Calculadora',
      ruta: 'calculadora', 
      icon: <ExposureIcon style={{fontSize: 70, color: '#fafafa'}}/>
    },

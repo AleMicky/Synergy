@@ -1,5 +1,5 @@
 import React from 'react'
-import { makeStyles, Grid, TextField, Button } from '@material-ui/core';
+import { makeStyles, Grid, TextField, Button, Select, MenuItem } from '@material-ui/core';
 const useStyles = makeStyles((theme) => ({
     paper: {
       marginTop: theme.spacing(8),
@@ -60,6 +60,44 @@ export const FormContacto = ({azul}) => {
                 name="correo"
                 autoComplete="lname"
               />
+            </Grid>
+            <Grid item xs={12} sm={6}>
+              <TextField
+                color={azul?'primary':'secondary'}
+                autoComplete="fname"
+                name="telefono"
+                variant="outlined"
+                required
+                fullWidth
+                id="telefono"
+                label="Telefono"
+                autoFocus
+              />
+            </Grid>
+            <Grid item xs={12} sm={6}>
+              <TextField
+               color={azul?'primary':'secondary'}
+                variant="outlined"
+                required
+                fullWidth
+                id="asunto"
+                label="Asunto"
+                name="asunto"
+                autoComplete="lname"
+              />
+            </Grid>
+            <Grid item xs={12} sm={12}>
+                    <Select
+                        color={azul?'primary':'secondary'}
+                        variant="outlined"
+                        required
+                        fullWidth
+                        id="ciudad"
+                        name="ciudad"
+                        label="Ciudad">
+                        <MenuItem value={'cochabamba'}>Cochabamba</MenuItem>
+                        <MenuItem value={'santa cruz'}>Santa Cruz</MenuItem>
+                    </Select>
             </Grid>
             <Grid item xs={12}>
             <TextField

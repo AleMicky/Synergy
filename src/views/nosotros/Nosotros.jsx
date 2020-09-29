@@ -18,8 +18,8 @@ const useStyles = makeStyles((theme) => ({
     },
     card: {
         display: 'flex',
-        marginLeft: 100,
-        marginRight: 100
+        marginLeft: 50,
+        marginRight: 50
     },
     cardDetails: {
         flex: 1,
