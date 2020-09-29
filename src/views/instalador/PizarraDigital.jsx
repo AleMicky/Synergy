@@ -82,11 +82,11 @@ const opciones = [
     },
     {
         nombre: 'Cielo Falso',
-        value: 'cielo_falso'
+        value: 'cieloFalso'
     },
     {
         nombre: 'Cerchas Metálicas',
-        value: 'cerchas_metálicas'
+        value: 'cherchasMetalicas'
     },
     {
         nombre: 'Alucobest',
@@ -98,7 +98,7 @@ const opciones = [
     },
     {
         nombre: 'Puertas Precolgadas',
-        value: 'puertas_precolgadas'
+        value: 'puertasPrecolgadas'
     },
     {
         nombre: 'Pintura',
@@ -106,15 +106,15 @@ const opciones = [
     },
     {
         nombre: 'TegaHome',
-        value: 'tega_home'
+        value: 'tegaHome'
     },
-    {
-        nombre: 'Aislantes Térmicos',
-        value: 'aislantes_termicos'
-    },
+    // {
+    //     nombre: 'Aislantes Térmicos',
+    //     value: 'aislantes_termicos'
+    // },
     {
         nombre: 'Cielo Acústico',
-        value: 'cielo_acustico'
+        value: 'tegaHome'
     },
     {
         nombre: 'Impermeabilizantes',
@@ -122,11 +122,11 @@ const opciones = [
     },
     {
         nombre: 'Piso Vinilico',
-        value: 'piso_vinilico'
+        value: 'pisoVinilico'
     },
     {
         nombre: 'Pisos Flotantes',
-        value: 'pisos_flotantes'
+        value: 'pisosFlotantes'
     },
     {
         nombre: 'Muros',
@@ -204,40 +204,25 @@ export const PizarraDigital = () => {
     const handleToggle = (value) => () => {
        
         const currentIndex = checked.indexOf(value);
-        const newChecked = [...checked];
+        const newChecked = [checked];
         if (currentIndex === -1) {
             newChecked.push(value);
             setChecked(newChecked);
         } else {
             newChecked.splice(currentIndex, 1);
+           
         }
         setChecked(newChecked);
         const resultado = [];
-        
-        checked.map(va => {
-            if (va !== 0){
-                lista.map(e => {
-                    for (const [key , val] of Object.entries(e)) {
-                        if(key === va && val){
-                            
-                            resultado.push(e);
-                        }
-                    }
-                    return true
-                })
-            }else{
-                lista.map(e => {
-                    for (const [key , val] of Object.entries(e)) {
-                        if(key === value && val){
-                            resultado.push(e);
-                        }
-                    }
-                    return true
-                })
+        data.filter(v => v.ciudad === 'Cochabamba' && v.activo === true).map(e => {
+            for (const [key , val] of Object.entries(e)) {
+                if(key === value && val){
+                    resultado.push(e);
+                }
             }
             return true
         })
-       console.log('--->',resultado);
+       
       if(resultado.length > 0){
           setLista(resultado)
       }
