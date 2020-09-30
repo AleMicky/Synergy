@@ -28,20 +28,12 @@ export function TabPanel({ children, value, index, ...other }) {
         </div>
     );
 }
-export function TabsComponent({titulo, children}) {
+export function TabsComponent({titulo, value, handleChange, handleChangeIndex , children}) {
 
     const theme = useTheme();
-    const [value, setValue] = useState(0);
+    // const [value, setValue] = useState(0);
 
-    const handleChange = (event, newValue) => {
-        setValue(newValue);
-    };
-
-
-    const handleChangeIndex = (index) => {
-        setValue(index);
-    };
-
+    
 
     return (
         <React.Fragment>
