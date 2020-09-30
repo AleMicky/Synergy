@@ -1,5 +1,5 @@
 import React from 'react'
-import { makeStyles, Grid, TextField, Button, Select, MenuItem } from '@material-ui/core';
+import { makeStyles, Grid, TextField, Button, Select, MenuItem, FormControl, InputLabel } from '@material-ui/core';
 const useStyles = makeStyles((theme) => ({
     paper: {
       marginTop: theme.spacing(8),
@@ -8,13 +8,22 @@ const useStyles = makeStyles((theme) => ({
       alignItems: 'center',
     },
     form: {
-      // width: '100%', // Fix IE 11 issue.
-      margin: 10,
-      maxWidth: 410,
-      [theme.breakpoints.up('md')]: {
-        margin: 15,
-        maxWidth: 600,
-      },
+      width: '90%', // Fix IE 11 issue.
+      // margin: 10,
+      // paddingLeft: theme.spacing(8),
+      // paddingRight: theme.spacing(8),
+      // //maxWidth: 410,
+      // [theme.breakpoints.up('md')]: {
+      //   margin: 15,
+      //   paddingLeft: theme.spacing(8),
+      //   paddingRight: theme.spacing(8),
+      //   //maxWidth: 600,
+      // },
+      display: 'flex',
+      alignItems: 'center',
+      flexDirection: 'column',
+      justifyItems: 'center',
+      // justifyContent
       marginTop: theme.spacing(3),
       "& .MuiTextField-root": {
         margin: theme.spacing(1)
@@ -35,7 +44,7 @@ export const FormContacto = ({azul}) => {
        
     
         <form className={classes.form} noValidate>
-          <Grid container spacing={2}>
+          <Grid container >
             <Grid item xs={12} sm={6}>
               <TextField
                 color={azul?'primary':'secondary'}
@@ -87,6 +96,8 @@ export const FormContacto = ({azul}) => {
               />
             </Grid>
             <Grid item xs={12} sm={12}>
+              <FormControl fullWidth variant="outlined">
+                    <InputLabel id="demo-simple-select-outlined-label">Ciudad</InputLabel>
                     <Select
                         color={azul?'primary':'secondary'}
                         variant="outlined"
@@ -98,6 +109,7 @@ export const FormContacto = ({azul}) => {
                         <MenuItem value={'cochabamba'}>Cochabamba</MenuItem>
                         <MenuItem value={'santa cruz'}>Santa Cruz</MenuItem>
                     </Select>
+              </FormControl>
             </Grid>
             <Grid item xs={12}>
             <TextField
