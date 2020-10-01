@@ -77,7 +77,7 @@ export const DetalleVideo = ({pagina}) => {
                   <Card className={classes.card}>
                   <div className={classes.video}>
                               <Player playsInline
-                                      poster={apiImg+card.portada.url}
+                                      poster={card.portada === null ?'https://source.unsplash.com/random':apiImg+card.portada.url}
                                       src={apiImg+card.tutorial.url}/>
                           </div>
                   </Card>

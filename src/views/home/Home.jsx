@@ -36,13 +36,10 @@ export const Home = () => {
                   <Carosel record={loading?noImg:data.filter(record => record.pagina === bandera)} />    
                 </div>
                   <h2 className={classes.titulo}>{`Soluciones para tus proyectos`}</h2>
-                          <Grid container
-                                direction="row"
-                                justify="center"
-                                alignItems="center">
+                          <Grid container>
                             {
                               map(proyectoRojo, (proyecto, index) => (
-                                <Grid item key={index} xs={6} sm={6} md={3} lg={3} xl={3}>
+                                <Grid item key={index} xs={12} sm={6} md={3}>
                                   <Proyecto imagen={proyecto.imagen}
                                             handleOpen={() => handleOpen(proyecto.ruta)}
                                             azul={azul} />
@@ -58,7 +55,7 @@ export const Home = () => {
                         {
                           map(innovamoRojo, (innovamo, index) => (
 
-                            <Grid item key={index} xs={6} sm={3}>
+                            <Grid item key={index} xs={12} sm={6} md={3}>
                                 <Innovacion titulo={innovamo.titulo} 
                                             icon={innovamo.icon}
                                             handleOpen={() => handleOpen(innovamo.ruta)}/>

@@ -1,10 +1,8 @@
 import React, { useContext } from 'react';
-import { Hidden, Drawer, makeStyles, useTheme, Divider, List, ListItem, ListItemText, Collapse } from '@material-ui/core';
+import { Hidden, Drawer, makeStyles, useTheme, Divider, List, ListItem, ListItemText } from '@material-ui/core';
 import { useHistory } from "react-router-dom";
-import ExpandLess from '@material-ui/icons/ExpandLess';
-import ExpandMore from '@material-ui/icons/ExpandMore';
-import { SwitchSys } from './SwitchSys';
 import { Context } from './Context';
+import ButtoActive from './Header/ButtoActive/inde';
 const drawerWidth = 240;
 
 const useStyles = makeStyles((theme) => ({
@@ -24,19 +22,15 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 
-export const DrawerSys = ({ mobileOpen, handleDrawerToggle, window, sections }) => {
+export const DrawerSys = ({ mobileOpen, handleDrawerToggle, window, sections,azul }) => {
     const classes = useStyles();
     const theme = useTheme();
     let history = useHistory();
 
     const container = window !== undefined ? () => window().document.body : undefined;
-    const [open, setOpen] = React.useState(false);
     const { synergy  } = useContext(Context);
     const {tabAzul, tabAzulOut} = synergy;
-    const handleClick = () => {
-        setOpen(!open);
-    };
-
+   
     const hanlderNav = url => {
         history.push(url);
     }
@@ -62,41 +56,21 @@ export const DrawerSys = ({ mobileOpen, handleDrawerToggle, window, sections }) 
                     <List>
                         {sections.map((section, i) => (
                             <div key={i}>
-                                {
-                                    section.submenu.length !== 0 ? (
-                                        <div>
-                                            <ListItem button onClick={handleClick}>
-                                                <ListItemText primary={section.title}/>
-                                                {open ? <ExpandLess /> : <ExpandMore />}
-                                            </ListItem>
-                                            <Collapse in={open} timeout="auto" unmountOnExit>
-                                                <List component="div" disablePadding>
-                                                    {
-                                                    section.submenu.map((record) => {
-                                                    return(   
-                                                        <ListItem key={record} button className={classes.nested}  onClick={() => hanlderNav(record.url)}>
-                                                            <ListItemText primary={record.title} />
-                                                         </ListItem>
-                                                    )
-                                                    })
-                                                }
-                                                </List>
-                                            </Collapse>
-                                        </div>
-                                    ) : (
-                                            <ListItem button key={i} onClick={() => hanlderNav(section.url)}>
+                                <ListItem button key={i} onClick={() => hanlderNav(section.url)}>
                                                 <ListItemText primary={section.title} />
                                             </ListItem>
-                                        )
-                                }
                             </div>
 
                         ))}
-                        <ListItem>
-                        <SwitchSys  tabAzul = {tabAzul}
-                                     tabAzulOut = {tabAzulOut} />
-                        </ListItem>
+                        
+                        
                     </List>
+                    <Divider />
+                    <div style={{display: 'flex', margin:10}}>
+                    <ButtoActive tabAzul = {tabAzul}
+                                     tabAzulOut = {tabAzulOut}
+                                     azul={azul} />
+                    </div>
                 </div>
             </Drawer>
         </Hidden>

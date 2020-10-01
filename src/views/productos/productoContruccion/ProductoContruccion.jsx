@@ -2,11 +2,15 @@ import React, { useEffect, useState } from 'react';
 import { productoStyles } from '../ProductosStyles';
 import { Card, CardActionArea, CardHeader, CardMedia, Checkbox, Divider, Grid, List, ListItem, ListItemIcon, ListItemText, Typography } from '@material-ui/core';
 import { useFetch } from '../../../hooks/useFetch';
-import { apiURL } from '../../../config';
+import { apiImg, apiURL } from '../../../config';
 import { Search } from '../../../components/Search';
+import { useHistory } from 'react-router-dom';
 
 
 export default function ProductoContruccion() {
+
+    let history = useHistory();
+
     const classes = productoStyles();
     const { loading, data } = useFetch(`${apiURL}categorias`);
     const { loading:loadingProducto, data:dataProducto } = useFetch(`${apiURL}producto`);
@@ -71,6 +75,9 @@ export default function ProductoContruccion() {
     const handlefiltro = (inputValue) => {
         setBuscar(inputValue);
     }
+    const hanlderNavegacion = (id) => {
+        history.push(`/home/contenido/${id}`);
+     };
     return (
         <div className={classes.root}>
             <Grid container className={classes.contendor}>
@@ -91,7 +98,7 @@ export default function ProductoContruccion() {
                                 <ListItemText primary={
                                     <Typography type="body1"
                                                 color="textPrimary">
-                                        <b>{handletitulo(record.nombre)}</b>
+                                        <b>{record.nombre}</b>
                                     </Typography>}
                                 />
                             </ListItem>
@@ -139,10 +146,10 @@ export default function ProductoContruccion() {
                     <Grid  item key={index} xs={12} sm={6} md={4}>
                         <Card className={classes.card}>
                         <CardHeader title={card.nombre} />
-                            <CardActionArea onClick={() => alert(1)}>
+                            <CardActionArea onClick={() => hanlderNavegacion(card.id)}>
                             <CardMedia
                                 className={classes.cardMedia}
-                                image="https://source.unsplash.com/random"
+                                image= {card.portada === null ? 'https://source.unsplash.com/random' : apiImg+card.portada.url} 
                                 title="Image title"
                             />
                             </CardActionArea>

@@ -5,9 +5,9 @@ export const useStyles = makeStyles((theme) => ({
         display: 'flex',
         justifyContent: 'center',
         flexDirection: 'column',
-        margin: 50,
+        // margin: 50,
         maxWidth: 200,
-        minHeight: '30vh'
+        minHeight: '40vh'
     },
     icono:{
         fontSize: 70, 

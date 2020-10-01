@@ -1,10 +1,11 @@
-import React from 'react'
-import { CssBaseline } from '@material-ui/core';
+import React, { useState } from 'react'
+import { CssBaseline, Paper } from '@material-ui/core';
 import { Banner } from '../../components/Banner';
 import { useStyles } from './ServiciosStyles';
 import { Context } from '../../components/Context';
 import Sistemas from './sistemas/Sistemas';
 import Arquitectos from './arquitectos/Arquitectos';
+import { SpringModal } from '../../components/SpringModal';
 
 
 const mainFeaturedPost2 = {
@@ -18,6 +19,16 @@ export const Servicios = () => {
 
   const classes = useStyles();
 
+  const [open, setOpen] = React.useState(false);
+  const [imagen, setImagen] = useState('');
+  const handleOpen = (url) => {
+    setOpen(true);
+    setImagen(url);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
 
   return (
     <Context.Consumer>
@@ -29,12 +40,16 @@ export const Servicios = () => {
                 <Banner post={mainFeaturedPost2} />
                 {
                   pagina === 'Construccion'?(
-                    <Sistemas />
+                    <Sistemas handleOpen={handleOpen}/>
                   ):(
-                    <Arquitectos />
+                    <Arquitectos handleOpen={handleOpen}/>
                   )  
                 }
-                  
+                  <SpringModal open={open} handleClose={handleClose}>
+                  <Paper className={classes.mainFeatured} style={{ backgroundImage: `url(${imagen})` }}>
+                    {<img style={{ display: 'none' }} src={ imagen} alt={'img'} />}
+                  </Paper>
+                </SpringModal> 
             </div>
           )
         }

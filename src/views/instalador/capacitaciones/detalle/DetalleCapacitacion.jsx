@@ -62,7 +62,7 @@ export const DetalleCapacitacion = ({pagina}) => {
                   <Card className={classes.card}>
                     <CardMedia
                       className={classes.cardMedia}
-                      image={apiImg+card.portada.url}
+                      image={card.portada === null ?'https://source.unsplash.com/random':apiImg+card.portada.url}
                       title="Image title"
                     />
                     <CardContent className={classes.cardContent}>

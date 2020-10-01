@@ -3,7 +3,6 @@ import { makeStyles, CssBaseline, Container, Typography } from '@material-ui/cor
 import { Context } from '../../../components/Context';
 import { FormB } from './form/FormB';
 import { FormCDC } from './form/FormCDC';
-import Axios from 'axios';
 import SimpleSnackbar from '../../../components/Snackbar';
 
 const useStyles = makeStyles((theme) => ({
@@ -23,7 +22,7 @@ export const FormularioPreregistro = () => {
     const classes = useStyles();
     const [open, setOpen] = useState(false);
     const [mensajes, setMensajes] = useState('Registro Existoso');
-    const host = window.location.host;
+
     const handleClick = () => {
         setOpen(true);
     };
@@ -43,49 +42,7 @@ export const FormularioPreregistro = () => {
                     {
                         ({ azul }) => {
 
-                                                    
-                        const handlerSubmint = (e , v) => {
-                            e.preventDefault();
-                            Axios.post('https://banck-end.herokuapp.com/contruccion-registros', {
-                            nombres: v.nombres,
-                            apellidos: v.apellidos,
-                            celular: v.celular, 
-                            telefono: v.telefono, 
-                            direccion: v.direccion, 
-                            ci: v.ci, 
-                            nit: v.nit, 
-                            correo: v.correo, 
-                            grupo_trabajo: v.grupo_trabajo, 
-                            antiguedad :v.antiguedad,    
-                            tabiqueria : v.tabiqueria,
-                            cieloFalso : v.cielo_falso,
-                            cherchasMetalicas : v.cerchas_metálicas,
-                            alucobest : v.alucobest,
-                            policarbonatos : v.policarbonatos,
-                            puertasPrecolgadas : v.puertas_precolgadas,
-                            pintura : v.pintura,
-                            tegaHome : v.tega_home,
-                            cieloAcustico : v.cielo_acustico,
-                            impermeabilizantes : v.impermeabilizantes,
-                            pisoVinilico : v.piso_vinilico,
-                            pisosFlotantes : v.pisos_flotantes,
-                            muros : v.muros,
-                            ciudad: v.ciudad,
-                            qr: 'https://'+host+'/qr/'+v.ci,
-                            capacitarte: v.capacitarte
-
-                        }).then(response => {
-                                handleClick();
-                            }).catch(e => {
-                                setMensajes(e);
-                                handleClick();
-                            });
-                        }
-
-                      
-
-
-
+                                    
                             return (
                                 <div className={classes.paper}>
                                     {
@@ -100,9 +57,9 @@ export const FormularioPreregistro = () => {
                                     </Typography>
                                     {
                                         azul?(
-                                            <FormCDC handlerSubmint= {handlerSubmint}/>
+                                            <FormCDC handleClick= {handleClick} setMensajes ={setMensajes} />
                                         ):(
-                                            <FormB handlerSubmint= {handlerSubmint}/>
+                                            <FormB handleClick= {handleClick} setMensajes ={setMensajes}/>
                                         )
                                     }
                                 </div>

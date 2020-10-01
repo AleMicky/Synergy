@@ -8,7 +8,6 @@ import { Bienvenido } from "../views/bienvenido/Bienvenido";
 import { Home } from "../views/home/Home";
 import { Contenido } from "../views/contenido/Contenido";
 import { Servicios } from "../views/servicios/Servicios";
-import { Layout } from "../views/layout/Layout";
 import { Nosotros } from "../views/nosotros/Nosotros";
 import { Contacto } from "../views/contacto/Contacto";
 import { Conocenos } from "../views/instalador/Conocenos";
@@ -19,6 +18,8 @@ import { FormularioPreregistro } from "../views/instalador/Formularios/Formulari
 import { CodigoQr } from "../views/qr/CodigoQr";
 import ViewProducto from "../views/productos/Productos";
 import { Capacitacion } from "../views/instalador/capacitaciones/Capacitacion";
+import Layout from "../layouts";
+import { Puntaje } from "../views/puntaje/Puntaje";
 
 export default () => {
     return(
@@ -42,6 +43,7 @@ export default () => {
                       <Route path='/home/formulario-preregistro' component={FormularioPreregistro} />
                       <Route path='/home/calculadora' component={Calculadora} />
                       <Route path='/home/contacto' component={Contacto} />
+                      <Route path='/home/puntos/:ci' component={Puntaje} />
                     </Switch>
               </Layout>
             </Route>

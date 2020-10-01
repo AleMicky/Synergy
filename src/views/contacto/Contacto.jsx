@@ -5,13 +5,14 @@ import { Context } from '../../components/Context';
 import { Banner } from '../../components/Banner';
 import { TabPanel, TabsComponent } from '../../components/TabsComponent/TabsComponent';
 import PlaceIcon from '@material-ui/icons/Place';
+import SimpleSnackbar from '../../components/Snackbar';
 
 const useStyles = makeStyles((theme) => ({
     root: {
         flexGrow: 1,
     },
     paper: {
-        marginTop: theme.spacing(8),
+        //marginTop: theme.spacing(8),
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
@@ -34,6 +35,21 @@ export const Contacto = () => {
     };
     const handleChangeIndex = (index) => { //   {'llevar'}
         setValue(index);
+    };
+
+
+    const [open, setOpen] = useState(false);
+    const [mensajes, setMensajes] = useState('Registro Existoso');
+
+    const handleClick = () => {
+        setOpen(true);
+    };
+
+    const handleClose = (event, reason) => {
+        if (reason === 'clickaway') {
+            return;
+        }
+        setOpen(false);
     };
 
     return (
@@ -164,7 +180,7 @@ export const Contacto = () => {
                                     }
                                 ].map((t, i) => {
                                     return(
-                                        <TabPanel   key={t}
+                                        <TabPanel   key={i}
                                                     value={value}
                                                     index={i}
                                                     dir={theme.direction}>
@@ -195,10 +211,14 @@ export const Contacto = () => {
                             <Divider />
 
                                 <div className={classes.paper}>
-                                    <FormContacto azul = {azul}/>
+                                    <FormContacto  handleClick = {handleClick} setMensajes = {setMensajes}azul = {azul}/>
                                 </div>
                             </Grid>
                         </Grid>
+
+                        <SimpleSnackbar open = {open}
+                            handleClose = {handleClose}
+                            mensaje ={mensajes}/>
                     </div>
                     )
                 }

@@ -2,7 +2,7 @@ import React from 'react';
 import { Container, Grid, makeStyles } from '@material-ui/core';
 import CardStyle from '../../../components/CardStyle/CardStyle';
 import { useFetch } from '../../../hooks/useFetch';
-import { apiURL } from '../../../config';
+import { apiURL, apiImg } from '../../../config';
 
 const useStyles = makeStyles((theme) => ({
     cardGrid: {
@@ -11,7 +11,7 @@ const useStyles = makeStyles((theme) => ({
     }
   }));
   
-export default function Sistemas() {
+export default function Sistemas({handleOpen}) {
 
     const classes = useStyles();
     const { loading, data } = useFetch(`${apiURL}sistema-especializados`);
@@ -27,7 +27,8 @@ export default function Sistemas() {
             data.map((card , index) => (
               <Grid item key={index} xs={12} sm={6} md={4}>
                  <CardStyle nombre = {card.nombre}
-                            url= {'https://media.giphy.com/media/10SvWCbt1ytWCc/giphy.gif'}/>
+                            url= {apiImg+card.portada.url}
+                            handleClick= {() => handleOpen(apiImg+card.portafolio.url)}/>
               </Grid>
             ))
           )

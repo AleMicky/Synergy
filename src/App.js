@@ -34,7 +34,15 @@ const App = () => {
     return(
     <ThemeProvider theme={theme}>
          <Context.Provider value={{synergy, azul, pagina}}>
-         <Main/>
+
+             {
+                 isLoading?(
+                     <p>Loading...</p>
+                 ):(
+                    <Main/>
+                 )
+             }
+         
          </Context.Provider>
     </ThemeProvider>
     )

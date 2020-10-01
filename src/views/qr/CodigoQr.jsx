@@ -9,6 +9,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import Box from '@material-ui/core/Box';
 import { useParams } from "react-router-dom";
+import { apiURL } from '../../config';
 
 /// import { QRCode } from "react-qr-svg";
 const QRCode2 = require('qrcode.react');
@@ -71,12 +72,13 @@ export const CodigoQr = () => {
 
   const classes = useStyles();
   let { ci } = useParams();
+  const host = window.location.host;
 
   const [personal, setPersonal] = useState({});
 
   useEffect(() => {
     
-    fetch('https://banck-end.herokuapp.com/contruccion-registros/'+ci)
+    fetch(`${apiURL}contruccion-registros/${ci}`)
     .then(resp => resp.json())
     .then(data => {
       setPersonal(data);
@@ -122,7 +124,7 @@ export const CodigoQr = () => {
                                     id="123456"
                                     size={200}
                                     level={"Q"}
-                                    value={`codigo: ${personal._id}, Nombre: ${personal.nombres}  ${personal.apellidos}`}
+                                    value={`http://${host}/home/puntos/${personal.ci}`}
                                     includeMargin={false}/>
                             
                     </div>

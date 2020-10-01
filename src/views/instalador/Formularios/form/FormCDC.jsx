@@ -1,6 +1,7 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { makeStyles, Grid, TextField, FormControlLabel, Checkbox, Button, FormLabel, FormGroup, RadioGroup, Radio, FormControl, InputLabel, Select, MenuItem } from '@material-ui/core';
-import { useForm } from '../../../../hooks/useForm';
+import { apiURL } from '../../../../config';
+import Axios from 'axios';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -41,40 +42,46 @@ const useStyles = makeStyles((theme) => ({
         minWidth: 120,
     },
 }));
-export const FormCDC = ({handlerSubmint}) => {
+export const FormCDC = ({handleClick, setMensajes}) => {
+    const host = window.location.host;
 
     const classes = useStyles();
-
-    const [valorForm, handleInputChange] = useForm({
-        fecha: new Date(),
-        nombres: '',
-        apellidos: '',
-        celular: '',
-        telefono: '',
-        direccion: '',
-        ciudad: '',
-        ci: '',
-        nit: '',
-        correo: '',
-        grupo_trabajo: '',
-        antiguedad: '0',
-        melamina: false,
-        formica: false,
-        multilaminado: false,
-        mdf_trupan: false,
-        tablero_osb: false,
-        accesorio_madera: false,
-        aglomerado: false,
-        hardboard_liso: false,
-        herrajes: false,
-        tablero_ranurado: false,
-        venestas: false,
-        tablas_tableros_pino: false,
-        vinilico: false,
-        flotantes: false,
-        muros: false
-    });
-
+    const [valorForm, setValorForm] = useState({    fecha: new Date(),
+                                                    nombres: '',
+                                                    apellidos: '',
+                                                    celular: '',
+                                                    telefono: '',
+                                                    direccion: '',
+                                                    ciudad: '',
+                                                    ci: '',
+                                                    nit: '',
+                                                    correo: '',
+                                                    grupo_trabajo: '',
+                                                    antiguedad: '0',
+                                                    melamina: false,
+                                                    formica: false,
+                                                    multilaminado: false,
+                                                    mdf_trupan: false,
+                                                    tablero_osb: false,
+                                                    accesorio_madera: false,
+                                                    aglomerado: false,
+                                                    hardboard_liso: false,
+                                                    herrajes: false,
+                                                    tablero_ranurado: false,
+                                                    venestas: false,
+                                                    tablas_tableros_pino: false,
+                                                    vinilico: false,
+                                                    flotantes: false,
+                                                    muros: false,
+                                                    capacitarte:''
+                                                });
+    const handleInputChange = ({ target }) => {
+        setValorForm({
+            ...valorForm,
+            [target.name]: target.type === 'checkbox' ? target.checked : target.value
+        });
+    };
+   
     const { 
         nombres,
         apellidos,
@@ -101,7 +108,8 @@ export const FormCDC = ({handlerSubmint}) => {
         tablas_tableros_pino,
         vinilico,
         flotantes,
-        muros 
+        muros,
+        capacitarte 
     } = valorForm;
 
     const check = [
@@ -181,8 +189,83 @@ export const FormCDC = ({handlerSubmint}) => {
             name:'muros'
         }
     ];
+
+
+
+    const handlerForm = (e) => {
+
+        e.preventDefault();
+        Axios.post( `${apiURL}madera-registros`, {
+            nombres: nombres,
+            apellidos: apellidos,
+            celular: celular, 
+            telefono: telefono, 
+            direccion: direccion, 
+            ci: ci, 
+            nit: nit, 
+            correo: correo, 
+            grupo_trabajo: grupo_trabajo, 
+            antiguedad : antiguedad,    
+            melamina: melamina,
+            formica: formica,
+            multilaminado: multilaminado,
+            MDFTrupan: mdf_trupan,
+            tableroOS: tablero_osb,
+            accesorioMadera: accesorio_madera,
+            aglomerado: aglomerado,
+            hardboardLiso: hardboard_liso,
+            herrajes: herrajes,
+            tableroRanurado: tablero_ranurado,
+            venestas: venestas,
+            tablasTablerosPino : tablas_tableros_pino,
+            vinilico: vinilico,
+            flotantes: flotantes,
+            muros: muros,
+            ciudad: ciudad,
+            qr: 'https://'+host+'/qr/'+ci,
+            capacitarte: capacitarte
+
+        }).then(response => {
+              console.log(response);
+              setValorForm({    fecha: new Date(),
+                nombres: '',
+                apellidos: '',
+                celular: '',
+                telefono: '',
+                direccion: '',
+                ciudad: '',
+                ci: '',
+                nit: '',
+                correo: '',
+                grupo_trabajo: '',
+                antiguedad: '0',
+                melamina: false,
+                formica: false,
+                multilaminado: false,
+                mdf_trupan: false,
+                tablero_osb: false,
+                accesorio_madera: false,
+                aglomerado: false,
+                hardboard_liso: false,
+                herrajes: false,
+                tablero_ranurado: false,
+                venestas: false,
+                tablas_tableros_pino: false,
+                vinilico: false,
+                flotantes: false,
+                muros: false,
+                capacitarte:''
+                            });
+                            handleClick();
+        }).catch(e => {
+            console.log(e);
+            handleClick();
+            setMensajes(e)
+        });
+        
+    }
     return (
-        <form className={classes.form} onSubmit={handlerSubmint}>
+        <form className={classes.form} onSubmit={handlerForm}>
         <Grid container spacing={2}>
            
             <Grid item xs={12} sm={6}>
@@ -245,8 +328,8 @@ export const FormCDC = ({handlerSubmint}) => {
                         value={ciudad}
                         onChange={(e) => handleInputChange(e)}
                         label="Ciudad">
-                        <MenuItem value={'cochabamba'}>Cochabamba</MenuItem>
-                        <MenuItem value={'santa cruz'}>Santa Cruz</MenuItem>
+                       <MenuItem value={'Cochabamba'}>Cochabamba</MenuItem>
+                        <MenuItem value={'Santa_Cruz'}>Santa Cruz</MenuItem>
                     
                     </Select>
                 </FormControl>
@@ -348,7 +431,7 @@ export const FormCDC = ({handlerSubmint}) => {
                 </FormGroup>
             </Grid>
             <Grid item xs={12}>
-                <TextField rows={5}
+            <TextField rows={5}
                     color="primary"
                     label="Que te gustaria Capacitarte"
                     placeholder="Que te gustaria Capacitarte"
@@ -356,6 +439,8 @@ export const FormCDC = ({handlerSubmint}) => {
                     multiline
                     variant="outlined"
                     name="capacitarte"
+                    value={capacitarte}
+                    onChange={(e) => handleInputChange(e)}
                     inputProps={{ className: classes.textarea }}
                 />
             </Grid>

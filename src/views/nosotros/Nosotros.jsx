@@ -14,7 +14,8 @@ const useStyles = makeStyles((theme) => ({
     lista: {
         textAlign: 'justify',
         fontSize: 18,
-        color: '#202020'
+        color: '#202020',
+        lineHeight: 0.1
     },
     card: {
         display: 'flex',
@@ -64,26 +65,8 @@ export const Nosotros = () => {
             <CssBaseline />
             <Container maxWidth="xl">
                 <BennerVideo/>
-                      
                 <Grid container>
-                    {/* <Grid item xs={12} md={12}>
-                        <div className="animate__animated animate__bounceInLeft animate__repeat-4">
-                            <Tarjeta title="Nuestra Misión"
-                                description="Proveer a nuestros Clientes con Productos y Servicios de alta Calidad en tiempo y forma para contribuir a su desarrollo y crecimiento, respaldándolos con Servicios Integrales desde el inicio de sus Proyectos hasta la entrega final, protegiendo la integridad y solidez financiera de la Empresa,www.pureintime.net de nuestras fuentes de trabajo y asegurando el cumplimiento de la Calidad requerida mediante un trabajo de mejora continua de la Empresa y de todo su personal."
-                                image="https://source.unsplash.com/random"
-                                imageTitle="Image Text" />
-                        </div>
-                    </Grid>
-                    <Grid item xs={12} md={12}>
-                        <div className="animate__animated animate__bounceInLeft animate__repeat-4">
-                            <Tarjeta title="Nuestra Visión"
-                                description=""
-                                image="https://source.unsplash.com/random"
-                                imageTitle="Image Text" />
-                        </div>
-                    </Grid> */}
                 <Container>
-
                 <Grid item xs={12} sm={12}>
                         <div className="animate__animated animate__bounceInRight animate__repeat-4">
                             <Card className={classes.card}>

@@ -35,7 +35,7 @@ const StyledMenu = withStyles({
     },
   }))(MenuItem);
 
-export default function Header({menuSeccion, handleDrawerToggle}) {
+export default function Header({menuSeccion, handleDrawerToggle, azul}) {
 
     const classes = useStyles();
     let history = useHistory();
@@ -117,7 +117,8 @@ export default function Header({menuSeccion, handleDrawerToggle}) {
                     })
                  }
                  <ButtoActive tabAzul = {tabAzul}
-                              tabAzulOut = {tabAzulOut} />
+                              tabAzulOut = {tabAzulOut}
+                              azul={azul} />
                 </Toolbar>
             </AppBar>
             <Toolbar id="back-to-top-anchor" />

@@ -130,7 +130,7 @@ export default function Contructor() {
                                                             <CardActionArea onClick={() => console.log(1)}>
                                                                 <CardMedia
                                                                     className={classes.media}
-                                                                    image={apiImg + p.foto.url}
+                                                                    image={ p.foto === null ?'https://source.unsplash.com/random':apiImg + p.foto.url}
                                                                     title="Contemplative Reptile"
                                                                 />
                                                             </CardActionArea>

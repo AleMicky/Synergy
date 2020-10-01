@@ -100,7 +100,7 @@ export const Contenido = () => {
             setContenido(data.sub_productos);
             if(data.sub_productos.length > 0 ){
                 if(muestra === ''){
-                    setMuestra(apiImg+data.sub_productos[0].portada.url);
+                    setMuestra(data.sub_productos[0].portada === null ? 'https://source.unsplash.com/random' :apiImg+data.sub_productos[0].portada.url);
                     setTitulo(data.sub_productos[0].nombre)
                     setCodigo(data.sub_productos[0].codigo)
                     setMedida(data.sub_productos[0].medidas)
@@ -143,12 +143,12 @@ export const Contenido = () => {
                                                 <li  className={classes.seccion}
                                                     key={index}>
                                                             <Paper className={classes.paperProducto}
-                                                                  onMouseOver={() => changeBackground(apiImg+value.portada.url, 
+                                                                  onMouseOver={() => changeBackground(value.portada === null ? 'https://source.unsplash.com/random':apiImg+value.portada.url, 
                                                                                                         value.nombre, 
                                                                                                         value.codigo, 
                                                                                                         value.medidas,
                                                                                                         value.descripcion)}
-                                                                    style={{ backgroundImage: `url(${apiImg+value.portada.url})`}} />
+                                                                    style={{ backgroundImage: `url(${value.portada === null ? 'https://source.unsplash.com/random':apiImg+value.portada.url})`}} />
                                                 </li>
                                             );
                                         })

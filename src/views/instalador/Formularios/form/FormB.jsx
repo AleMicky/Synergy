@@ -1,5 +1,7 @@
 import React, { useState } from 'react'
 import { makeStyles, Grid, TextField, FormControlLabel, Checkbox, Button, FormLabel, FormGroup, RadioGroup, Radio, FormControl, InputLabel, Select, MenuItem } from '@material-ui/core';
+import Axios from 'axios';
+import { apiURL } from '../../../../config';
 // import { useForm } from '../../../../hooks/useForm';
 
 
@@ -41,10 +43,10 @@ const useStyles = makeStyles((theme) => ({
         minWidth: 120,
     },
 }));
-export const FormB = ({handlerSubmint}) => {
+export const FormB = ({handleClick, setMensajes}) => {
 
     const classes = useStyles();
-   
+    const host = window.location.host;
     const [valorForm, setValorForm] = useState({   fecha: new Date(),
                                                    nombres: '',
                                                    apellidos: '',
@@ -183,35 +185,73 @@ export const FormB = ({handlerSubmint}) => {
     ];
 
     const handlerForm = (e) => {
-        handlerSubmint( e ,valorForm);
-        setValorForm({   fecha: new Date(),
-            nombres: '',
-            apellidos: '',
-            celular: '',
-            telefono: '',
-            direccion: '',
-            ciudad: '',
-            ci: '',
-            nit: '',
-            correo: '',
-            grupo_trabajo: '',
-            antiguedad: '0',
-            tabiqueria: false,
-            cielo_falso: false,
-            cerchas_metálicas: false,
-            alucobest: false,
-            policarbonatos: false,
-            puertas_precolgadas: false,
-            pintura: false,
-            tega_home: false,
-            aislantes_termicos: false,
-            cielo_acustico: false,
-            impermeabilizantes: false,
-            piso_vinilico: false,
-            pisos_flotantes: false,
-            muros: false,
-            capacitarte:''
-         });
+
+        e.preventDefault();
+        Axios.post( `${apiURL}contruccion-registros`, {
+            nombres: nombres,
+            apellidos: apellidos,
+            celular: celular, 
+            telefono: telefono, 
+            direccion: direccion, 
+            ci: ci, 
+            nit: nit, 
+            correo: correo, 
+            grupo_trabajo: grupo_trabajo, 
+            antiguedad : antiguedad,    
+            tabiqueria : tabiqueria,
+            cieloFalso : cielo_falso,
+            cherchasMetalicas : cerchas_metálicas,
+            alucobest : alucobest,
+            policarbonatos : policarbonatos,
+            puertasPrecolgadas : puertas_precolgadas,
+            pintura : pintura,
+            tegaHome : tega_home,
+            cieloAcustico : cielo_acustico,
+            impermeabilizantes : impermeabilizantes,
+            pisoVinilico : piso_vinilico,
+            pisosFlotantes : pisos_flotantes,
+            muros : muros,
+            ciudad: ciudad,
+            qr: 'https://'+host+'/qr/'+ci,
+            capacitarte: capacitarte
+
+        }).then(response => {
+              console.log(response);
+              setValorForm({    fecha: new Date(),
+                                nombres: '',
+                                apellidos: '',
+                                celular: '',
+                                telefono: '',
+                                direccion: '',
+                                ciudad: '',
+                                ci: '',
+                                nit: '', 
+                                correo: '',
+                                grupo_trabajo: '',
+                                antiguedad: '0',
+                                tabiqueria: false,
+                                cielo_falso: false,
+                                cerchas_metálicas: false,
+                                alucobest: false,
+                                policarbonatos: false,
+                                puertas_precolgadas: false,
+                                pintura: false,
+                                tega_home: false,
+                                aislantes_termicos: false,
+                                cielo_acustico: false,
+                                impermeabilizantes: false,
+                                piso_vinilico: false,
+                                pisos_flotantes: false,
+                                muros: false,
+                                capacitarte:''
+                            });
+                            handleClick();
+        }).catch(e => {
+            console.log(e);
+            handleClick();
+            setMensajes(e)
+        });
+        
     }
     return (
 
@@ -280,7 +320,6 @@ export const FormB = ({handlerSubmint}) => {
                         label="Ciudad">
                         <MenuItem value={'Cochabamba'}>Cochabamba</MenuItem>
                         <MenuItem value={'Santa_Cruz'}>Santa Cruz</MenuItem>
-                    
                     </Select>
                 </FormControl>
             </Grid>

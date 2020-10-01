@@ -96,7 +96,7 @@ export default function ProductoMadera() {
                                 <ListItemText primary={
                                     <Typography type="body1"
                                                 color="textPrimary">
-                                        <b>{handletitulo(record.nombre)}</b>
+                                        <b>{record.nombre}</b>
                                     </Typography>}
                                 />
                             </ListItem>
@@ -142,7 +142,6 @@ export default function ProductoMadera() {
                     
                     {Producto.map((card, index) => {
 
-                        console.log(card);
                         return (
                         <Grid  item key={index} xs={12} sm={6} md={4}>
                             <Card className={classes.card}>

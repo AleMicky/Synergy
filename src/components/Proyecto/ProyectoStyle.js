@@ -2,8 +2,8 @@ const { makeStyles } = require("@material-ui/core");
 
 export const useStyles = makeStyles((theme) => ({
     root: {
-        maxWidth: 200,
-        height:200,
+        maxWidth: 300,
+        height:280,
         margin:30,
         borderRadius: '0px 0px 60px 0px',
         '-webkit-box-shadow':'0 8px 4px #F40607',
@@ -19,8 +19,8 @@ export const useStyles = makeStyles((theme) => ({
       },
       },
       Azroot: {
-        maxWidth: 200,
-        height:200,
+        maxWidth: 300,
+        height:280,
         margin:30,
         borderRadius: '0px 0px 60px 0px',
         '-webkit-box-shadow':'0 8px 4px #0067b2',
@@ -36,7 +36,7 @@ export const useStyles = makeStyles((theme) => ({
       },
       },
       media: {
-        height: 200,
+        height: 300,
         [theme.breakpoints.up('sm')]: {
             height: 260,
         },

@@ -2,10 +2,10 @@ import React, { useState } from 'react';
 import { Button, ButtonGroup } from '@material-ui/core';
 import { saveItem } from '../../../utils/storage';
 
-export default function ButtoActive({tabAzul, tabAzulOut}) {
+export default function ButtoActive({tabAzul, tabAzulOut, azul}) {
 
 
-    const [color, setColor] = useState(true);
+    const [color, setColor] = useState(!azul);
 
     const handleContruccion = () => {
         tabAzulOut();
@@ -23,11 +23,12 @@ export default function ButtoActive({tabAzul, tabAzulOut}) {
         <ButtonGroup aria-label="outlined primary button group">
             <Button variant="contained" 
                     color={color ? 'secondary':'inherit'}
+                    style={{width: 110}}
                     size="small"
                     onClick={handleContruccion}>Construcción</Button>
             <Button variant="contained" 
                     color={color ? 'inherit':'primary'}
-                    style={{width: 120}}
+                    style={{width: 110}}
                     size="small"
                     onClick={handleMadera}>Madera</Button>
         </ButtonGroup>
