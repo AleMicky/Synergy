@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
@@ -70,43 +70,52 @@ export const Puntaje = () => {
   const classes = useStyles();
   let { ci } = useParams();
 
+  const [personal, setPersonal] = useState({});
+
   const { loading, data } = useFetch(`${apiURL}contruccion-registros/${ci}`);
+  const { loading:loadingMadera, data:madera } = useFetch(`${apiURL}madera-registros/${ci}`);
+
+  
+  useEffect(() => {
+    if(!loading || !loadingMadera){
+      setPersonal(handleApi(data, madera));
+    }
+
+  }, [loading, data, loadingMadera, madera])
+
+  const handleApi = (data, data2)=> {
+    console.log(data, data2);
+      if(data) {
+        return data;
+      }
+      return data2;
+  }
+
+
   return (
     <React.Fragment>
       <CssBaseline />
-    {
-  loading?(
-    <h1>loading</h1>
-  ):(
-    <>
       <Container maxWidth="sm" component="main" className={classes.heroContent}>
-    <Typography component="h2" variant="h3" align="center" color="textPrimary" gutterBottom>
-        <b>Puntos {data.puntos}</b>
-    </Typography>
-  </Container>
-  <Container maxWidth="md" component="main">
-    <Grid container spacing={5} alignItems="center">
-            <Grid item xs={12}>
-                <div className={classes.paper}>
-                       
-                  <img style={{width:300, height:250}} src={data.foto === null ? 'https://source.unsplash.com/random':apiImg+data.foto.url} alt="foto"/>
-                </div>
-              
-                <Typography component="h4" variant="h5" align="center" color="textPrimary" gutterBottom>
-                   {data.nombres} {data.apellidos}
-                </Typography>
-                <Typography component="h6" variant="h6" align="center" color="textSecondary" gutterBottom>
-                    {new Date().getFullYear()}
-                </Typography>
-               
-            </Grid>
-    </Grid>
-  </Container>
-    </>
-  )
-}
+        <Typography component="h2" variant="h3" align="center" color="textPrimary" gutterBottom>
+          <b>Puntos {personal.puntos}</b>
+        </Typography>
+      </Container>
+      <Container maxWidth="md" component="main">
+        <Grid container spacing={5} alignItems="center">
+          <Grid item xs={12}>
+            <div className={classes.paper}>
+              <img style={{ width: 300, height: 250 }} src={personal.foto? apiImg+personal.foto.url:'https://source.unsplash.com/random'} alt="foto" />
+            </div>
+            <Typography component="h4" variant="h5" align="center" color="textPrimary" gutterBottom>
+              {personal.nombres} {personal.apellidos}
+            </Typography>
+            <Typography component="h6" variant="h6" align="center" color="textSecondary" gutterBottom>
+              {new Date().getFullYear()}
+            </Typography>
 
-     
+          </Grid>
+        </Grid>
+      </Container>
       {/* Footer */}
       <Container maxWidth="md" component="footer" className={classes.footer}>
         <Box mt={5}>

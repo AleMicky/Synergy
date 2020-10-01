@@ -67,7 +67,8 @@ export const Contacto = () => {
                                 <TabsComponent titulo={['Santa Cruz','Cochabamba','La Paz','EL Alto','Tarija']} 
                                        value={value}
                                        handleChange={handleChange}
-                                       handleChangeIndex={handleChangeIndex}>
+                                       handleChangeIndex={handleChangeIndex}
+                                       color={azul?'primary':'secondary'}>
                             {
                                 [                          
                                     {
@@ -180,7 +181,7 @@ export const Contacto = () => {
                                     }
                                 ].map((t, i) => {
                                     return(
-                                        <TabPanel   key={i}
+                                        <TabPanel   key={i} 
                                                     value={value}
                                                     index={i}
                                                     dir={theme.direction}>

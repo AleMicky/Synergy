@@ -10,6 +10,10 @@ export const RedSocial = [
         url : 'https://www.google.com/'
     },
     {
+        icon : <TwitterIcon/>,
+        url : 'https://www.google.com/'
+    },
+    {
         icon : <FacebookIcon/>,
         url : 'https://www.google.com/'
     },

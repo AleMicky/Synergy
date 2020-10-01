@@ -10,6 +10,7 @@ import Container from '@material-ui/core/Container';
 import Box from '@material-ui/core/Box';
 import { useParams } from "react-router-dom";
 import { apiURL } from '../../config';
+import { useFetch } from '../../hooks/useFetch';
 
 /// import { QRCode } from "react-qr-svg";
 const QRCode2 = require('qrcode.react');
@@ -76,15 +77,25 @@ export const CodigoQr = () => {
 
   const [personal, setPersonal] = useState({});
 
+  const { loading, data } = useFetch(`${apiURL}contruccion-registros/${ci}`);
+  const { loading:loadingMadera, data:madera } = useFetch(`${apiURL}madera-registros/${ci}`);
+
   useEffect(() => {
     
-    fetch(`${apiURL}contruccion-registros/${ci}`)
-    .then(resp => resp.json())
-    .then(data => {
-      setPersonal(data);
-    });
+    if(!loading || !loadingMadera){
+      setPersonal(handleApi(data, madera));
+    }
 
-  }, [ci])
+  }, [loading, data, loadingMadera, madera])
+
+
+
+  const handleApi = (data, data2)=> {
+      if(data) {
+        return data;
+      }
+      return data2;
+  }
 
   const downloadQR = () => {
     const canvas = document.getElementById("123456");
