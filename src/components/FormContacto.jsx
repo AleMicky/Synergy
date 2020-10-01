@@ -2,31 +2,16 @@ import React from 'react'
 import { makeStyles, Grid, TextField, Button, Select, MenuItem, FormControl, InputLabel } from '@material-ui/core';
 const useStyles = makeStyles((theme) => ({
     paper: {
-      marginTop: theme.spacing(8),
+      marginTop: theme.spacing(2),
       display: 'flex',
       flexDirection: 'column',
       alignItems: 'center',
     },
     form: {
-      width: '90%', // Fix IE 11 issue.
-      // margin: 10,
-      // paddingLeft: theme.spacing(8),
-      // paddingRight: theme.spacing(8),
-      // //maxWidth: 410,
-      // [theme.breakpoints.up('md')]: {
-      //   margin: 15,
-      //   paddingLeft: theme.spacing(8),
-      //   paddingRight: theme.spacing(8),
-      //   //maxWidth: 600,
-      // },
-      display: 'flex',
-      alignItems: 'center',
-      flexDirection: 'column',
-      justifyItems: 'center',
-      // justifyContent
+      width: '70%', // Fix IE 11 issue.
       marginTop: theme.spacing(3),
       "& .MuiTextField-root": {
-        margin: theme.spacing(1)
+          margin: theme.spacing(1)
       }
     },
     textarea: {
@@ -35,16 +20,20 @@ const useStyles = makeStyles((theme) => ({
     submit: {
       margin: theme.spacing(3, 0, 2),
     },
+    formControl: {
+      margin: theme.spacing(1),
+      minWidth: 120,
+  },
 }));
   
 export const FormContacto = ({azul}) => {
     const classes = useStyles();
 
-    return (
+    return ( 
        
     
         <form className={classes.form} noValidate>
-          <Grid container >
+          <Grid container spacing={2}>
             <Grid item xs={12} sm={6}>
               <TextField
                 color={azul?'primary':'secondary'}
@@ -63,8 +52,8 @@ export const FormContacto = ({azul}) => {
                color={azul?'primary':'secondary'}
                 variant="outlined"
                 required
-                fullWidth
                 id="correo"
+                fullWidth
                 label="Correo"
                 name="correo"
                 autoComplete="lname"
@@ -96,7 +85,7 @@ export const FormContacto = ({azul}) => {
               />
             </Grid>
             <Grid item xs={12} sm={12}>
-              <FormControl fullWidth variant="outlined">
+              <FormControl fullWidth variant="outlined" className={classes.formControl}>
                     <InputLabel id="demo-simple-select-outlined-label">Ciudad</InputLabel>
                     <Select
                         color={azul?'primary':'secondary'}

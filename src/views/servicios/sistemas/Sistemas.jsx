@@ -27,7 +27,7 @@ export default function Sistemas() {
             data.map((card , index) => (
               <Grid item key={index} xs={12} sm={6} md={4}>
                  <CardStyle nombre = {card.nombre}
-                            url= {'https://source.unsplash.com/random'}/>
+                            url= {'https://media.giphy.com/media/10SvWCbt1ytWCc/giphy.gif'}/>
               </Grid>
             ))
           )

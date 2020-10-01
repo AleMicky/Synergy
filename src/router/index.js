@@ -14,11 +14,11 @@ import { Contacto } from "../views/contacto/Contacto";
 import { Conocenos } from "../views/instalador/Conocenos";
 import { PizarraDigital } from "../views/instalador/PizarraDigital";
 import { Calculadora } from "../views/instalador/Calculadora";
-import { Capacitacion } from "../views/instalador/Capacitacion";
 import { MiTarjeta } from "../views/instalador/MiTarjeta";
 import { FormularioPreregistro } from "../views/instalador/Formularios/FormularioPreregistro";
 import { CodigoQr } from "../views/qr/CodigoQr";
 import ViewProducto from "../views/productos/Productos";
+import { Capacitacion } from "../views/instalador/capacitaciones/Capacitacion";
 
 export default () => {
     return(

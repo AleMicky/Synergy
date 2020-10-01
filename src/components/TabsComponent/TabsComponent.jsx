@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { AppBar, Box, Container, Tab, Tabs, useTheme } from '@material-ui/core';
 import SwipeableViews from 'react-swipeable-views';
 
@@ -28,21 +28,17 @@ export function TabPanel({ children, value, index, ...other }) {
         </div>
     );
 }
-export function TabsComponent({titulo, value, handleChange, handleChangeIndex , children}) {
+export function TabsComponent({titulo, value, handleChange, handleChangeIndex,color, children}) {
 
     const theme = useTheme();
-    // const [value, setValue] = useState(0);
-
-    
-
     return (
         <React.Fragment>
             <AppBar position="static" color="default">
                             <Tabs
                                 value={value}
                                 onChange={handleChange}
-                                indicatorColor={'primary'}
-                                textColor={'primary'}
+                                indicatorColor={color}
+                                textColor={color}
                                 variant="fullWidth">
                                 {
                                     titulo.map((value, index) => {

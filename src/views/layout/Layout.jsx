@@ -1,8 +1,7 @@
-import React, { useState, useMemo, useEffect } from 'react';
+import React, { useState } from 'react';
 import { makeStyles, useScrollTrigger, Zoom, CssBaseline, Fab, useTheme, useMediaQuery } from '@material-ui/core';
 import KeyboardArrowUpIcon from '@material-ui/icons/KeyboardArrowUp';
-// import { DrawerSys } from '../../components/DrawerSys';
-import { Context } from '../../components/Context';
+
 import { MenuAzul, MenuRojo } from '../../utils/DatosGenerales';
 import Header from '../../components/Header/Header';
 import InboxIcon from '@material-ui/icons/Inbox';
@@ -62,46 +61,17 @@ const ScrollTop = ({ children, window }) => {
 export const Layout = ({ children, window }) => {
 
   const [mobileOpen, setMobileOpen] = useState(false);
-  const [isLoading, setIsLoading] = useState(true);
-  const [azul, setAzul] = useState(false);
-  const [pagina, setPagina] = useState('Construccion');
-
-
-  const synergy = useMemo(() => {
-    return {
-        tabAzul: () => {
-            setIsLoading(false)
-            setAzul(true)
-            setPagina('Madera')
-        },
-        tabAzulOut: () => {
-            setIsLoading(false)
-            setAzul(false)
-            setPagina('Construccion')
-        }
-    }
-  }, []);
-
-  useEffect(() => {
-    setTimeout(() => {
-        setIsLoading(false)
-    }, 100);
-  }, []);
   const theme = useTheme();
   const matches = useMediaQuery(theme.breakpoints.up('lg'))
   const classes = useStyles();
-  // console.log(azul);
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
   };
-  if (isLoading) {
-    return <h1>Loading</h1>
-  }
+  
   return (
-    <Context.Provider value={{synergy, azul, pagina}}>
       <div className={classes.root}>
         <CssBaseline />
-        <Header menuSeccion ={azul?MenuAzul:MenuRojo} handleDrawerToggle={handleDrawerToggle} />
+        <Header menuSeccion ={MenuAzul} handleDrawerToggle={handleDrawerToggle} />
         <nav aria-label="Carpertas">
             {/* <DrawerSys mobileOpen={mobileOpen}
               handleDrawerToggle={handleDrawerToggle}
@@ -119,12 +89,12 @@ export const Layout = ({ children, window }) => {
           </Fab>
         </main>
         <ScrollTop {...{ children, window }}>
-          <Fab color={azul?'primary':'secondary'} size="small">
+          <Fab color={'primary'} size="small">
             <KeyboardArrowUpIcon />
           </Fab>
         </ScrollTop>
-        <Footer sections={azul?MenuAzul:MenuRojo}/>
+        <Footer sections={MenuAzul}/>
       </div>
-    </Context.Provider >
+    
   );
 }

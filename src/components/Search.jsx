@@ -17,7 +17,7 @@ const useStyles = makeStyles((theme) => ({
       padding: 10,
     }
   }));
-export const Search = ({buscar , handleBuscar, handlefill }) => {
+export const Search = ({buscar , handlefill }) => {
     const classes = useStyles();
 
     return (
@@ -30,8 +30,7 @@ export const Search = ({buscar , handleBuscar, handlefill }) => {
           onChange = {(e) => handlefill(e.target.value)}
         />
         <IconButton type="submit" className={classes.iconButton} 
-                    aria-label="search"
-                    onClick={handleBuscar}>
+                    aria-label="search">
           <SearchIcon />
         </IconButton>
       </Paper>

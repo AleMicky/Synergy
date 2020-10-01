@@ -10,7 +10,10 @@ export const productoStyles = makeStyles((theme) => ({
     },
     categoria: {
       width: '100%',
-      maxWidth: 300,
+      // maxHeight: '100vh',
+      // position: 'relative',
+      // overflow: 'auto',
+      //maxWidth: 300,
       backgroundColor: theme.palette.background.paper,
     },
     paper: {
@@ -18,15 +21,34 @@ export const productoStyles = makeStyles((theme) => ({
       textAlign: 'center',
       margin: 5
     },
+
+    cardGrid: {
+      paddingTop: theme.spacing(8),
+      paddingBottom: theme.spacing(8),
+    },
     card: {
-      height: '70%',
-      width: '70%',
-      margin: 2,
+      height: '80%',
       display: 'flex',
-      flexDirection: 'column',
+      flexDirection: 'column',    
+      marginBottom: 20,
+      marginLeft:15,
     },
     cardMedia: {
-      paddingTop: 350,
+      paddingTop: '60%', // 16:9
     },
+    cardContent: {
+      flexGrow: 1,
+    },
+
+    // card: {
+    //   height: '70%',
+    //   width: '70%',
+    //   margin: 2,
+    //   display: 'flex',
+    //   flexDirection: 'column',
+    // },
+    // cardMedia: {
+    //   paddingTop: 350,
+    // },
   }));
   

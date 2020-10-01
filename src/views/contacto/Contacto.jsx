@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { makeStyles, CssBaseline, Grid, useTheme, ListItem, ListItemText, IconButton } from '@material-ui/core';
+import { makeStyles, CssBaseline, Grid, useTheme, ListItem, ListItemText, IconButton, Divider } from '@material-ui/core';
 import { FormContacto } from '../../components/FormContacto';
 import { Context } from '../../components/Context';
 import { Banner } from '../../components/Banner';
@@ -11,10 +11,11 @@ const useStyles = makeStyles((theme) => ({
         flexGrow: 1,
     },
     paper: {
-      //  padding: theme.spacing(10),
-        textAlign: 'center',
-        color: theme.palette.text.secondary,
-    },
+        marginTop: theme.spacing(8),
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+    }
 }));
 
 const mainFeaturedPost = {
@@ -176,7 +177,7 @@ export const Contacto = () => {
                                                                           primary={lugar.nombre}
                                                                           secondary={`Telf.: ${lugar.telefono}`}/>
                                                               <IconButton aria-label="ubicacion"
-                                                                          color={'primary'}
+                                                                          color={azul?'primary':'secondary'}
                                                                           onClick={() => alert('url')}>
                                                                     <PlaceIcon />
                                                              </IconButton>
@@ -189,13 +190,15 @@ export const Contacto = () => {
                             })
                             }
                         </TabsComponent>
-                                </Grid>
-                                <Grid item xs={12} sm={12}>
-                                    <div className={classes.paper}>
-                                        <FormContacto azul = {azul}/>
-                                    </div>
-                                </Grid>
+                        </Grid>
+                            <Grid item xs={12} sm={12}>
+                            <Divider />
+
+                                <div className={classes.paper}>
+                                    <FormContacto azul = {azul}/>
+                                </div>
                             </Grid>
+                        </Grid>
                     </div>
                     )
                 }

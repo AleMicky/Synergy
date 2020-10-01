@@ -50,7 +50,7 @@ export const ImageGallerry = ({sub_productos, setTitulo, setCodigo, setMedida, s
 
     const classes = useStyles();
     
-    const [muestra, setMuestra] = useState(`https://banck-end.herokuapp.com${sub_productos[0].portada.url}`);
+    const [muestra, setMuestra] = useState(`https://source.unsplash.com/random`);
 
      useEffect(() => {
         halndeIncio();
@@ -82,12 +82,12 @@ export const ImageGallerry = ({sub_productos, setTitulo, setCodigo, setMedida, s
                                         <li  className={classes.seccion}
                                              key={index}>
                                                     <Paper className={classes.paper}
-                                                            onMouseOver={() => changeBackground(`https://banck-end.herokuapp.com${value.portada.url}`, 
+                                                            onMouseOver={() => changeBackground(`https://source.unsplash.com/random`, 
                                                                                                  value.nombre, 
                                                                                                  value.codigo, 
                                                                                                  value.medidas,
                                                                                                  value.descripcion)}
-                                                            style={{ backgroundImage: `url(https://banck-end.herokuapp.com${value.portada.url})`}} />
+                                                            style={{ backgroundImage: `url(https://source.unsplash.com/random)`}} />
                                         </li>
                                     );
                                 })
