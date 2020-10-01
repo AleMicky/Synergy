@@ -5,7 +5,7 @@ export const useStyles = makeStyles((theme) => ({
         display: 'flex',
         justifyContent: 'center',
         flexDirection: 'column',
-        // margin: 50,
+         margin: 50,
         maxWidth: 200,
         minHeight: '40vh'
     },

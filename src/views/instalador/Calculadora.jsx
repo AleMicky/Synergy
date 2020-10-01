@@ -39,7 +39,16 @@ const useStyles = makeStyles((theme) => ({
     },
     table: {
         minWidth: 700,
-      }
+    },
+    tableColor: {
+        backgroundColor: '#FF0000',
+    },
+    tableAzul: {
+        backgroundColor: '#0067b2',
+    },
+    cellColor:{
+        color: '#fafafa'
+    }
 }));
 
 const mainFeaturedPost2 = {
@@ -270,15 +279,15 @@ export const Calculadora = () => {
                                     <TableContainer component={Paper}>
                                             <Table className={classes.table} size="small" aria-label="simple table">
                                                 <TableHead>
-                                                <TableRow>
-                                                    <TableCell align="center">Cantidad</TableCell>
-                                                    <TableCell align="center">Largo Cm(Veta)</TableCell>
-                                                    <TableCell align="center">Ancho Cm</TableCell>
-                                                    <TableCell align="center">Tap. Largo</TableCell>
-                                                    <TableCell align="center">Tap. Ancho</TableCell>
-                                                    <TableCell align="center">Mts Tapacanto</TableCell>
-                                                    <TableCell align="center">Total Mts Tapacanto</TableCell>
-                                                    <TableCell align="center">M2</TableCell>
+                                                <TableRow className={classes.tableAzul}>
+                                                    <TableCell className={classes.cellColor} align="center">Cantidad</TableCell>
+                                                    <TableCell className={classes.cellColor} align="center">Largo Cm(Veta)</TableCell>
+                                                    <TableCell className={classes.cellColor} align="center">Ancho Cm</TableCell>
+                                                    <TableCell className={classes.cellColor} align="center">Tap. Largo</TableCell>
+                                                    <TableCell className={classes.cellColor} align="center">Tap. Ancho</TableCell>
+                                                    <TableCell className={classes.cellColor} align="center">Mts Tapacanto</TableCell>
+                                                    <TableCell className={classes.cellColor} align="center">Total Mts Tapacanto</TableCell>
+                                                    <TableCell className={classes.cellColor} align="center">M2</TableCell>
 
                                                 </TableRow>
                                                 </TableHead>
@@ -386,15 +395,15 @@ export const Calculadora = () => {
                                         resultado.length > 0 ?(
                                         <TableContainer component={Paper}>
                                              
-=                                            <Table className={classes.table} size="small" aria-label="simple table">
+                                         <Table className={classes.table} size="small" aria-label="simple table">
                                                 <TableHead>
-                                                <TableRow>
-                                                    <TableCell>Item</TableCell>
-                                                    <TableCell align="center">Descripcion</TableCell>
-                                                    <TableCell align="center">Unidad</TableCell>
-                                                    <TableCell align="center">Cantiad</TableCell>
-                                                    <TableCell align="center">Precio Venta  Bs.</TableCell>
-                                                    <TableCell align="center">Total Bs.</TableCell>
+                                                <TableRow className={classes.tableColor}>
+                                                    <TableCell className={classes.cellColor}>Item</TableCell>
+                                                    <TableCell className={classes.cellColor} align="center">Descripcion</TableCell>
+                                                    <TableCell className={classes.cellColor} align="center">Unidad</TableCell>
+                                                    <TableCell className={classes.cellColor} align="center">Cantiad</TableCell>
+                                                    <TableCell className={classes.cellColor} align="center">Precio Venta  Bs.</TableCell>
+                                                    <TableCell className={classes.cellColor} align="center">Total Bs.</TableCell>
                 
                                                 </TableRow>
                                                 </TableHead>
