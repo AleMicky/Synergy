@@ -175,9 +175,9 @@ export const Contenido = () => {
                                                                                         src={require('../../assets/ayn.png')}
                                                                                         alt='logotipo' /> 
                                                                             </Link></h3>                                                
-                            <Link>
+                            {/* <Link>
                                 Lorem, ipsum dolor sit amet consectetur
-                           </Link>
+                           </Link> */}
                         </div>
                 </Grid>
              </Grid>
