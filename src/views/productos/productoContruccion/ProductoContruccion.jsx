@@ -81,7 +81,7 @@ export default function ProductoContruccion() {
     return (
         <div className={classes.root}>
             <Grid container className={classes.contendor}>
-                <Grid item xs={3}>
+                <Grid item xs={12} md={3}>
                 <div className= {classes.categoria}>
                     <List component="nav" aria-label="categoria">
                     <ListItem>
@@ -132,7 +132,7 @@ export default function ProductoContruccion() {
                 </List>
                 </div>
                 </Grid>
-                <Grid item xs={9}>
+                <Grid item xs={12} md={9}>
                 <div className={classes.paper}>
                 <div>
                       <h2 style={{ textAlign: 'left' }}> {titulo.toUpperCase()}</h2>

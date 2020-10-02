@@ -19,8 +19,12 @@ const useStyles = makeStyles((theme) => ({
     },
     card: {
         display: 'flex',
-        marginLeft: 50,
-        marginRight: 50
+        marginLeft: 5,
+        marginRight: 5,
+        [theme.breakpoints.up('md')]: {
+            marginLeft: 50,
+            marginRight: 50,
+        },
     },
     cardDetails: {
         flex: 1,
@@ -72,21 +76,19 @@ export const Nosotros = () => {
                             <Card className={classes.card}>
                                 <div className={classes.cardDetails}>
                                     <CardContent>
-                                    <Typography component="h3" 
-                                                variant="h6"
+                                    <Typography variant="h6"
                                                 color="textPrimary" 
                                                 gutterBottom>
                                         Nuestra Misión
                                     </Typography>
-                                    <Typography variant="subtitle1"  
+                                    <Typography variant="subtitle1"
                                                 color="textPrimary" 
                                                 align="justify"
                                                 paragraph>
                                         Proveer a nuestros Clientes con Productos y Servicios de alta Calidad en tiempo y forma para contribuir a su desarrollo y crecimiento, respaldándolos con Servicios Integrales desde el inicio de sus Proyectos hasta la entrega final, protegiendo la integridad y solidez financiera de la Empresa,www.pureintime.net de nuestras fuentes de trabajo y asegurando el cumplimiento de la Calidad requerida mediante un trabajo de mejora continua de la Empresa y de todo su personal.
                                     </Typography>
                                     <hr/>
-                                    <Typography component="h3" 
-                                                variant="h6"
+                                    <Typography variant="h6"
                                                 color="textPrimary" 
                                                 gutterBottom>
                                         Nuestra Visión
@@ -100,10 +102,9 @@ export const Nosotros = () => {
 
 
                                         <hr/>
-                                        <Typography component="h3"
-                                            variant="h6"
-                                            color="textPrimary"
-                                            gutterBottom>
+                                        <Typography  variant="h6"
+                                                    color="textPrimary"
+                                                    gutterBottom>
                                             Nuestros Valores
                                         </Typography>
                                         <ul>
