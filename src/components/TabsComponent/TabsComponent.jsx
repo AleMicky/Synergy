@@ -43,7 +43,7 @@ export function TabsComponent({titulo, value, handleChange, handleChangeIndex,co
                                 {
                                     titulo.map((value, index) => {
                                         return (
-                                            <Tab key={index} label={value} {...a11yProps(index)} />
+                                            <Tab key={index} label={value === 'Santa_Cruz'?'Santa Cruz':value} {...a11yProps(index)} />
                                         )
                                     })
                                 }
