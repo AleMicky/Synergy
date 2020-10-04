@@ -134,7 +134,7 @@ export const Calculadora = () => {
             <CssBaseline />
             <Banner post={mainFeaturedPost2} />
             <Container className={classes.cardGrid} maxWidth="xl">
-                <Tarjeta title="Calularoda"
+                <Tarjeta title="Calculadora"
                         description="Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatibus, explicabo omnis odit sint tempora esse, sed commodi ratione, architecto sapiente soluta asperiores veniam dolor debitis reiciendis perferendis quisquam. Sapiente, hic?"
                         image="https://source.unsplash.com/random"
                         imageTitle="Image Text" />
@@ -310,22 +310,22 @@ export const Calculadora = () => {
                                                 }
                                                 )
                                             }
-                                                    <TableRow>
-                                                        <TableCell rowSpan={1} />
-                                                        <TableCell colSpan={4}><b>M2</b></TableCell>
-                                                        <TableCell align="right"><b>{m2Azul}</b></TableCell>
+                                                    <TableRow className={classes.tableAzul}>
+                                                        <TableCell className={classes.cellColor} rowSpan={1} />
+                                                        <TableCell className={classes.cellColor} colSpan={4}><b>M2</b></TableCell>
+                                                        <TableCell className={classes.cellColor} align="right"><b>{m2Azul}</b></TableCell>
                                                     </TableRow>
-                                                    <TableRow>
-                                                        <TableCell rowSpan={1} />
-                                                        <TableCell colSpan={4}><b>PZas M2</b></TableCell>
-                                                       <TableCell align="right"><b>{ 
+                                                    <TableRow className={classes.tableAzul}>
+                                                        <TableCell className={classes.cellColor} rowSpan={1} />
+                                                        <TableCell className={classes.cellColor} colSpan={4}><b>PZas M2</b></TableCell>
+                                                       <TableCell className={classes.cellColor} align="right"><b>{ 
                                                        
                                                        (Math.round((suma + suma * 0.08) * 100) / 100).toFixed(2)}</b></TableCell>
                                                     </TableRow>
-                                                    <TableRow>
-                                                    <TableCell rowSpan={3} />
-                                                        <TableCell colSpan={4}><b>Cantidad Tablero</b></TableCell>
-                                                        <TableCell align="right"><b>{(suma + suma * 0.08) > m2Azul? (suma + suma * 0.08)/m2Azul:0 }</b></TableCell>
+                                                    <TableRow className={classes.tableAzul}>
+                                                    <TableCell className={classes.cellColor} rowSpan={3} />
+                                                        <TableCell className={classes.cellColor} colSpan={4}><b>Cantidad Tablero</b></TableCell>
+                                                        <TableCell className={classes.cellColor} align="right"><b>{(suma + suma * 0.08) > m2Azul? (suma + suma * 0.08)/m2Azul:0 }</b></TableCell>
                                                     </TableRow>
                                                 </TableBody>
                                             </Table>
@@ -423,15 +423,15 @@ export const Calculadora = () => {
                 
                                                     </TableRow>
                                                 ))}
-                                                 <TableRow>
-                                                        <TableCell rowSpan={1} />
-                                                        <TableCell colSpan={4}><b>Total</b></TableCell>
-                                                        <TableCell align="right"><b>{new Intl.NumberFormat("de-DE").format(total)}</b></TableCell>
+                                                 <TableRow className={classes.tableColor}>
+                                                        <TableCell className={classes.cellColor} rowSpan={1} />
+                                                        <TableCell className={classes.cellColor} colSpan={4}><b>Total</b></TableCell>
+                                                        <TableCell className={classes.cellColor} align="right"><b>{new Intl.NumberFormat("de-DE").format(total)}</b></TableCell>
                                                     </TableRow>
-                                                    <TableRow>
+                                                    <TableRow className={classes.tableColor}>
                                                     <TableCell rowSpan={3} />
-                                                        <TableCell colSpan={4}><b>Total Bolivianos m2</b></TableCell>
-                                                        <TableCell align="right"><b>{new Intl.NumberFormat("de-DE").format(Math.round( total /m2 ))}</b></TableCell>
+                                                        <TableCell className={classes.cellColor} colSpan={4}><b>Total Bolivianos m2</b></TableCell>
+                                                        <TableCell className={classes.cellColor} align="right"><b>{new Intl.NumberFormat("de-DE").format(Math.round( total /m2 ))}</b></TableCell>
                                                     </TableRow>
                                                 </TableBody>
                                             </Table>

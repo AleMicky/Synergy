@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { makeStyles, CssBaseline, Grid, useTheme, ListItem, ListItemText, IconButton, Divider } from '@material-ui/core';
+import { makeStyles, CssBaseline, Grid, useTheme, ListItem, ListItemText, IconButton, Divider, Typography } from '@material-ui/core';
 import { FormContacto } from '../../components/FormContacto';
 import { Context } from '../../components/Context';
 import { Banner } from '../../components/Banner';
@@ -79,16 +79,16 @@ export const Contacto = () => {
                                              telefono: '(591-3) 342 0345',
                                              fax: ''
                                             },
-                                            {
-                                                nombre:'Suc. Mutualista: 4to anillo entre Av. Mutualista y Av. Paraguá',
-                                                telefono: '(591-3) 346 5909',
-                                                fax: ''
-                                            },
-                                            {
-                                                nombre:'Suc. Banzer: Av. Cristo Redentor (Banzer) km7',
-                                                telefono: '(591-3) 365 0345',
-                                                fax: ''
-                                            },
+                                            // {
+                                            //     nombre:'Suc. Mutualista: 4to anillo entre Av. Mutualista y Av. Paraguá',
+                                            //     telefono: '(591-3) 346 5909',
+                                            //     fax: ''
+                                            // },
+                                            // {
+                                            //     nombre:'Suc. Banzer: Av. Cristo Redentor (Banzer) km7',
+                                            //     telefono: '(591-3) 365 0345',
+                                            //     fax: ''
+                                            // },
                                             {
                                                 nombre:'Suc. Santos Dumont: Av. Santos Dumont entre 4to y 5to Anillo (frente a Villa Olímpica)',
                                                 telefono: '(591-3) 356 4144',
@@ -212,6 +212,9 @@ export const Contacto = () => {
                             <Divider />
 
                                 <div className={classes.paper}>
+                                <   Typography component="h1" variant="h5">
+                                        Fomulario de contacto
+                                    </Typography>
                                     <FormContacto  handleClick = {handleClick} setMensajes = {setMensajes}azul = {azul}/>
                                 </div>
                             </Grid>
