@@ -1,11 +1,12 @@
 import React, { useState } from 'react'
-import { CssBaseline, Paper } from '@material-ui/core';
+import { CssBaseline } from '@material-ui/core';
 import { Banner } from '../../components/Banner';
 import { useStyles } from './ServiciosStyles';
 import { Context } from '../../components/Context';
 import Sistemas from './sistemas/Sistemas';
 import Arquitectos from './arquitectos/Arquitectos';
 import { SpringModal } from '../../components/SpringModal';
+import { Swipeable } from '../../components/Swipeable';
 
 
 const mainFeaturedPost2 = {
@@ -21,9 +22,12 @@ export const Servicios = () => {
 
   const [open, setOpen] = React.useState(false);
   const [imagen, setImagen] = useState('');
+
+
   const handleOpen = (url) => {
     setOpen(true);
     setImagen(url);
+    console.log(imagen);
   };
 
   const handleClose = () => {
@@ -46,9 +50,7 @@ export const Servicios = () => {
                   )  
                 }
                   <SpringModal open={open} handleClose={handleClose}>
-                  <Paper className={classes.mainFeatured} style={{ backgroundImage: `url(${imagen})` }}>
-                    {<img style={{ display: 'none' }} src={ imagen} alt={'img'} />}
-                  </Paper>
+                  <Swipeable />
                 </SpringModal> 
             </div>
           )

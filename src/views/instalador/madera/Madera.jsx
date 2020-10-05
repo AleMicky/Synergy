@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from 'react';
-import { Grid, Card, CardMedia, CardContent, Typography, CardActions, CardActionArea, useTheme, Checkbox, List, ListItem, ListItemIcon, ListItemText } from '@material-ui/core';
+import { Grid, Card, CardMedia, CardContent, Typography, CardActions, CardActionArea, useTheme, Checkbox, List, ListItem, ListItemIcon, ListItemText, Accordion, AccordionSummary, AccordionDetails } from '@material-ui/core';
 import Rating from '@material-ui/lab/Rating';
 import { filter, map } from 'lodash'
 import { useFetch } from '../../../hooks/useFetch';
 import { TabPanel, TabsComponent } from '../../../components/TabsComponent/TabsComponent';
 import { apiImg, apiURL } from '../../../config';
 import { useStyles } from './MaderaStyle';
+import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 
 export default function Madera() {
     const classes = useStyles();
@@ -18,7 +19,11 @@ export default function Madera() {
     const [peronsas, setPeronsas] = useState([]);
     const { loading, data } = useFetch(`${apiURL}madera-registros`);
     const [newLista, setNewLista] = useState('');
+    const [expanded, setExpanded] = useState(false);
 
+    const handleAcordionChange = (panel) => (event, isExpanded) => {
+      setExpanded(isExpanded ? panel : false);
+    };
     useEffect(() => {
         if (!loading) {
             const array = data.map(v => {
@@ -95,6 +100,16 @@ export default function Madera() {
                             {
                                 <Grid container className={classes.contendor}>
                                     <Grid item xs={12} md={3}>
+                                    <div className={classes.rootAcordion}>
+                                        <Accordion expanded={expanded === 'panel1'} onChange={handleAcordionChange('panel1')}>
+                                        <AccordionSummary
+                                        expandIcon={<ExpandMoreIcon />}
+                                        aria-controls="panel1bh-content"
+                                        id="panel1bh-header"
+                                        >
+                                        <Typography className={classes.heading}>Experiencias </Typography>
+                                        </AccordionSummary>
+                                        <AccordionDetails>
                                         <List className={classes.root}>
                                             {
                                                 opciones.map((value, index) => {
@@ -120,6 +135,9 @@ export default function Madera() {
                                                     );
                                                 })}
                                         </List>
+                                        </AccordionDetails>
+                                    </Accordion>
+                                        </div>
                                     </Grid>
                                     <Grid item xs={12} md={9}>
                                         <Grid container spacing={4}>

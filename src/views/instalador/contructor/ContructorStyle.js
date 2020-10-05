@@ -36,5 +36,19 @@ export const useStyles = makeStyles((theme) => ({
         alignItems: 'center',
         justifyContent: 'center',
     },
+    rootAcordion: {
+        width: '100%',
+        marginLeft:-20,
+        paddingBottom: theme.spacing(4),
 
+    },
+    heading: {
+        fontSize: theme.typography.pxToRem(15),
+        flexBasis: '50%',
+        flexShrink: 0,
+    },
+        secondaryHeading: {
+        fontSize: theme.typography.pxToRem(15),
+        color: theme.palette.text.secondary,
+    },
 }));

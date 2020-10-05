@@ -1,10 +1,9 @@
 import React from 'react'
-import { makeStyles, CssBaseline, Grid, Container, Card, CardMedia, CardActionArea, CardHeader } from '@material-ui/core';
-// import { makeStyles, CssBaseline, Grid, Container, Card, CardMedia, CardActionArea, CardHeader, Button, CardActions, Typography } from '@material-ui/core';
+import { makeStyles, CssBaseline, Grid, Container } from '@material-ui/core';
 import { Post } from '../../components/Post';
 import { useHistory } from "react-router-dom";
-// import GetAppIcon from '@material-ui/icons/GetApp';
 import { Context } from '../../components/Context';
+import Proyecto from '../../components/Proyecto/Proyecto';
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -17,7 +16,7 @@ const useStyles = makeStyles((theme) => ({
         },
     },
     cardGrid: {
-        paddingTop: theme.spacing(8),
+        paddingTop: theme.spacing(2),
         paddingBottom: theme.spacing(8),
     },
     card: {
@@ -58,79 +57,31 @@ export const Conocenos = () => {
                             </div>
                             <Container className={classes.cardGrid} maxWidth="xl">
                                 <Grid container
-                                        justify="center"
-                                        alignItems="center"
-                                        spacing={4}>
+                                    justify="center"
+                                    alignItems="center"
+                                   >
                                     <Grid item xs={12} sm={3} md={3}>
-                                    <div className="animate__animated animate__bounceInLeft animate__repeat-4">
-                                            <Card className={classes.card}>
-                                            <CardHeader title={'Capacitaciones'} />
-
-                                                <CardActionArea onClick={() => hanlderNav('/home/capacitacion')}>
-                                                    <CardMedia
-                                                        className={classes.cardMedia}
-                                                        image="https://source.unsplash.com/random"
-                                                        title="Image title"
-                                                    />
-                                                </CardActionArea>
-                                                
-                                            </Card>
+                                        <div className="animate__animated animate__bounceInLeft animate__repeat-4">
+                                            <Proyecto imagen={'https://source.unsplash.com/random'}
+                                                handleOpen={() => hanlderNav('/home/capacitacion')}
+                                                azul={azul} />
                                         </div>
                                     </Grid>
                                     <Grid item xs={12} sm={3} md={3}>
-                                        <Card className={classes.card}>
-                                            <CardHeader title={'Beneficios'} />
-                                            <CardActionArea onClick={() => console.log(1)}>
-                                                <CardMedia
-                                                    className={classes.cardMedia}
-                                                    image="https://source.unsplash.com/random"
-                                                    title="sads"
-                                                />
-                                            </CardActionArea>
-                                            {/* <CardActions>
-                                                <Button href="https://drive.google.com/file/d/1JrqmiHX2tz5OiB6AO3GYMHHSSE9yRRxb/view?usp=sharing" target="_blank">
-                                                    <GetAppIcon className={classes.playIcon} />
-                                                </Button>
-                                                <Typography component="h6" variant="h6">
-                                                    Ver
-                                                </Typography>
-                                            </CardActions> */}
-                                        </Card>
+                                        <Proyecto imagen={'https://source.unsplash.com/random'}
+                                            handleOpen={() => console.log(1)}
+                                            azul={azul} />
                                     </Grid>
                                     <Grid item xs={12} sm={3} md={3}>
-                                        <Card className={classes.card}>
-                                            <CardHeader title={'Politicas'} />
-                                            <CardActionArea onClick={() => console.log(1)}>
-                                                <CardMedia
-                                                    className={classes.cardMedia}
-                                                    image="https://source.unsplash.com/random"
-                                                    title="sads"
-                                                />
-                                            </CardActionArea>
-                                            {/* <CardActions>
-                                                <Button href="https://drive.google.com/file/d/1JrqmiHX2tz5OiB6AO3GYMHHSSE9yRRxb/view?usp=sharing" target="_blank">
-                                                    <GetAppIcon className={classes.playIcon} />
-                                                </Button>
-                                                <Typography component="h6" variant="h6">
-                                                    Ver
-                                                </Typography>
-                                            </CardActions> */}
-                                        </Card>
+                                        <Proyecto imagen={'https://source.unsplash.com/random'}
+                                            handleOpen={() => console.log(1)}
+                                            azul={azul} />
                                     </Grid>
                                     <Grid item xs={12} sm={3} md={3}>
-                                    <div className="animate__animated animate__bounceInLeft animate__repeat-4">
-                                            <Card className={classes.card}>
-                                            <CardHeader title={'Como Utilizo Mi Tarjeta'} />
-
-                                                <CardActionArea onClick={() => hanlderNav('/home/mi-tarjeta')}>
-                                                    <CardMedia
-                                                        className={classes.cardMedia}
-                                                        image="https://source.unsplash.com/random"
-                                                        title="Image title"
-                                                    />
-                                                </CardActionArea>
-                                               
-                                            </Card>
+                                        <div className="animate__animated animate__bounceInLeft animate__repeat-4">
+                                            <Proyecto imagen={'https://source.unsplash.com/random'}
+                                                handleOpen={() => hanlderNav('/home/mi-tarjeta')}
+                                                azul={azul} />
                                         </div>
                                     </Grid>
                                 </Grid>
