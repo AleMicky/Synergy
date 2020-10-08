@@ -45,17 +45,17 @@ export const Bienvenido = () => {
                     </div>
                 </Grid>
                 <Grid item xs={12} sm={6}>
-                    <CardActionArea className={classes.paper} onClick={()=> handleContruccion()}>
-                    <hr  width='40%'  align="center" size='5' color="#FF0000"/>
-
-                        <LinkButton titulo = "MATERIAL DE CONTRUCCIÓN" />
-                    </CardActionArea>
-                </Grid>
-                <Grid item xs={12} sm={6}>
                     <CardActionArea className={classes.paper} onClick={()=> handleMadera()}>
                     <hr  width='40%'  align="center" size='5'color="#007AC0"/>
 
-                        <LinkButton titulo = "DIVISIÓN TABLEROS DE MADERA" />
+                        <LinkButton titulo = "TABLEROS DE MADERA" />
+                    </CardActionArea>
+                </Grid>
+                <Grid item xs={12} sm={6}>
+                    <CardActionArea className={classes.paper} onClick={()=> handleContruccion()}>
+                    <hr  width='40%'  align="center" size='5' color="#FF0000"/>
+
+                        <LinkButton titulo = "MATERIAL DE CONTRUCCIÓN EN SECO" />
                     </CardActionArea>
                 </Grid>
             </Grid>

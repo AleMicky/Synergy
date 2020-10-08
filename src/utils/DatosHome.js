@@ -88,7 +88,7 @@ export const caroselRojo = [
       icon: <SchoolIcon style={{fontSize: 70, color: '#fafafa'}}/>
     },
     {
-      titulo: 'Bibloteca',
+      titulo: 'Biblioteca',
       ruta: 'capacitacion',
       icon: <MenuBookIcon style={{fontSize: 70,  color: '#fafafa'}}/>
     }

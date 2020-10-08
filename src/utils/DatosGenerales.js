@@ -69,7 +69,7 @@ export const MenuAzul = [
         url: '/home/productos'
     },
     { 
-        title: 'Arquitectas Del Hogar', 
+        title: 'Mobiliario Especializado', 
         url: '/home/servicios',
     },
     { 
