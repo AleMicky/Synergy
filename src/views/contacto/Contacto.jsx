@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { makeStyles, CssBaseline, Grid, useTheme, ListItem, ListItemText, IconButton, Divider, Typography } from '@material-ui/core';
+import { makeStyles, CssBaseline, Grid, useTheme, ListItem, ListItemText, IconButton, Divider } from '@material-ui/core';
 import { FormContacto } from '../../components/FormContacto';
 import { Context } from '../../components/Context';
 import { Banner } from '../../components/Banner';
@@ -16,7 +16,14 @@ const useStyles = makeStyles((theme) => ({
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
-    }
+    },
+    titulo: {
+        fontSize: 25,
+        alignSelf: 'center',
+        [theme.breakpoints.up('sm')]: {
+          fontSize: 35
+        },
+      }
 }));
 
 const mainFeaturedPost = {
@@ -105,17 +112,17 @@ export const Contacto = () => {
                                         nombre: 'Cochabamba',
                                         oficina:[
                                             {
-                                                nombre:'Oficina Central: Av. Blanco Galindo Km1 N° 1184 esq. Av. Peru',
-                                                telefono: '(591-4) 424 7147',
-                                                fax: '(591-4) 411 4792'
+                                                nombre:'Oficina Central: Av. Villazón Km 2 ½ acera sud (Carretera a Sacaba)',
+                                                telefono: '(591-4) 449 6372',
+                                                fax: ''
                                             },
                                             {
-                                                nombre:'Sucursal BG2: Av. Blanco Galindo Km 4 ½ entre Abel Rivas y Av. Segunda, Zona Busch',
+                                                nombre:'Sucursal BG2: Av. Blanco Galindo Km 4 c entre Abel Rivas y Av. Segunda, Zona Busch',
                                                 telefono: '(591-4) 424 4021',
                                                 fax: ''
                                             },
                                             {
-                                                nombre:'Suc. Sacaba: Av. Villazón Km 2 1/2 acera sud (carretera a Sacaba)',
+                                                nombre:'Sucursal BG1: Av. Blanco Galindo Km 1 ½ N° 1188 esq. Av. Peru',
                                                 telefono: '(591-4) 449 6372',
                                                 fax: ''
                                            },
@@ -212,9 +219,9 @@ export const Contacto = () => {
                             <Divider />
 
                                 <div className={classes.paper}>
-                                <   Typography component="h1" variant="h5">
-                                        Fomulario de contacto
-                                    </Typography>
+                                    <h2 className={classes.titulo}>
+                                        Formulario de contacto
+                                    </h2>
                                     <FormContacto  handleClick = {handleClick} setMensajes = {setMensajes}azul = {azul}/>
                                 </div>
                             </Grid>
