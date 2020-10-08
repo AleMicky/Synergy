@@ -18,6 +18,7 @@ export const useStyles = makeStyles((theme) => ({
     },
     logotipo: {
       width: 110,
+      marginLeft:26,
       [theme.breakpoints.up('sm')]: {
         width: 200
       }, 

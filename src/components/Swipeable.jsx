@@ -26,22 +26,17 @@ const tutorialSteps = [
     label: 'Proyecto 3',
     imgPath:
       'https://images.unsplash.com/photo-1537996194471-e657df975ab4?auto=format&fit=crop&w=400&h=250&q=80',
-  },
-  {
-    label: 'Proyecto 4',
-    imgPath:
-      'https://images.unsplash.com/photo-1518732714860-b62714ce0c59?auto=format&fit=crop&w=400&h=250&q=60',
-  },
-  {
-    label: 'Proyecto 5',
-    imgPath:
-      'https://images.unsplash.com/photo-1512341689857-198e7e2f3ca8?auto=format&fit=crop&w=400&h=250&q=60',
-  },
+  }
 ];
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    maxWidth: 800,
+    maxWidth: 200,
+    maxHeight: 200,
+    [theme.breakpoints.up('sm')]: {
+       maxWidth: 1000,
+       maxHeight: 1000,
+    },   
     flexGrow: 1,
     margin:10
   },
@@ -53,9 +48,10 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: theme.palette.background.default,
   },
   img: {
-    height: 500,
     display: 'block',
     overflow: 'hidden',
+    height: 500,
+
     width: '100%',
   },
 }));

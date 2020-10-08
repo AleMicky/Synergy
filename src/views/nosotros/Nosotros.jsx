@@ -21,6 +21,10 @@ const useStyles = makeStyles((theme) => ({
         display: 'flex',
         marginLeft: 5,
         marginRight: 5,
+        [theme.breakpoints.up('sm')]: {
+            marginLeft: 50,
+            marginRight: 50,
+        },
         [theme.breakpoints.up('md')]: {
             marginLeft: 50,
             marginRight: 50,

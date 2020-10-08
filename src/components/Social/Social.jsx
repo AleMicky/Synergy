@@ -5,6 +5,7 @@ import { map } from "lodash";
 const useStyles = makeStyles((theme) => ({
     grow: {
         display: 'flex',
+        marginRight: 26
     }
 }));
 

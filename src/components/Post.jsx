@@ -83,7 +83,7 @@ export const Post = ({ post, azul }) => {
                     onClick={
                       () => history.push('/home/pizarra-digital')
                     }>
-              Instaladores de Calidad
+              {azul?'Carpinteros de Calidad': 'Instaladores de Calidad'}
             </Button>
              <p style={{alignSelf:'center'}}>
                Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores fugiat 

@@ -41,7 +41,9 @@ export const Servicios = () => {
           return(
             <div className={classes.root}>
               <CssBaseline />
+              <div className="animate__animated animate__bounceInUp animate__repeat-4">
                 <Banner post={mainFeaturedPost2} />
+                </div>
                 {
                   pagina === 'Construccion'?(
                     <Sistemas handleOpen={handleOpen}/>

@@ -8,7 +8,7 @@ import { apiImg, apiURL } from '../../../config';
 import { useStyles } from './MaderaStyle';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 
-export default function Madera() {
+export default function Madera({handleOpen}) {
     const classes = useStyles();
     const theme = useTheme();
 
@@ -145,7 +145,7 @@ export default function Madera() {
                                                 map(t.personas, (p, index) => (
                                                     <Grid item key={index} xs={12} sm={6} md={4}>
                                                         <Card className={classes.card}>
-                                                            <CardActionArea onClick={() => console.log(1)}>
+                                                            <CardActionArea onClick={handleOpen}>
                                                                 <CardMedia
                                                                     className={classes.media}
                                                                     image={apiImg + p.foto.url}
@@ -158,7 +158,9 @@ export default function Madera() {
                                                                 </Typography>
                                                                 <Typography>
                                                                     <b>Celular:</b> {p.celular}
-
+                                                                </Typography>
+                                                                <Typography>
+                                                                    {p.ciudad === 'Santa_Cruz'?'Santa Cruz':p.ciudad}
                                                                 </Typography>
                                                             </CardContent>
                                                             <CardActions className={classes.acciones}>

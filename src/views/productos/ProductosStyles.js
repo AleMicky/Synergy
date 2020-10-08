@@ -10,9 +10,9 @@ export const productoStyles = makeStyles((theme) => ({
     },
     categoria: {
       width: '100%',
-      // maxHeight: '100vh',
+     // maxHeight: '100vh',
       // position: 'relative',
-      // overflow: 'auto',
+       // overflow: 'auto',
       //maxWidth: 300,
       backgroundColor: theme.palette.background.paper,
     },

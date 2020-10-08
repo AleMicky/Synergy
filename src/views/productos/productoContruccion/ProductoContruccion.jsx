@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { productoStyles } from '../ProductosStyles';
-import { Card, CardActionArea, CardHeader, CardMedia, Checkbox, Divider, Grid, List, ListItem, ListItemIcon, ListItemText, Typography } from '@material-ui/core';
+import { Card, CardActionArea, CardHeader, CardMedia, Checkbox, Grid, List, ListItem, ListItemIcon, ListItemText, Typography } from '@material-ui/core';
 import { useFetch } from '../../../hooks/useFetch';
 import { apiImg, apiURL } from '../../../config';
 import { Search } from '../../../components/Search';
 import { useHistory } from 'react-router-dom';
+import CustomizedAccordions from '../../../components/Acordion';
 
 
 export default function ProductoContruccion() {
@@ -15,12 +16,10 @@ export default function ProductoContruccion() {
     const { loading, data } = useFetch(`${apiURL}categorias`);
     const { loading:loadingProducto, data:dataProducto } = useFetch(`${apiURL}producto`);
 
-    const [selectedIndex, setSelectedIndex] = useState(null);
     const [categoria, setCategoria] = useState([]);
     const [checked, setChecked] = useState([]);
-    const [subCategoria, setSubCategoria] = useState([]);
     const [buscar, setBuscar] = useState('');
-    const [titulo, setTitulo] = useState('Productos');
+    const [titulo, setTitulo] = useState('');
     const [subID, setSubID] = useState('');
     const [Producto, setProducto] = useState([]);
 
@@ -50,12 +49,12 @@ export default function ProductoContruccion() {
         return record
     }
 
-    const handleListItemClick = (event, index, rec) => {
-        console.log(event);
-        setSelectedIndex(index);
-        setSubCategoria(rec.sub_categorias);
-        setTitulo(rec.nombre);
-    };
+    // const handleListItemClick = (event, index, rec) => {
+    //     console.log(event);
+    //     setSelectedIndex(index);
+    //     setSubCategoria(rec.sub_categorias);
+    //     setTitulo(rec.nombre);
+    // };
     const handletitulo = (string) => {
         return string.charAt(0).toUpperCase() + string.slice(1).toLowerCase();
     }
@@ -83,53 +82,50 @@ export default function ProductoContruccion() {
             <Grid container className={classes.contendor}>
                 <Grid item xs={12} md={3}>
                 <div className= {classes.categoria}>
-                    <List component="nav" aria-label="categoria">
+                <List component="nav" aria-label="categoria">
                     <ListItem>
                         <Search buscar={buscar}
                                 handlefill={handlefiltro} />
                     </ListItem>
-                    {
-                       categoria.map((record, index) => {
-                        return (
-                            <ListItem button
-                                    key={index}
-                                    selected={selectedIndex === index}
-                                    onClick={(event) => handleListItemClick(event, index, record)}>
-                                <ListItemText primary={
-                                    <Typography type="body1"
-                                                color="textPrimary">
-                                        <b>{record.nombre}</b>
-                                    </Typography>}
-                                />
-                            </ListItem>
-                        )
-                        })
-                     }
-                    </List>
-                    <Divider />
-                    <List style={{backgroundColor: '#f3f4f5'}} aria-label="sub Categoria">
-                    {subCategoria.map((value, index) => {
-                        const labelId = `checkbox-list-label-${value.nombre}`;
-                        return (
-                            <ListItem key={index} role={undefined} dense button onClick={handleToggle(index, value.id)}>
-                            <ListItemIcon>
-                                <Checkbox
-                                edge="start"
-                                checked={checked.indexOf(index) !== -1}
-                                tabIndex={-1}
-                                disableRipple
-                                inputProps={{ 'aria-labelledby': labelId }}
-                                />
-                            </ListItemIcon>
-                            <ListItemText id={labelId}
-                                primary={<Typography variant="subtitle1" color="textPrimary">
-                                {handletitulo(value.nombre)}
-                                </Typography>}
-                            />
-                            </ListItem>
-                        );
-                    })}
                 </List>
+                    {
+                        categoria.map((record, index) => {
+
+                            return(
+                                <CustomizedAccordions
+                                                    key={index} 
+                                                    index={index + 1}
+                                                    titulo={record.nombre}
+                                                    setTitulo = {setTitulo}>
+                                     <List aria-label="sub Categoria">
+                                        {record.sub_categorias.map((value, index) => {
+                                            const labelId = `checkbox-list-label-${value.nombre}`;
+                                            return (
+                                                <ListItem key={index} role={undefined} dense button onClick={handleToggle(index, value.id)}>
+                                                <ListItemIcon>
+                                                    <Checkbox
+                                                    edge="start"
+                                                    checked={checked.indexOf(index) !== -1}
+                                                    tabIndex={-1}
+                                                    disableRipple
+                                                    
+                                                    inputProps={{ 'aria-labelledby': labelId }}
+                                                    />
+                                                </ListItemIcon>
+                                                <ListItemText id={labelId}
+                                                    primary={<Typography variant="subtitle1" color="textPrimary">
+                                                    {handletitulo(value.nombre)}
+                                                    </Typography>}
+                                                />
+                                                </ListItem>
+                                            );
+                                        })}
+                                    </List>
+                                </CustomizedAccordions>
+                            )
+                        })
+
+                    }
                 </div>
                 </Grid>
                 <Grid item xs={12} md={9}>
