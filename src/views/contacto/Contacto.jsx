@@ -19,7 +19,7 @@ const useStyles = makeStyles((theme) => ({
     },
     titulo: {
         fontSize: 25,
-        alignSelf: 'center',
+        textAlign: 'center',
         [theme.breakpoints.up('sm')]: {
           fontSize: 35
         },
@@ -218,17 +218,34 @@ export const Contacto = () => {
                             }
                         </TabsComponent>
                         </Grid>
-                            <Grid item xs={12} sm={12}>
-                            <Divider />
-
-                                <div className={classes.paper}>
-                                    <h2 className={classes.titulo}>
+                        
+                        </Grid>
+                        <Divider />
+                    
+                        <h2 className={classes.titulo}>
                                         Formulario de contacto
                                     </h2>
+                            <Grid container>
+
+                                
+                            <Grid item xs={12} sm={6}>
+
+                                <div className={classes.paper}>
+                                
                                     <FormContacto  handleClick = {handleClick} setMensajes = {setMensajes}azul = {azul}/>
                                 </div>
                             </Grid>
-                        </Grid>
+                            <Grid item xs={12} sm={6}>
+
+                                <div className={classes.paper}>
+                                    <img style={{height:450,width:450}} src='https://source.unsplash.com/random' alt='contactos'/>
+                                </div>
+                                </Grid>
+                            </Grid>
+
+
+
+
 
                         <SimpleSnackbar open = {open}
                             handleClose = {handleClose}

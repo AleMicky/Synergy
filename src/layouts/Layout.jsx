@@ -19,6 +19,10 @@ export default function Layout({ children, window }) {
     setMobileOpen(!mobileOpen);
   };
 
+  // const handleLink = () => {
+  //   window.open("https://synerx.com.bo/", "_blank")
+  // }
+
     return (
         <Context.Consumer>
         {
@@ -42,7 +46,9 @@ export default function Layout({ children, window }) {
                             }
                             {children}
 
-                            <Fab color="inherit" className={classes.flotante}>
+                            <Fab color="inherit" className={classes.flotante}
+                                 href="https://synerx.com.bo/"
+                                 target='_blank' >
                                 <InboxIcon />
                             </Fab>
                             </main>
