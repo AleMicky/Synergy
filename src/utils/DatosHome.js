@@ -12,10 +12,15 @@ import Mad20 from '../assets/pics/Mad20.jpg';
 import Mad21 from '../assets/pics/Mad21.jpg';
 import Mad22 from '../assets/pics/Mad22.jpg';
 
-import Inicio1 from '../assets/pics/Inicio1.jpeg';
-import Inicio2 from '../assets/pics/Inicio2.jpg';
-import Inicio3 from '../assets/pics/Inicio3.jpg';
-import Inicio4 from '../assets/pics/Inicio4.jpeg';
+import Inicio1 from '../assets/home/rojo1.jpeg';
+import Inicio2 from '../assets/home/rojo3.jpeg';
+import Inicio3 from '../assets/home/rojo2.jpeg';
+import Inicio4 from '../assets/home/rojo4.jpeg';
+
+import azul1 from '../assets/home/azul1.jpeg';
+import azul2 from '../assets/home/azul2.jpeg';
+import azul3 from '../assets/home/azul3.jpeg';
+import azul4 from '../assets/home/azul4.jpeg';
 
 
 
@@ -70,6 +75,29 @@ export const caroselRojo = [
         ruta: 'contacto'
     }
  ];
+
+ export const proyectoAzul = [
+  {
+      titulo: 'Productos',
+      imagen: azul1,
+      ruta: 'productos'
+  },
+   {
+       titulo: 'Servicios',
+       imagen: azul2,
+       ruta: 'servicios'
+   },
+ {
+     titulo: 'Pizarra Digital',
+     imagen: azul3,
+     ruta: 'pizarra-digital'
+ },
+ {
+     titulo: 'Contacto',
+     imagen: azul4,
+     ruta: 'contacto'
+ }
+];
 
  export const innovamoRojo = [
    {

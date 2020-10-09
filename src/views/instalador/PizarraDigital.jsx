@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Context } from '../../components/Context';
 import { SpringModal } from '../../components/SpringModal';
 import { Swipeable } from '../../components/Swipeable';
@@ -9,10 +9,13 @@ export const PizarraDigital = () => {
 
     const [open, setOpen] = React.useState(false);
 
-    
+    const [portafolio, setPortafolio] = useState([]);
+
   const handleOpen = (url) => {
     setOpen(true);
-  };
+    setPortafolio(url);
+  
+};
 
 
     const handleClose = () => {
@@ -33,7 +36,7 @@ export const PizarraDigital = () => {
                                 )
                             }
                               <SpringModal open={open} handleClose={handleClose}>
-                                 <Swipeable />
+                              <Swipeable titulo = 'Proyecto' portafolio = {portafolio}/>
                                 </SpringModal> 
                         </React.Fragment>
                     )

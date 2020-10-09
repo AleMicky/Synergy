@@ -29,7 +29,7 @@ export default function Arquitectos({handleOpen}) {
         setMainFeaturedPost({
             title: banner[0].titulo,
             description: banner[0].descripcion?banner[0].descripcion:'',
-            image: apiImg + banner[0].imagen.url,
+            image: banner[0].imagen?apiImg + banner[0].imagen.url:'https://source.unsplash.com/random',
             imgText: banner[0].titulo,
         });
         }
@@ -51,7 +51,7 @@ export default function Arquitectos({handleOpen}) {
                     <Grid item key={index} xs={12} sm={6} md={4}>
                       <CardStyle nombre = {card.nombre}
                                   url= {apiImg+card.portada.url}
-                                  handleClick= {() => handleOpen(apiImg+card.portafolio.url)}/>
+                                  handleClick= {() => handleOpen(card.portafolio)}/>
                     </Grid>
                   ))
                 )

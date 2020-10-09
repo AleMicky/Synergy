@@ -52,7 +52,7 @@ export const Contacto = () => {
          setMainFeaturedPost({
             title: banner[0].titulo,
             description: banner[0].descripcion?banner[0].descripcion:'',
-            image: apiImg + banner[0].imagen.url,
+            image: banner[0].imagen?apiImg + banner[0].imagen.url:'https://source.unsplash.com/random',
             imgText: banner[0].titulo,
         });
         }

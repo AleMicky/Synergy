@@ -6,7 +6,7 @@ import { Context } from '../../components/Context';
 import Carosel from '../../components/Carosel/Carosel';
 import Proyecto from '../../components/Proyecto/Proyecto';
 import Innovacion from '../../components/Innovacion/Innovacion';
-import { innovamoRojo, noImg, proyectoRojo } from '../../utils/DatosHome';
+import { innovamoRojo, noImg, proyectoAzul, proyectoRojo } from '../../utils/DatosHome';
 import { useStyles } from './HomeStyle';
 import { apiURL } from '../../config';
 import { useFetch } from '../../hooks/useFetch';
@@ -38,7 +38,7 @@ export const Home = () => {
                   <h2 className={classes.titulo}>{`Soluciones para tus proyectos`}</h2>
                           <Grid container>
                             {
-                              map(proyectoRojo, (proyecto, index) => (
+                              map(azul?proyectoAzul:proyectoRojo, (proyecto, index) => (
                                 <Grid item key={index} xs={12} sm={6} md={3}>
                                   <Proyecto imagen={proyecto.imagen}
                                             handleOpen={() => handleOpen(proyecto.ruta)}

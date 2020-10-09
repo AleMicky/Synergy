@@ -3,10 +3,14 @@ import TwitterIcon from '@material-ui/icons/Twitter';
 import FacebookIcon from '@material-ui/icons/Facebook';
 import InstagramIcon from '@material-ui/icons/Instagram';
 import YouTubeIcon from '@material-ui/icons/YouTube';
+import { Icon } from '@material-ui/core';
+import icolog from '../assets/sinex/Negro-07.svg';
 
 export const RedSocial = [
     {
-        icon : <TwitterIcon/>,
+        icon : <Icon style={{height: '100%'}}>
+                    <img style={{textAlign: 'center', height:30, width:30}} src={icolog} alt='imf'/>
+                </Icon>,
         url : 'https://www.google.com/'
     },
     {

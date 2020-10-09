@@ -145,7 +145,7 @@ export default function Contructor({handleOpen}) {
                                                 map(t.personas, (p, index) => (
                                                     <Grid item key={index} xs={12} sm={6} md={4}>
                                                         <Card className={classes.card}>
-                                                            <CardActionArea onClick={handleOpen}>
+                                                            <CardActionArea onClick={() => handleOpen(p.proyectos)}>
                                                                 <CardMedia
                                                                     className={classes.media}
                                                                     image={ p.foto === null ?'https://source.unsplash.com/random':apiImg + p.foto.url}

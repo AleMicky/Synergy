@@ -14,16 +14,14 @@ export const Servicios = () => {
   const classes = useStyles();
 
   const [open, setOpen] = React.useState(false);
-  const [imagen, setImagen] = useState('');
-
+  const [portafolio, setPortafolio] = useState([]);
 
   
 
 
   const handleOpen = (url) => {
     setOpen(true);
-    setImagen(url);
-    console.log(imagen);
+    setPortafolio(url);
   };
 
   const handleClose = () => {
@@ -46,7 +44,7 @@ export const Servicios = () => {
                   )  
                 }
                   <SpringModal open={open} handleClose={handleClose}>
-                  <Swipeable />
+                  <Swipeable titulo = 'Actividad' portafolio = {portafolio}/>
                 </SpringModal> 
             </div>
           )

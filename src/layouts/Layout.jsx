@@ -1,14 +1,13 @@
 import React, { useState } from 'react'
-import { useScrollTrigger, Zoom, CssBaseline, Fab, useTheme, useMediaQuery } from '@material-ui/core';
+import { useScrollTrigger, Zoom, CssBaseline, Fab, useTheme, useMediaQuery, Icon } from '@material-ui/core';
 import KeyboardArrowUpIcon from '@material-ui/icons/KeyboardArrowUp';
-import InboxIcon from '@material-ui/icons/Inbox';
 import { useStyles } from './LayoutStyle';
 import Header from '../components/Header/Header';
 import Footer from '../components/Footer';
 import { MenuAzul, MenuRojo } from '../utils/DatosGenerales';
 import { Context } from '../components/Context';
 import { DrawerSys } from '../components/DrawerSys';
-
+import icolog from './../assets/sinex/Negro-07.svg'
 export default function Layout({ children, window }) {
 
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -48,8 +47,12 @@ export default function Layout({ children, window }) {
 
                             <Fab color="inherit" className={classes.flotante}
                                  href="https://synerx.com.bo/"
-                                 target='_blank' >
-                                <InboxIcon />
+                                 target='_blank' 
+                                 size="small">
+                                {/* <InboxIcon /> */}
+                                <Icon classes={{root: classes.iconRoot}}>
+                                  <img className={classes.imageIcon} src={icolog} alt="Log"/>
+                                </Icon>
                             </Fab>
                             </main>
                             <ScrollTop {...{ children, window }}>

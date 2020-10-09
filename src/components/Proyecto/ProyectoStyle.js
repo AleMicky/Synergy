@@ -36,12 +36,12 @@ export const useStyles = makeStyles((theme) => ({
       },
       },
       media: {
-        height: 300,
+        height: 200,
         [theme.breakpoints.up('sm')]: {
-            height: 260,
+            height: 210,
         },
         [theme.breakpoints.up('md')]: {
-          height: 300,
+          height: 210,
       },
       },
 }));
