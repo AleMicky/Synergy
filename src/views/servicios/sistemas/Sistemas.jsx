@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Container, Grid, makeStyles } from '@material-ui/core';
 import CardStyle from '../../../components/CardStyle/CardStyle';
 import { useFetch } from '../../../hooks/useFetch';
 import { apiURL, apiImg } from '../../../config';
+import { Banner } from '../../../components/Banner';
 
 const useStyles = makeStyles((theme) => ({
     cardGrid: {
@@ -17,8 +18,31 @@ export default function Sistemas({handleOpen}) {
     const { loading, data } = useFetch(`${apiURL}sistema-especializados`);
 
 
+    const { loading:load, data:dataBanner } = useFetch(`${apiURL}banners`);
+
+    const [mainFeaturedPost, setMainFeaturedPost] = useState({})
+
+    useEffect(() => {
+
+        if(!load){
+        const banner = dataBanner.filter(b => b.interfaz === 'sistema_especializado');
+        
+        setMainFeaturedPost({
+            title: banner[0].titulo,
+            description: banner[0].descripcion?banner[0].descripcion:'',
+            image: apiImg + banner[0].imagen.url,
+            imgText: banner[0].titulo,
+        });
+        }
+      
+    }, [load, dataBanner ])
+
     return (
-        <Container className={classes.cardGrid} maxWidth="xl">
+      <React.Fragment>
+            <div className="animate__animated animate__bounceInUp animate__repeat-4">
+                <Banner post={mainFeaturedPost} />
+            </div>
+            <Container className={classes.cardGrid} maxWidth="xl">
         <Grid container >
           {
           loading?(
@@ -33,10 +57,9 @@ export default function Sistemas({handleOpen}) {
             ))
           )
           }
-          
-        
         </Grid>
-       
       </Container>
+      </React.Fragment>
+      
     )
 }

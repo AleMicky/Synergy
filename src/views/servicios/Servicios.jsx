@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import { CssBaseline } from '@material-ui/core';
-import { Banner } from '../../components/Banner';
 import { useStyles } from './ServiciosStyles';
 import { Context } from '../../components/Context';
 import Sistemas from './sistemas/Sistemas';
@@ -9,12 +8,6 @@ import { SpringModal } from '../../components/SpringModal';
 import { Swipeable } from '../../components/Swipeable';
 
 
-const mainFeaturedPost2 = {
-  title: 'Servicios Especializados',
-  description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias molestiae nulla deleniti quae repudiandae, nisi, culpa",
-  image: 'https://source.unsplash.com/random',
-  imgText: 'main image description',
-};
 
 export const Servicios = () => {
 
@@ -22,6 +15,9 @@ export const Servicios = () => {
 
   const [open, setOpen] = React.useState(false);
   const [imagen, setImagen] = useState('');
+
+
+  
 
 
   const handleOpen = (url) => {
@@ -41,9 +37,7 @@ export const Servicios = () => {
           return(
             <div className={classes.root}>
               <CssBaseline />
-              <div className="animate__animated animate__bounceInUp animate__repeat-4">
-                <Banner post={mainFeaturedPost2} />
-                </div>
+              
                 {
                   pagina === 'Construccion'?(
                     <Sistemas handleOpen={handleOpen}/>

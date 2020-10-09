@@ -1,9 +1,11 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { makeStyles, CssBaseline, Grid, Container } from '@material-ui/core';
 import { Post } from '../../components/Post';
 import { useHistory } from "react-router-dom";
 import { Context } from '../../components/Context';
 import Proyecto from '../../components/Proyecto/Proyecto';
+import { useFetch } from '../../hooks/useFetch';
+import { apiImg, apiURL } from '../../config';
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -32,16 +34,32 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-const mainFeaturedPost = {
-    title: 'Conocenos',
-    description: "",
-    image: 'https://source.unsplash.com/random',
-    imgText: 'main image description',
-};
 
 export const Conocenos = () => {
     let history = useHistory();
     const classes = useStyles();
+
+
+    const { loading, data } = useFetch(`${apiURL}banners`);
+
+    const [mainFeaturedPost, setMainFeaturedPost] = useState({})
+
+    useEffect(() => {
+
+        if(!loading){
+         const banner = data.filter(b => b.interfaz === 'conocenos');
+         
+         setMainFeaturedPost({
+            title: banner[0].titulo,
+            description: banner[0].descripcion?banner[0].descripcion:'',
+            image: apiImg + banner[0].imagen.url,
+            imgText: banner[0].titulo,
+        });
+        }
+      
+    }, [loading, data ])
+
+
     const hanlderNav = (url) => {
         history.push(url);
     };

@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { makeStyles, CssBaseline, Container, Grid, TextField, Button, FormControl, InputLabel, Select, MenuItem, Card, Typography, IconButton, CardActions, TableContainer, Table, TableHead, TableRow, TableCell, Paper, TableBody } from '@material-ui/core';
 import { Banner } from '../../components/Banner';
 import { OperacionCalular } from '../../utils/Operacione';
@@ -8,6 +8,8 @@ import PictureAsPdfIcon from '@material-ui/icons/PictureAsPdf';
 import { PDFDownloadLink } from '@react-pdf/renderer';
 import { Reporte } from '../../utils/Reporte';
 import { ReporteMadera } from '../../utils/ReporteMadera';
+import { apiImg, apiURL } from '../../config';
+import { useFetch } from '../../hooks/useFetch';
 const useStyles = makeStyles((theme) => ({
     root: {
         flexGrow: 1,
@@ -51,12 +53,6 @@ const useStyles = makeStyles((theme) => ({
     }
 }));
 
-const mainFeaturedPost2 = {
-    title: 'Calculadora',
-    description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias molestiae nulla deleniti quae repudiandae, nisi, culpa",
-    image: 'https://source.unsplash.com/random',
-    imgText: 'main image description',
-};
 
 export const Calculadora = () => {
 
@@ -79,6 +75,25 @@ export const Calculadora = () => {
     const [tapAncho, setTapAncho] = useState(0);
     const [cotizador, setCotizador] = useState([]);
     const [m2Azul, setM2Azul] = useState(0);
+
+
+    const { loading, data } = useFetch(`${apiURL}banners`);
+
+    const [mainFeaturedPost, setMainFeaturedPost] = useState({})
+
+    useEffect(() => {
+
+        if(!loading){
+        const banner = data.filter(b => b.interfaz === 'calculadora');
+        setMainFeaturedPost({
+            title: banner[0].titulo,
+            description: banner[0].descripcion?banner[0].descripcion:'',
+            image: apiImg + banner[0].imagen.url,
+            imgText: banner[0].titulo,
+        });
+        }
+        
+    }, [loading, data ])
 
 
 
@@ -134,7 +149,7 @@ export const Calculadora = () => {
             <CssBaseline />
             <div className="animate__animated animate__bounceInUp animate__repeat-4">
 
-            <Banner post={mainFeaturedPost2} />
+            <Banner post={mainFeaturedPost} />
             </div>
             <Container className={classes.cardGrid} maxWidth="xl">
                 <Tarjeta title="Calculadora"

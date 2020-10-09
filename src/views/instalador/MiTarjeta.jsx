@@ -1,7 +1,5 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { makeStyles, CssBaseline, Grid } from '@material-ui/core';
-import { Post } from '../../components/Post';
-
 import Timeline from '@material-ui/lab/Timeline';
 import TimelineItem from '@material-ui/lab/TimelineItem';
 import TimelineSeparator from '@material-ui/lab/TimelineSeparator';
@@ -10,6 +8,9 @@ import TimelineContent from '@material-ui/lab/TimelineContent';
 import TimelineDot from '@material-ui/lab/TimelineDot';
 import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
+import { useFetch } from '../../hooks/useFetch';
+import { apiImg, apiURL } from '../../config';
+import { Banner } from '../../components/Banner';
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -23,19 +24,36 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-const mainFeaturedPost = {
-    title: 'Como Utilizo Mi Tarjeta',
-    description: "",
-    image: 'https://source.unsplash.com/random',
-    imgText: 'main image description',
-};
+
 export const MiTarjeta = () => {
     const classes = useStyles();
+
+    const { loading:load, data:dataBanner } = useFetch(`${apiURL}banners`);
+
+    const [mainFeaturedPost, setMainFeaturedPost] = useState({})
+
+    useEffect(() => {
+
+        if(!load){
+        const banner = dataBanner.filter(b => b.interfaz === 'tarjeta');
+        
+        setMainFeaturedPost({
+            title: banner[0].titulo,
+            description: banner[0].descripcion?banner[0].descripcion:'',
+            image: apiImg + banner[0].imagen.url,
+            imgText: banner[0].titulo,
+        });
+        }
+      
+    }, [load, dataBanner ])
+
 
     return (
         <div className={classes.root}>
             <CssBaseline />
-            <Post post={mainFeaturedPost} />
+            <div className="animate__animated animate__bounceInUp animate__repeat-4">
+                <Banner post={mainFeaturedPost} />
+            </div>
             <Grid container>
                 <Grid item xs={12} >
                     <Timeline align="alternate">

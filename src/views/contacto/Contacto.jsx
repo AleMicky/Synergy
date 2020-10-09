@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { makeStyles, CssBaseline, Grid, useTheme, ListItem, ListItemText, IconButton, Divider } from '@material-ui/core';
 import { FormContacto } from '../../components/FormContacto';
 import { Context } from '../../components/Context';
@@ -6,6 +6,8 @@ import { Banner } from '../../components/Banner';
 import { TabPanel, TabsComponent } from '../../components/TabsComponent/TabsComponent';
 import PlaceIcon from '@material-ui/icons/Place';
 import SimpleSnackbar from '../../components/Snackbar';
+import { apiImg, apiURL } from '../../config';
+import { useFetch } from '../../hooks/useFetch';
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -26,17 +28,37 @@ const useStyles = makeStyles((theme) => ({
       }
 }));
 
-const mainFeaturedPost = {
-    title: 'Contacto',
-    description: "",
-    image: 'https://source.unsplash.com/random',
-    imgText: 'main image description',
-};
+// const mainFeaturedPost = {
+//     title: 'Contacto',
+//     description: "",
+//     image: 'https://source.unsplash.com/random',
+//     imgText: 'main image description',
+// };
 export const Contacto = () => {
     const classes = useStyles();
     const theme = useTheme();
 
     const [value, setValue] = useState(0);  //   {'llevar'}
+
+    const { loading, data } = useFetch(`${apiURL}banners`);
+
+    const [mainFeaturedPost, setMainFeaturedPost] = useState({})
+
+    useEffect(() => {
+
+        if(!loading){
+         const banner = data.filter(b => b.interfaz === 'contactos');
+         
+         setMainFeaturedPost({
+            title: banner[0].titulo,
+            description: banner[0].descripcion?banner[0].descripcion:'',
+            image: apiImg + banner[0].imagen.url,
+            imgText: banner[0].titulo,
+        });
+        }
+      
+    }, [loading, data ])
+
     const handleChange = (event, newValue) => { //   {'llevar'}
         setValue(newValue);
     };
