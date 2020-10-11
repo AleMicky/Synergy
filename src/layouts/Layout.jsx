@@ -7,7 +7,7 @@ import Footer from '../components/Footer';
 import { MenuAzul, MenuRojo } from '../utils/DatosGenerales';
 import { Context } from '../components/Context';
 import { DrawerSys } from '../components/DrawerSys';
-import icolog from './../assets/sinex/Negro-07.svg'
+import icolog from './../assets/sinex/Negro-06.svg'
 export default function Layout({ children, window }) {
 
   const [mobileOpen, setMobileOpen] = useState(false);

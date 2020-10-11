@@ -157,7 +157,7 @@ export const FormContacto = ({handleClick, setMensajes, azul }) => {
               <MenuItem value={'Santa_Cruz'}>Santa Cruz</MenuItem>
               <MenuItem value={'La_Paz'}>La Paz</MenuItem>
               <MenuItem value={'El_Alto'}>El Alto</MenuItem>
-              <MenuItem value={'Tarija'}>La Paz</MenuItem>
+              <MenuItem value={'Tarija'}>Tarija</MenuItem>
             </Select>
           </FormControl>
         </Grid>
