@@ -1,6 +1,5 @@
 import React, { useContext } from 'react';
-import { makeStyles, Grid, CardActionArea } from '@material-ui/core';
-import { LinkButton } from '../../components/LinkButton';
+import { makeStyles, Grid, Button } from '@material-ui/core';
 import { useHistory } from "react-router-dom";
 import { saveItem } from '../../utils/storage';
 import { Context } from '../../components/Context';
@@ -33,18 +32,21 @@ export const Bienvenido = () => {
                     </div>
                 </Grid>
                 <Grid item xs={12} sm={6}>
-                    <CardActionArea className={classes.paper} onClick={()=> handleContruccion()}>
-                    <hr  width='50%'  align="center" size='5' color="#FF0000"/>
-
-                        <LinkButton titulo = "MATERIAL DE CONTRUCCIÓN" />
-                    </CardActionArea>
+                        <div className={classes.contendor}>
+                            <Button className={classes.useButton}
+                                    onClick={()=> handleContruccion()}>
+                                    MATERIAL DE CONTRUCCIÓN
+                            </Button>
+                        </div>
+                        
                 </Grid>
                 <Grid item xs={12} sm={6}>
-                    <CardActionArea className={classes.paper} onClick={()=> handleMadera()}>
-                    <hr  width='50%'  align="center" size='5'color="#007AC0"/>
-
-                        <LinkButton titulo = "DIVISIÓN TABLEROS DE MADERA" />
-                    </CardActionArea>
+                        <div className={classes.contendor}>
+                        <Button className={classes.useButton}
+                                onClick={()=> handleMadera()}>
+                               DIVISIÓN TABLEROS DE MADERA
+                        </Button>
+                        </div>
                 </Grid>
             </Grid>
         </div>
@@ -66,5 +68,21 @@ const useStyles = makeStyles((theme) => ({
             height:200,
             width: 500,
         }
-    }
+    },
+    contendor:{
+        display:'flex',
+        alignItems: 'center',
+        justifyContent:'center'
+    },
+    useButton: {
+        height: 60,
+        padding: '0 25px',
+        fontSize: 14,
+        "&:hover": {
+          borderBottomWidth: 4,
+          backgroundColor: 'transparent',
+          borderColor: '#000000',
+          borderStyle: 'solid'
+        }
+      },
 }));

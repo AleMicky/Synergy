@@ -34,13 +34,13 @@ export const useStyles = makeStyles((theme) => ({
       width: 800
     },
     card: {
-      maxWidth: 200,
-      height: 200,
-      margin: 10,
-      [theme.breakpoints.up('sm')]: {
-        maxWidth: 350,
-        height: 350,
-      },
+      // height: '100%',
+      margin: 15
+    },
+    cardMedia: {
+       width: '100%',
+       height: '40vh',
+      
     },
     media: {
       height: 200,

@@ -1,9 +1,8 @@
 import React, { useEffect, useState } from 'react'
-import { makeStyles, CssBaseline, Grid, Container } from '@material-ui/core';
+import { makeStyles, CssBaseline, Grid, Container, Card, CardActionArea, CardMedia } from '@material-ui/core';
 import { Post } from '../../components/Post';
 import { useHistory } from "react-router-dom";
 import { Context } from '../../components/Context';
-import Proyecto from '../../components/Proyecto/Proyecto';
 import { useFetch } from '../../hooks/useFetch';
 import { apiImg, apiURL } from '../../config';
 
@@ -22,12 +21,11 @@ const useStyles = makeStyles((theme) => ({
         paddingBottom: theme.spacing(8),
     },
     card: {
-        height: '100%',
-        display: 'flex',
-        flexDirection: 'column',
+        margin: 15
     },
     cardMedia: {
-        paddingTop: '50%', // 16:9
+        width: '100%',
+        height: '40vh',
     },
     cardContent: {
         flexGrow: 1,
@@ -80,26 +78,53 @@ export const Conocenos = () => {
                                    >
                                     <Grid item xs={12} sm={3} md={3}>
                                         <div className="animate__animated animate__bounceInLeft animate__repeat-4">
-                                            <Proyecto imagen={'https://source.unsplash.com/random'}
+                                            {/* <Proyecto imagen={'https://source.unsplash.com/random'}
                                                 handleOpen={() => hanlderNav('/home/capacitacion')}
-                                                azul={azul} />
+                                                azul={azul} /> */}
+                                                 <Card className={classes.card}>
+                                                    <CardActionArea onClick={() => hanlderNav('/home/capacitacion')}>
+                                                    <CardMedia
+                                                        className={classes.cardMedia}
+                                                        image= {'https://source.unsplash.com/random'} 
+                                                        title="Image title"
+                                                    />
+                                                    </CardActionArea>
+                                                </Card>
                                         </div>
                                     </Grid>
                                     <Grid item xs={12} sm={3} md={3}>
-                                        <Proyecto imagen={'https://source.unsplash.com/random'}
-                                            handleOpen={() => console.log(1)}
-                                            azul={azul} />
+                                    <Card className={classes.card}>
+                                                    <CardActionArea onClick={() => console.log(1)}>
+                                                    <CardMedia
+                                                        className={classes.cardMedia}
+                                                        image= {'https://source.unsplash.com/random'} 
+                                                        title="Image title"
+                                                    />
+                                                    </CardActionArea>
+                                                </Card>
                                     </Grid>
                                     <Grid item xs={12} sm={3} md={3}>
-                                        <Proyecto imagen={'https://source.unsplash.com/random'}
-                                            handleOpen={() => console.log(1)}
-                                            azul={azul} />
+                                    <Card className={classes.card}>
+                                                    <CardActionArea onClick={() => console.log(2)}>
+                                                    <CardMedia
+                                                        className={classes.cardMedia}
+                                                        image= {'https://source.unsplash.com/random'} 
+                                                        title="Image title"
+                                                    />
+                                                    </CardActionArea>
+                                                </Card>
                                     </Grid>
                                     <Grid item xs={12} sm={3} md={3}>
                                         <div className="animate__animated animate__bounceInLeft animate__repeat-4">
-                                            <Proyecto imagen={'https://source.unsplash.com/random'}
-                                                handleOpen={() => hanlderNav('/home/mi-tarjeta')}
-                                                azul={azul} />
+                                        <Card className={classes.card}>
+                                                    <CardActionArea onClick={() => hanlderNav('/home/mi-tarjeta')}>
+                                                    <CardMedia
+                                                        className={classes.cardMedia}
+                                                        image= {'https://source.unsplash.com/random'} 
+                                                        title="Image title"
+                                                    />
+                                                    </CardActionArea>
+                                                </Card>
                                         </div>
                                     </Grid>
                                 </Grid>

@@ -1,10 +1,9 @@
 import React from 'react'
-import { Backdrop, CircularProgress, Grid } from '@material-ui/core';
+import { Backdrop, Card, CardActionArea, CardMedia, CircularProgress, Grid } from '@material-ui/core';
 import { useHistory } from "react-router-dom";
 import { map } from "lodash";
 import { Context } from '../../components/Context';
 import Carosel from '../../components/Carosel/Carosel';
-import Proyecto from '../../components/Proyecto/Proyecto';
 import Innovacion from '../../components/Innovacion/Innovacion';
 import { innovamoRojo, noImg, proyectoAzul, proyectoRojo, innovamoAzul } from '../../utils/DatosHome';
 import { useStyles } from './HomeStyle';
@@ -40,9 +39,15 @@ export const Home = () => {
                             {
                               map(azul?proyectoAzul:proyectoRojo, (proyecto, index) => (
                                 <Grid item key={index} xs={12} sm={6} md={3}>
-                                  <Proyecto imagen={proyecto.imagen}
-                                            handleOpen={() => handleOpen(proyecto.ruta)}
-                                            azul={azul} />
+                                    <Card className={classes.card}>
+                                          <CardActionArea onClick={() => handleOpen(proyecto.ruta)}>
+                                          <CardMedia
+                                              className={classes.cardMedia}
+                                              image= {proyecto.imagen} 
+                                              title="Image title"
+                                          />
+                                          </CardActionArea>
+                                      </Card>
                                 </Grid>
                               ))
                             }
