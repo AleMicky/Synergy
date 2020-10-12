@@ -74,6 +74,11 @@ export const Contacto = () => {
         setOpen(true);
     };
 
+    const handleClickMap = () => {
+        //alert('url');
+        window.open("https://goo.gl/maps/5UFt2ebiaqPTx3Rf6", "_blank");
+    };
+
     const handleClose = (event, reason) => {
         if (reason === 'clickaway') {
             return;
@@ -227,7 +232,9 @@ export const Contacto = () => {
                                                                           secondary={`Telf.: ${lugar.telefono}`}/>
                                                               <IconButton aria-label="ubicacion"
                                                                           color={azul?'primary':'secondary'}
-                                                                          onClick={() => alert('url')}>
+                                                                        //   onClick={() => alert('url')}
+                                                                          onClick={handleClickMap}
+                                                                          >
                                                                     <PlaceIcon />
                                                              </IconButton>
                                                         </ListItem>
