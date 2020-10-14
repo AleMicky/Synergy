@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Container, Grid, makeStyles } from '@material-ui/core';
-import CardStyle from '../../../components/CardStyle/CardStyle';
+import { Card, CardActionArea, CardMedia, Container, Grid, makeStyles } from '@material-ui/core';
 import { useFetch } from '../../../hooks/useFetch';
 import { apiURL, apiImg } from '../../../config';
 import { Banner } from '../../../components/Banner';
@@ -9,7 +8,17 @@ const useStyles = makeStyles((theme) => ({
     cardGrid: {
       // paddingTop: theme.spacing(8),
       // paddingBottom: theme.spacing(8),
-    }
+    },
+    card: {
+      margin: 15
+  },
+  cardMedia: {
+      width: '100%',
+      height: '40vh',
+  },
+  cardContent: {
+      flexGrow: 1,
+  },
   }));
   
 export default function Arquitectos({handleOpen}) {
@@ -49,9 +58,15 @@ export default function Arquitectos({handleOpen}) {
                 ):(
                   data.map((card , index) => (
                     <Grid item key={index} xs={12} sm={6} md={4}>
-                      <CardStyle nombre = {card.nombre}
-                                  url= {apiImg+card.portada.url}
-                                  handleClick= {() => handleOpen(card.portafolio)}/>
+                      <Card className={classes.card}>
+                        <CardActionArea onClick={() => handleOpen(card.portafolio)}>
+                          <CardMedia
+                            className={classes.cardMedia}
+                            image={apiImg + card.portada.url}
+                            title={card.nombre}
+                          />
+                        </CardActionArea>
+                      </Card>
                     </Grid>
                   ))
                 )

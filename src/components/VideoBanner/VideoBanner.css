@@ -1,0 +1,15 @@
+.banner2{
+    width: 100%;
+    height: 85vh;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+.banner2 video {
+    /* position: absolute; */
+    top: 0;
+    left: 0;
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+}

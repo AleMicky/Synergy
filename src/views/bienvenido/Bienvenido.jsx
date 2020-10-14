@@ -1,15 +1,27 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { makeStyles, Grid, Button } from '@material-ui/core';
 import { useHistory } from "react-router-dom";
 import { saveItem } from '../../utils/storage';
 import { Context } from '../../components/Context';
+import VideoBanner from '../../components/VideoBanner/VideoBanner';
+import { useFetch } from '../../hooks/useFetch';
+import { apiImg, apiURL } from '../../config';
 
 export const Bienvenido = () => {
 
     let history = useHistory();
     const classes = useStyles();
-
+    const { loading, data } = useFetch(`${apiURL}bienvenidos`);
     const { synergy  } = useContext(Context);
+    const [link, setLink] = useState('');
+
+    useEffect(() => {
+        if(!loading){
+            setLink(data? apiImg + data[0].video.url:'https://res.cloudinary.com/dkepyautb/video/upload/v1595337621/MUESTRA_VIDEO_1.mp4')
+        }
+    }, [loading,data])
+
+    console.log(link);
 
     const handleContruccion = () => {
         synergy.tabAzulOut();
@@ -27,9 +39,14 @@ export const Bienvenido = () => {
                             justify="center"
                             alignItems="center">
                 <Grid item xs={12}>
-                    <div className={classes.paper}>
-                        <img className={classes.logo} src={require('../../assets/Logo.png')} alt="logotipo"/>
-                    </div>
+                    {
+                        loading?(
+                            <h2>loading</h2>
+                        ):(
+                            <VideoBanner url={link}/>
+                        )
+                    }
+                    
                 </Grid>
                 <Grid item xs={12} sm={6}>
                         <div className={classes.contendor}>
