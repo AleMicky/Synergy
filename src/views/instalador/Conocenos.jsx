@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { makeStyles, CssBaseline, Grid, Container, Card, CardActionArea, CardMedia } from '@material-ui/core';
+import { makeStyles, CssBaseline, Grid, Container, Card, CardActionArea, CardMedia, Typography, CardContent } from '@material-ui/core';
 import { Post } from '../../components/Post';
 import { useHistory } from "react-router-dom";
 import { Context } from '../../components/Context';
@@ -35,11 +35,18 @@ const useStyles = makeStyles((theme) => ({
     },
     cardMedia: {
         width: '100%',
-        height: '40vh',
+        height: '35vh',
     },
     cardContent: {
         flexGrow: 1,
-    },
+        height: '8vh',
+        backgroundColor: '#FF0000'
+      },
+      cardContentAzul: {
+        flexGrow: 1,
+        height: '8vh',
+        backgroundColor: '#0067b2'
+      }
 }));
 
 
@@ -96,18 +103,28 @@ export const Conocenos = () => {
                                                         title="Image title"
                                                     />
                                                 </CardActionArea>
+                                                <CardContent CardContent className={azul ? classes.cardContentAzul : classes.cardContent}>
+                                                <Typography style={{ color: '#fafafa' }} gutterBottom variant="h5" component="h2">
+                                                    {'Capacitacion'}
+                                                    </Typography>
+                                                </CardContent>
                                             </Card>
                                         </div>
                                     </Grid>
                                     <Grid item xs={12} sm={3} md={3}>
                                         <Card className={classes.card}>
-                                            <CardActionArea href={azul?carpinteriarPdf:contructorPdf} target='_blank'>
+                                            <CardActionArea href={azul ? carpinteriarPdf : contructorPdf} target='_blank'>
                                                 <CardMedia
                                                     className={classes.cardMedia}
-                                                    image={azul?carpinteriarImg:contructorImg}
+                                                    image={azul ? carpinteriarImg : contructorImg}
                                                     title="Benificios"
                                                 />
                                             </CardActionArea>
+                                            <CardContent CardContent className={azul ? classes.cardContentAzul : classes.cardContent}>
+                                                <Typography style={{ color: '#fafafa' }} gutterBottom variant="h5" component="h2">
+                                                    {'Benificios'}
+                                                </Typography>
+                                            </CardContent>
                                         </Card>
                                     </Grid>
                                     <Grid item xs={12} sm={3} md={3}>
@@ -119,6 +136,11 @@ export const Conocenos = () => {
                                                     title="Politicas"
                                                 />
                                             </CardActionArea>
+                                            <CardContent CardContent className={azul ? classes.cardContentAzul : classes.cardContent}>
+                                                <Typography style={{ color: '#fafafa' }} gutterBottom variant="h5" component="h2">
+                                                    {'Politicas'}
+                                                </Typography>
+                                            </CardContent>
                                         </Card>
                                     </Grid>
                                     <Grid item xs={12} sm={3} md={3}>
@@ -131,6 +153,11 @@ export const Conocenos = () => {
                                                         title="Image title"
                                                     />
                                                 </CardActionArea>
+                                                <CardContent CardContent className={azul ? classes.cardContentAzul : classes.cardContent}>
+                                                    <Typography style={{ color: '#fafafa' }} gutterBottom variant="h5" component="h2">
+                                                        {'Mi Tarjeta'}
+                                                    </Typography>
+                                                </CardContent>
                                             </Card>
                                         </div>
                                     </Grid>
