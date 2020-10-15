@@ -8,7 +8,7 @@ import PlaceIcon from '@material-ui/icons/Place';
 import SimpleSnackbar from '../../components/Snackbar';
 import { apiImg, apiURL } from '../../config';
 import { useFetch } from '../../hooks/useFetch';
-
+import ImagenFormContacto from '../../assets/pdf/ImagenFormContacto.jpg'
 const useStyles = makeStyles((theme) => ({
     root: {
         flexGrow: 1,
@@ -267,7 +267,7 @@ export const Contacto = () => {
                             <Grid item xs={12} sm={6}>
 
                                 <div className={classes.paper}>
-                                    <img style={{height:450,width:450}} src='https://source.unsplash.com/random' alt='contactos'/>
+                                    <img style={{height:400}} src={ImagenFormContacto} alt='contactos'/>
                                 </div>
                                 </Grid>
                             </Grid>
