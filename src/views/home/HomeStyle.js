@@ -39,7 +39,7 @@ export const useStyles = makeStyles((theme) => ({
     },
     cardMedia: {
        width: '100%',
-       height: '40vh',
+       height: '35vh',
       
     },
     media: {
@@ -48,5 +48,15 @@ export const useStyles = makeStyles((theme) => ({
         height: 350,
       },
     },
+    cardContent: {
+      flexGrow: 1,
+      height: '8vh',
+      backgroundColor: '#FF0000'
+    },
+    cardContentAzul: {
+      flexGrow: 1,
+      height: '8vh',
+      backgroundColor: '#0067b2'
+    }
   }));
   

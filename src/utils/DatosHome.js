@@ -12,10 +12,10 @@ import Mad20 from '../assets/pics/Mad20.jpg';
 import Mad21 from '../assets/pics/Mad21.jpg';
 import Mad22 from '../assets/pics/Mad22.jpg';
 
-import Inicio1 from '../assets/home/rojo1.jpeg';
-import Inicio2 from '../assets/home/rojo3.jpeg';
-import Inicio3 from '../assets/home/rojo2.jpeg';
-import Inicio4 from '../assets/home/rojo4.jpeg';
+import Inicio1 from '../assets/home/rojo1.jpg';
+import Inicio2 from '../assets/home/rojo3.jpg';
+import Inicio3 from '../assets/home/rojo2.jpg';
+import Inicio4 from '../assets/home/rojo4.jpg';
 
 import azul1 from '../assets/home/azul1.jpeg';
 import azul2 from '../assets/home/azul2.jpeg';

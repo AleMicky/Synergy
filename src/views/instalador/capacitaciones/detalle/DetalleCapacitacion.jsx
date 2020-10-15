@@ -62,15 +62,15 @@ export const DetalleCapacitacion = ({pagina}) => {
                   <Card className={classes.card}>
                     <CardMedia
                       className={classes.cardMedia}
-                      image={card.portada === null ?'https://source.unsplash.com/random':apiImg+card.portada.url}
+                      image={card.portada === null ? 'https://source.unsplash.com/random' : apiImg + card.portada.url}
                       title="Image title"
                     />
                     <CardContent className={classes.cardContent}>
                       <Typography gutterBottom variant="h5" component="h2">
-                      {card.titulo}
+                        {card.titulo}
                       </Typography>
                       <Typography>
-                      {`Fecha Inicio: ${card.fecha}`}
+                        {`Fecha Inicio: ${card.fecha}`}
                       </Typography>
                     </CardContent>
                   </Card>

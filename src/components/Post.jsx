@@ -58,7 +58,7 @@ export const Post = ({ post, azul }) => {
     //   history.push(url);
     // }
     return (
-        <Paper className={classes.mainFeaturedPost} style={{ backgroundImage: `url(${post.image})` }}>
+        <Paper className={classes.mainFeaturedPost} style={{ backgroundImage: `url(${post.image})`, height:'769px' }}>
         {/* Increase the priority of the hero background image */}
         {<img style={{ display: 'none' }} src={post.image} alt={post.imageText} />}
         <div className={classes.overlay} />

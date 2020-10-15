@@ -15,20 +15,20 @@ export const RedSocial = [
     },
     {
         icon : <TwitterIcon/>,
-        url : 'https://www.google.com/'
+        url : 'https://twitter.com/?lang=en'
     },
     {
         icon : <FacebookIcon/>,
-        url : 'https://www.google.com/'
+        url : 'https://www.facebook.com/SynergyBolivia/inbox/?mailbox_id=438287949605066&selected_item_id=100003239182502'
     },
     {
         icon : <InstagramIcon/>,
-        url : 'https://www.google.com/'
+        url : 'https://www.instagram.com/?hl=en'
     },
 
     {
         icon : <YouTubeIcon/>,
-        url : 'https://www.google.com/'
+        url : 'https://www.youtube.com/channel/UCPWoXFg2nrN9tnsJmq8Lumw'
     }
 ];
 

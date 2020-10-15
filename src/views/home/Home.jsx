@@ -1,5 +1,5 @@
 import React from 'react'
-import { Backdrop, Card, CardActionArea, CardMedia, CircularProgress, Grid } from '@material-ui/core';
+import { Backdrop, Card, CardActionArea, CardContent, CardMedia, CircularProgress, Grid, Typography } from '@material-ui/core';
 import { useHistory } from "react-router-dom";
 import { map } from "lodash";
 import { Context } from '../../components/Context';
@@ -47,6 +47,11 @@ export const Home = () => {
                                               title="Image title"
                                           />
                                           </CardActionArea>
+                                            <CardContent  CardContent className={azul?classes.cardContentAzul:classes.cardContent}>
+                                            <Typography style={{color :'#fafafa'}} gutterBottom variant="h5" component="h2">
+                                              {proyecto.titulo.toUpperCase()}
+                                            </Typography>
+                                          </CardContent>
                                       </Card>
                                 </Grid>
                               ))
