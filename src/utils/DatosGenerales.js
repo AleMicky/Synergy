@@ -57,6 +57,10 @@ export const MenuRojo = [
         title: 'Contactos', 
         url: '/home/contacto',
     },
+    { 
+        title: 'Metal', 
+        url: '/home/metal',
+    },
 ];
 
 export const MenuAzul = [
@@ -83,5 +87,9 @@ export const MenuAzul = [
     { 
         title: 'Contactos', 
         url: '/home/contacto',
+    },
+    { 
+        title: 'Metal', 
+        url: '/home/metal',
     },
 ];

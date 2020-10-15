@@ -20,6 +20,7 @@ import ViewProducto from "../views/productos/Productos";
 import { Capacitacion } from "../views/instalador/capacitaciones/Capacitacion";
 import Layout from "../layouts";
 import { Puntaje } from "../views/puntaje/Puntaje";
+import { Metal } from "../views/metal/Metal";
 
 export default () => {
     return(
@@ -43,6 +44,7 @@ export default () => {
                       <Route path='/home/formulario-preregistro' component={FormularioPreregistro} />
                       <Route path='/home/calculadora' component={Calculadora} />
                       <Route path='/home/contacto' component={Contacto} />
+                      <Route path='/home/metal' component={Metal} />
                       <Route path='/home/puntos/:ci' component={Puntaje} />
                     </Switch>
               </Layout>
