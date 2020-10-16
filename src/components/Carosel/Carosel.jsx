@@ -8,7 +8,7 @@ const useStyles = makeStyles((theme) => ({
     root: {
         height: 175,
         [theme.breakpoints.up('sm')]: {
-            height: 600
+            height: 700
           },   
     }
 }));

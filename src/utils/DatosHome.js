@@ -60,22 +60,22 @@ export const caroselRojo = [
 
  export const proyectoRojo = [
      {
-         titulo: 'Productos',
+         titulo: 'Buscas productos',
          imagen: Inicio1,
          ruta: 'productos'
      },
       {
-          titulo: 'Servicios',
+          titulo: 'Servicios especializados',
           imagen: Inicio2,
           ruta: 'servicios'
       },
     {
-        titulo: 'Pizarra Digital',
+        titulo: 'Instladores de calidad',
         imagen: Inicio3,
         ruta: 'pizarra-digital'
     },
     {
-        titulo: 'Contacto',
+        titulo: 'Compras online',
         imagen: Inicio4,
         ruta: 'contacto'
     }
@@ -83,22 +83,22 @@ export const caroselRojo = [
 
  export const proyectoAzul = [
   {
-      titulo: 'Productos',
+      titulo: 'Buscas Productos',
       imagen: azul1,
       ruta: 'productos'
   },
    {
-       titulo: 'Servicios',
+       titulo: 'Mobiliario especializado',
        imagen: azul2,
        ruta: 'servicios'
    },
  {
-     titulo: 'Pizarra Digital',
+     titulo: 'Carpinteros de calidad',
      imagen: azul3,
      ruta: 'pizarra-digital'
  },
  {
-     titulo: 'Contacto',
+     titulo: 'Compras online',
      imagen: azul4,
      ruta: 'contacto'
  }

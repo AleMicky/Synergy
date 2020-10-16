@@ -433,8 +433,8 @@ export const FormCDC = ({handleClick, setMensajes}) => {
             <Grid item xs={12}>
             <TextField rows={5}
                     color="primary"
-                    label="Que te gustaria Capacitarte"
-                    placeholder="Que te gustaria Capacitarte"
+                    label="En que te gustaría capacitarte"
+                    placeholder="En que te gustaría capacitarte"
                     fullWidth
                     multiline
                     variant="outlined"

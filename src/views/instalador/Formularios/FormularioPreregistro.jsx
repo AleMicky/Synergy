@@ -53,7 +53,7 @@ export const FormularioPreregistro = () => {
                                         )
                                     }
                                     <Typography component="h1" variant="h5">
-                                        Fomulario de Preregistro
+                                        Fomulario de Pre Registro
                                     </Typography>
                                     {
                                         azul?(
