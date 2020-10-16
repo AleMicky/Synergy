@@ -11,7 +11,7 @@ const useStyles = makeStyles((theme) => ({
       backgroundImage: 'url(https://source.unsplash.com/random)',
       backgroundSize: 'cover',
       backgroundRepeat: 'no-repeat',
-      backgroundPosition: 'center',
+      backgroundPosition: 'center', 
     },
     overlay: {
       position: 'absolute',

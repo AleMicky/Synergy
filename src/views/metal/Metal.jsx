@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { makeStyles, CssBaseline, Container } from '@material-ui/core';
+import { makeStyles, CssBaseline, Container, Grid, Card, CardActionArea, CardMedia } from '@material-ui/core';
 import { Banner } from '../../components/Banner';
 import { Tarjeta } from '../../components/Tarjeta';
 import { Context } from '../../components/Context';
@@ -21,10 +21,14 @@ const useStyles = makeStyles((theme) => ({
         margin: theme.spacing(3, 0, 2),
     },
     card: {
-        display: 'flex',
+        margin: 15
     },
-    content: {
-        flex: '1',
+    cardMedia: {
+        width: '100%',
+        height: '40vh',
+    },
+    cardContent: {
+        flexGrow: 1,
     },
     cover: {
         width: 500,
@@ -101,6 +105,33 @@ export const Metal = () => {
                                                 description="Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatibus, explicabo omnis odit sint tempora esse, sed commodi ratione, architecto sapiente soluta asperiores veniam dolor debitis reiciendis perferendis quisquam. Sapiente, hic?"
                                                 image="https://source.unsplash.com/random"
                                                 imageTitle="Image Text" />
+                                            <Grid container>
+                                             {
+                                                 [
+                                                     {
+                                                        nombre : '1'
+                                                     },
+                                                     {
+                                                        nombre : '2'
+                                                     },
+                                                     {
+                                                        nombre : '3'
+                                                     }
+                                                 ].map((card , index) => (
+                                                    <Grid item key={index} xs={12} sm={6} md={4}>
+                                                    <Card className={classes.card}>
+                                                        <CardActionArea onClick={() => console.log(1)}>
+                                                        <CardMedia
+                                                            className={classes.cardMedia}
+                                                            image={'https://source.unsplash.com/random'}
+                                                            title={card.nombre}
+                                                        />
+                                                        </CardActionArea>
+                                                    </Card>
+                                                    </Grid>
+                                                ))
+                                             }
+                                            </Grid>
                                         </Container>
                                     </React.Fragment>
                             )
