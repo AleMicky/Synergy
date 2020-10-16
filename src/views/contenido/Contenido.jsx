@@ -165,11 +165,15 @@ export const Contenido = () => {
                 </Grid>
                 <Grid item xs={12} md={6}> 
                 <div style={{margin:15}}>
-                            <b>Código:</b> {codigo}
-                            <h4>Nombre: {titulo}</h4> 
-                            <b>Medidas:</b> {medida}
-                            <h4>Descripción: {descripcion}</h4>
-                            <h4>Proyectos en lo que se utilizo estos materiales:</h4>
+                            <b>CÓDIGO:</b> {codigo}
+                            <hr/>
+                            <h4>NOMBRE: {titulo}</h4> 
+                            <hr/>
+                            <b>MEDIDAS:</b> {medida}
+                            <hr/>
+                            <h4>DESCRIPCIÓN: {descripcion}</h4>
+                            <hr/>
+                            <h4>PROYECTOS EN LOS QUE SE UTILIZO ESTE MATERIAL:</h4>
                             <h3><Link href="https://synerx.com.bo/"target="_blank" >
                                                                                 <img className={classes.logotipo}
                                                                                         src={require('../../assets/ayn.png')}

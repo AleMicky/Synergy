@@ -122,7 +122,7 @@ export const caroselRojo = [
             </Icon>
    },
    {
-      titulo: 'Synergy Academy',
+      titulo: 'Academia Synergy',
       ruta: 'capacitacion',
       // icon: <SchoolIcon style={{fontSize: 70, color: '#fafafa'}}/>
       icon : <Icon style={{fontSize: 70, color: '#fafafa'}}>
@@ -156,7 +156,7 @@ export const caroselRojo = [
            </Icon>
   },
   {
-     titulo: 'Synergy Academy',
+     titulo: 'Academia Synergy',
      ruta: 'capacitacion',
      // icon: <SchoolIcon style={{fontSize: 70, color: '#fafafa'}}/>
      icon : <Icon style={{fontSize: 70, color: '#fafafa'}}>

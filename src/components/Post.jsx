@@ -81,12 +81,12 @@ export const Post = ({ post, azul }) => {
                   {azul ? 'Carpinteros de Calidad' : 'Instaladores de Calidad'}
                 </Button>
                 <p style={{ alignSelf: 'center' }}>
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores fugiat
+                  {azul ? '¿Requieres los servicios de un técnico especializado en carpintería?' : '¿Requieres los servicios de un técnico especializado en construcción en seco?'}
                 </p>
               </Paper>
               <Paper elevation={0} className={classes.sidebarAboutBox}>
                 <p style={{ alignSelf: 'center' }}>
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores fugiat
+                  {azul ? 'Forma parte del club del carpintero Synergy.' : 'Forma parte del club del instalador Synergy.'}
                 </p>
                 <Button variant="contained"
                   color={azul ? 'primary' : 'secondary'}
@@ -94,10 +94,13 @@ export const Post = ({ post, azul }) => {
                   onClick={
                     () => history.push('/home/formulario-preregistro')
                   }>
-                  Formulario de preregistro
+                  Formulario de pre registro
                 </Button>
               </Paper>
               <Paper elevation={0} className={classes.sidebarAboutBox}>
+              <p style={{ alignSelf: 'center' }}>
+                  {azul ? 'Realiza el cálculo referencial de materiales aquí.' : 'Realiza el cálculo referencial de materiales aquí.'}
+                </p>
                 <Button variant="outlined"
                   color={azul ? 'primary' : 'secondary'}
                   disableElevation
