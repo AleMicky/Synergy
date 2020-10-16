@@ -1,5 +1,5 @@
 import React from 'react'
-import { Backdrop, Card, CardActionArea, CardContent, CardMedia, CircularProgress, Grid, Typography } from '@material-ui/core';
+import { Backdrop, Card, CardActionArea, CardContent, CardMedia, CircularProgress, Container, Grid, Typography } from '@material-ui/core';
 import { useHistory } from "react-router-dom";
 import { map } from "lodash";
 import { Context } from '../../components/Context';
@@ -33,7 +33,11 @@ export const Home = () => {
             <div className={classes.root}>
                   <Carosel record={loading?noImg:data.filter(record => record.pagina === bandera)} />    
                   <h2 className={classes.titulo}>{`Soluciones para tus proyectos`}</h2>
-                          <Grid container>
+                  <Container className={classes.cardGrid} maxWidth="xl">
+                                <Grid container
+                                    justify="center"
+                                    alignItems="center"
+                                   >
                             {
                               map(azul?proyectoAzul:proyectoRojo, (proyecto, index) => (
                                 <Grid item key={index} xs={12} sm={6} md={3}>
@@ -55,6 +59,7 @@ export const Home = () => {
                               ))
                             }
                           </Grid>
+                          </Container>
                           <h2 className={classes.titulo}>
                             Innovamos
                           </h2>

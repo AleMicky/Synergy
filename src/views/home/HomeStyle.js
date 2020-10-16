@@ -19,7 +19,10 @@ export const useStyles = makeStyles((theme) => ({
     inovacion: {
       backgroundColor: '#FF0000'
     },
-  
+    cardGrid: {
+      paddingTop: theme.spacing(2),
+      paddingBottom: theme.spacing(8),
+  },
     inovacionAzul: {
       backgroundColor: '#0067b2'
     },
