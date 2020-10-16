@@ -48,7 +48,7 @@ export const Home = () => {
                                           />
                                           </CardActionArea>
                                             <CardContent  CardContent className={azul?classes.cardContentAzul:classes.cardContent}>
-                                            <Typography style={{color :'#fafafa'}} gutterBottom variant="h5" component="h2">
+                                            <Typography style={{color :'#fafafa'}} gutterBottom variant="h6" component="h2">
                                               {proyecto.titulo.toUpperCase()}
                                             </Typography>
                                           </CardContent>
