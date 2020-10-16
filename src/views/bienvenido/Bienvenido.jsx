@@ -50,21 +50,20 @@ export const Bienvenido = () => {
                 </Grid>
                 <Grid item xs={12} sm={6}>
                         <div className={classes.contendor}>
-                            <Button className={classes.useButton}
-                                    onClick={()=> handleContruccion()}>
-                                    MATERIAL DE CONTRUCCIÓN
-                            </Button>
-                        </div>
-                        
-                </Grid>
-                <Grid item xs={12} sm={6}>
-                        <div className={classes.contendor}>
                         <Button className={classes.useButton}
                                 onClick={()=> handleMadera()}>
-                               DIVISIÓN TABLEROS DE MADERA
+                               TABLEROS DE MADERA
                         </Button>
                         </div>
                 </Grid>
+                <Grid item xs={12} sm={6}>
+                        <div className={classes.contendor}>
+                            <Button className={classes.useButton}
+                                    onClick={()=> handleContruccion()}>
+                                    CONTRUCCIÓN EN SECO
+                            </Button>
+                        </div>                  
+                </Grid>              
             </Grid>
         </div>
 

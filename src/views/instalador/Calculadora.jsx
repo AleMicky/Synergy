@@ -211,7 +211,7 @@ export const Calculadora = () => {
                                                                 variant="h6"
                                                                 color="textPrimary"
                                                                 gutterBottom>
-                                                                Tamaño Tablero
+                                                                Tamaño
                                                                         </Typography>
                                                         </Grid>
                                                         <Grid item xs={12} sm={2}>
