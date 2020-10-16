@@ -85,16 +85,13 @@ export const Conocenos = () => {
                     return (
                         <div className={classes.root}>
                             <CssBaseline />
-                            <div className="animate__animated animate__bounceInUp animate__repeat-4">
                                 <Post post={mainFeaturedPost} azul={azul} />
-                            </div>
                             <Container className={classes.cardGrid} maxWidth="xl">
                                 <Grid container
                                     justify="center"
                                     alignItems="center"
                                    >
                                     <Grid item xs={12} sm={3} md={3}>
-                                        <div className="animate__animated animate__bounceInLeft animate__repeat-4">
                                             <Card className={classes.card}>
                                                 <CardActionArea onClick={() => hanlderNav('/home/capacitacion')}>
                                                     <CardMedia
@@ -109,7 +106,6 @@ export const Conocenos = () => {
                                                     </Typography>
                                                 </CardContent>
                                             </Card>
-                                        </div>
                                     </Grid>
                                     <Grid item xs={12} sm={3} md={3}>
                                         <Card className={classes.card}>
@@ -144,7 +140,6 @@ export const Conocenos = () => {
                                         </Card>
                                     </Grid>
                                     <Grid item xs={12} sm={3} md={3}>
-                                        <div className="animate__animated animate__bounceInLeft animate__repeat-4">
                                             <Card className={classes.card}>
                                                 <CardActionArea onClick={() => hanlderNav('/home/mi-tarjeta')}>
                                                     <CardMedia
@@ -159,7 +154,6 @@ export const Conocenos = () => {
                                                     </Typography>
                                                 </CardContent>
                                             </Card>
-                                        </div>
                                     </Grid>
                                 </Grid>
                             </Container>

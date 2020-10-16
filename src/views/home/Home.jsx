@@ -31,9 +31,7 @@ export const Home = () => {
           const bandera = azul ? 'Madera' : 'Construccion';
           return (
             <div className={classes.root}>
-                <div className="animate__animated animate__flipInX animate__repeat-4">
                   <Carosel record={loading?noImg:data.filter(record => record.pagina === bandera)} />    
-                </div>
                   <h2 className={classes.titulo}>{`Soluciones para tus proyectos`}</h2>
                           <Grid container>
                             {

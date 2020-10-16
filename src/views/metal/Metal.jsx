@@ -97,9 +97,7 @@ export const Metal = () => {
                             return (
 
                                     <React.Fragment>
-                                        <div className="animate__animated animate__bounceInUp animate__repeat-4">
                                             <Banner post={mainFeaturedPost2} />
-                                        </div>
                                         <Container className={classes.cardGrid} maxWidth="xl">
                                             <Tarjeta title="Metal"
                                                 description="Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatibus, explicabo omnis odit sint tempora esse, sed commodi ratione, architecto sapiente soluta asperiores veniam dolor debitis reiciendis perferendis quisquam. Sapiente, hic?"

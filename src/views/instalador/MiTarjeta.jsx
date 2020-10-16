@@ -51,9 +51,7 @@ export const MiTarjeta = () => {
     return (
         <div className={classes.root}>
             <CssBaseline />
-            <div className="animate__animated animate__bounceInUp animate__repeat-4">
                 <Banner post={mainFeaturedPost} />
-            </div>
             <Grid container>
                 <Grid item xs={12} >
                     <Timeline align="alternate">

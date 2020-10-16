@@ -60,7 +60,7 @@ export default function Layout({ children, window }) {
                                 <KeyboardArrowUpIcon />
                             </Fab>
                             </ScrollTop>
-                            <Footer sections={MenuAzul}/>
+                            <Footer sections={azul?MenuAzul:MenuRojo}/>
                         </div>
                     </React.Fragment>                
                     )

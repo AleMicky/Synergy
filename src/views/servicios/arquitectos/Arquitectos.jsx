@@ -47,9 +47,7 @@ export default function Arquitectos({handleOpen}) {
 
     return (
         <React.Fragment>
-            <div className="animate__animated animate__bounceInUp animate__repeat-4">
                 <Banner post={mainFeaturedPost} />
-            </div>
             <Container className={classes.cardGrid} maxWidth="xl">
               <Grid container >
                 {

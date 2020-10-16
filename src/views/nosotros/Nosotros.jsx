@@ -76,7 +76,6 @@ export const Nosotros = () => {
                 <Grid container>
                 <Container>
                 <Grid item xs={12} sm={12}>
-                        <div className="animate__animated animate__bounceInRight animate__repeat-4">
                             <Card className={classes.card}>
                                 <div className={classes.cardDetails}>
                                     <CardContent>
@@ -156,7 +155,6 @@ export const Nosotros = () => {
                                     </CardContent>
                                 </div>
                             </Card>
-                        </div>
                     </Grid>
 
                 </Container>
