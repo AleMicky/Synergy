@@ -23,13 +23,15 @@ export  const useStyles = makeStyles((theme) => ({
     bottom: 20,
     right: 'auto',
     position: 'fixed',
+    height:60, 
+    width:60
   },
   imageIcon: {
     height: '100%'
   },
   iconRoot: {
     textAlign: 'center',
-    height:30, 
-    width:30
+    height:40, 
+    width:40
   }
 }));

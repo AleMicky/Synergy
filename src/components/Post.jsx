@@ -99,7 +99,7 @@ export const Post = ({ post, azul }) => {
               </Paper>
               <Paper elevation={0} className={classes.sidebarAboutBox}>
               <p style={{ alignSelf: 'center' }}>
-                  {azul ? 'Realiza el cálculo referencial de materiales aquí Medidas Estándar: 1.24 x 2.75 Revisar catalogo poner medidas por Proveeedor.' : 'Realiza el cálculo referencial de materiales aquí.'}
+                  {azul ? 'Realiza el cálculo referencial de materiales aquí.' : 'Realiza el cálculo referencial de materiales aquí.'}
                 </p>
                 <Button variant="outlined"
                   color={azul ? 'primary' : 'secondary'}
