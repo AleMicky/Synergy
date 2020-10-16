@@ -30,7 +30,7 @@ export default function ButtoActive({tabAzul, tabAzulOut, azul}) {
                     color={color ? 'inherit':'primary'}
                     style={{width: 110}}
                     size="small"
-                    onClick={handleMadera}>Carpinteria</Button>
+                    onClick={handleMadera}>Madera</Button>
         </ButtonGroup>
     )
 }

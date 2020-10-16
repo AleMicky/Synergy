@@ -77,7 +77,7 @@ export const MenuAzul = [
         url: '/home/productos'
     },
     { 
-        title: 'Moviliarios Especializados', 
+        title: 'Mobiliarios Especializados', 
         url: '/home/servicios',
     },
     { 

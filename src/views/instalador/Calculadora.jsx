@@ -168,7 +168,7 @@ export const Calculadora = () => {
                                             <Banner post={mainFeaturedPost2} />
                                         <Container className={classes.cardGrid} maxWidth="xl">
                                             <Tarjeta title="Calculadora"
-                                                description="Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatibus, explicabo omnis odit sint tempora esse, sed commodi ratione, architecto sapiente soluta asperiores veniam dolor debitis reiciendis perferendis quisquam. Sapiente, hic?"
+                                                description="Realiza el despiece de tu tablero"
                                                 image="https://source.unsplash.com/random"
                                                 imageTitle="Image Text" />
                                             <Container maxWidth="md">
