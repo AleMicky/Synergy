@@ -50,7 +50,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 export const Post = ({ post, azul }) => {
     let history = useHistory();
-
+    // console.log(post);
     const classes = useStyles();
  
     return (

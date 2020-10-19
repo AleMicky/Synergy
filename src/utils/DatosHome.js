@@ -17,10 +17,10 @@ import Inicio2 from '../assets/home/rojo3.jpg';
 import Inicio3 from '../assets/home/rojo2.jpg';
 import Inicio4 from '../assets/home/rojo4.jpg';
 
-import azul1 from '../assets/home/azul1.jpeg';
-import azul2 from '../assets/home/azul2.jpeg';
-import azul3 from '../assets/home/azul3.jpeg';
-import azul4 from '../assets/home/azul4.jpeg';
+import azul1 from '../assets/home/azul1.jpg';
+import azul2 from '../assets/home/azul2.jpg';
+import azul3 from '../assets/home/azul3.jpg';
+import azul4 from '../assets/home/azul4.jpg';
 
 import icolog1 from '../assets/sinex/Iconos-01.svg';
 import icolog2 from '../assets/sinex/Iconos-02.svg';
