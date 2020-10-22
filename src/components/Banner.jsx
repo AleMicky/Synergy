@@ -6,8 +6,11 @@ const useStyles = makeStyles((theme) => ({
       position: 'relative',
       backgroundColor: theme.palette.grey[800],
       color: theme.palette.common.white,
-      height:600,
-      // marginBottom: theme.spacing(1),
+      height: 'auto',
+      maxWidth: '100%', 
+      [theme.breakpoints.up('md')]: {
+        height: 600,
+      },
       backgroundImage: 'url(https://source.unsplash.com/random)',
       backgroundSize: 'cover',
       backgroundRepeat: 'no-repeat',
@@ -34,8 +37,7 @@ export const Banner = ({ post }) => {
     const classes = useStyles();
     return (
         <Paper className={classes.mainFeaturedPost} style={{ backgroundImage: `url(${post.image})` }}>
-        {/* Increase the priority of the hero background image */}
-        {<img style={{ display: 'none' }} src={post.image} alt={post.imageText} />}
+        {<img style={{ display: 'none'}} src={post.image} alt={post.imageText} />}
         <div className={classes.overlay} />
         <Grid container>
           <Grid item md={6}>
