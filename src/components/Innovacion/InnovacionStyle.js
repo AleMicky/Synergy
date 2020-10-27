@@ -5,9 +5,10 @@ export const useStyles = makeStyles((theme) => ({
         display: 'flex',
         justifyContent: 'center',
         flexDirection: 'column',
-         margin: 10,
+        // margin: 10,
         maxWidth: 200,
-        minHeight: '40vh'
+        minHeight: '40vh',
+        // backgroundColor:'#0C0B0B'
     },
     icono:{
         fontSize: 70, 

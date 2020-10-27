@@ -63,22 +63,21 @@ export const Home = () => {
                           <h2 className={classes.titulo}>
                             Innovamos
                           </h2>
-                    <Grid container className={ azul?classes.inovacionAzul: classes.inovacion}>
-             
-                        {
-                          map(azul?innovamoAzul:innovamoRojo, (innovamo, index) => (
-
-                            <Grid item key={index} xs={12} sm={6} md={3}>
-                                <Innovacion titulo={innovamo.titulo} 
-                                            icon={innovamo.icon}
-                                            handleOpen={() => handleOpen(innovamo.ruta)}/>
-                            </Grid>
-                          ))
-                        }
-               
-                
-              </Grid>
-            
+                          <Grid container
+                                direction="row"
+                                justify="space-around"
+                                alignItems="center"
+                               className={ azul?classes.inovacionAzul: classes.inovacion}>
+                          { 
+                            map(azul?innovamoAzul:innovamoRojo, (innovamo, index) => (
+                              <Grid item  xs={12} sm={6} md={2} key={index}>
+                                  <Innovacion titulo={innovamo.titulo} 
+                                              icon={innovamo.icon}
+                                              handleOpen={() => handleOpen(innovamo.ruta)}/>
+                              </Grid>
+                            ))
+                          }
+                        </Grid>
               <Backdrop className={classes.backdrop} open={loading}>
                <CircularProgress color="secondary" />
             </Backdrop>
