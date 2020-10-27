@@ -1,6 +1,9 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { makeStyles, CssBaseline, Grid, createMuiTheme, Container, Card, CardContent, Typography } from '@material-ui/core';
-import { BennerVideo } from '../../components/BennerVideo';
+// import { BennerVideo } from '../../components/BennerVideo';
+import { useFetch } from '../../hooks/useFetch';
+import { apiImg, apiURL } from '../../config';
+import VideoBanner from '../../components/VideoBanner/VideoBanner';
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -67,12 +70,24 @@ theme.typography.h6 = {
 
 export const Nosotros = () => {
     const classes = useStyles();
-
+    const { loading, data } = useFetch(`${apiURL}nosotros`);
+    const [link, setLink] = useState(''); 
+    useEffect(() => {
+        if(!loading){
+            setLink(data? apiImg + data[0].video.url:'https://res.cloudinary.com/dkepyautb/video/upload/v1595337621/MUESTRA_VIDEO_1.mp4')
+        }
+    }, [loading,data])
     return (
         <div className={classes.root}>
             <CssBaseline />
             <Container maxWidth="xl">
-                <BennerVideo/>
+            {
+                        loading?(
+                            <h2>loading</h2>
+                        ):(
+                            <VideoBanner url={link}/>
+                        )
+                    }
                 <Grid container>
                 <Container>
                 <Grid item xs={12} sm={12}>

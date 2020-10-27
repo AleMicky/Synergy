@@ -1,21 +1,21 @@
 import React from 'react';
-import { AppBar, Box, Container, Tab, Tabs, useTheme } from '@material-ui/core';
+import { AppBar, Box, Container, Tab, Tabs, useMediaQuery, useTheme } from '@material-ui/core';
 import SwipeableViews from 'react-swipeable-views';
 
 
 function a11yProps(index) {
     return {
-        id: `full-width-tab-${index}`,
-        'aria-controls': `full-width-tabpanel-${index}`,
-    };
+        id: `scrollable-force-tab-${index}`,
+        'aria-controls': `scrollable-force-tabpanel-${index}`,
+      };
 }
 export function TabPanel({ children, value, index, ...other }) {
     return (
         <div
             role="tabpanel"
             hidden={value !== index}
-            id={`full-width-tabpanel-${index}`}
-            aria-labelledby={`full-width-tab-${index}`}
+            id={`scrollable-force-tabpanel-${index}`}
+            aria-labelledby={`scrollable-force-tab-${index}`}
             {...other}
         >
             {value === index && (
@@ -29,8 +29,11 @@ export function TabPanel({ children, value, index, ...other }) {
     );
 }
 export function TabsComponent({titulo, value, handleChange, handleChangeIndex,color, children}) {
-
+    /// fullWidth
     const theme = useTheme();
+
+    const matches = useMediaQuery(theme.breakpoints.up('lg'))
+
     return (
         <React.Fragment>
             <AppBar position="static" color="default">
@@ -38,8 +41,10 @@ export function TabsComponent({titulo, value, handleChange, handleChangeIndex,co
                                 value={value}
                                 onChange={handleChange}
                                 indicatorColor={color}
-                                textColor={color}
-                                variant="fullWidth">
+                                textColor={color} 
+                                variant= {matches?'fullWidth':'scrollable'}
+                                scrollButtons="on"
+                                aria-label="scrollable force tabs example">
                                 {
                                     titulo.map((value, index) => {
                                         return (
