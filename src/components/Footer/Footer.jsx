@@ -28,7 +28,8 @@ export default function Footer({sections}) {
                                             className={classes.seccion}>
                                             <Link
                                                 onClick={()=> halderNavegacion(value.url)}
-                                                className={classes.text}>
+                                                className={classes.text}
+                                                color="inherit">
                                                 {value.title}
                                             </Link> 
                                         </li>
@@ -45,7 +46,8 @@ export default function Footer({sections}) {
                     <Container maxWidth="xl" >
                         <div className={classes.asistencia}>
                             <Link href="/home/contacto"
-                                className={classes.text}>
+                                className={classes.text}
+                                color="inherit">
                                 {'Asistencia Tecnica '}
                             </Link>
                         </div>

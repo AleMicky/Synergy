@@ -57,10 +57,10 @@ export const MenuRojo = [
         title: 'Contactos', 
         url: '/home/contacto',
     },
-    // { 
-    //     title: 'Metal', 
-    //     url: '/home/metal',
-    // },
+    { 
+        title: 'Fabrica', 
+        url: '/home/fabrica',
+    },
 ];
 
 export const MenuAzul = [

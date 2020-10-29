@@ -107,7 +107,7 @@ export default function Madera({handleOpen}) {
                                         aria-controls="panel1bh-content"
                                         id="panel1bh-header"
                                         >
-                                        <Typography className={classes.heading}>Experiencias </Typography>
+                                        <Typography className={classes.heading}>Sistemas Constructivos </Typography>
                                         </AccordionSummary>
                                         <AccordionDetails>
                                         <List className={classes.root}>
