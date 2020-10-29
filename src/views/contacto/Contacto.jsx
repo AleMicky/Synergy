@@ -250,7 +250,7 @@ export const Contacto = () => {
                         <h2 className={classes.titulo}>
                                         Formulario de contacto
                                     </h2>
-                            <Grid container>
+                            <Grid container spacing={0}>
 
                                 
                             <Grid item xs={12} sm={6}>

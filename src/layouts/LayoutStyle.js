@@ -31,7 +31,7 @@ export  const useStyles = makeStyles((theme) => ({
   },
   iconRoot: {
     textAlign: 'center',
-    height:40, 
-    width:40
+    height:60, 
+    width:60
   }
 }));

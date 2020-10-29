@@ -58,8 +58,8 @@ export const MenuRojo = [
         url: '/home/contacto',
     },
     { 
-        title: 'Metal', 
-        url: '/home/metal',
+        title: 'Fabrica', 
+        url: '/home/fabrica',
     },
 ];
 
@@ -88,8 +88,8 @@ export const MenuAzul = [
         title: 'Contactos', 
         url: '/home/contacto',
     },
-    { 
-        title: 'Metal', 
-        url: '/home/metal',
-    },
+    // { 
+    //     title: 'Metal', 
+    //     url: '/home/metal',
+    // },
 ];

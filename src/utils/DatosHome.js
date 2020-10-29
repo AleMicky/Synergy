@@ -70,7 +70,7 @@ export const caroselRojo = [
           ruta: 'servicios'
       },
     {
-        titulo: 'Instladores de calidad',
+        titulo: 'Instaladores de calidad',
         imagen: Inicio3,
         ruta: 'pizarra-digital'
     },
