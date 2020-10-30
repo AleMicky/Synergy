@@ -81,8 +81,8 @@ const useStyles = makeStyles((theme) => ({
     th: {
         padding: 10, 
         textAlign:'left',
-        border: 1,
-        borderBottom: '1px solid black'
+        // border: 1,
+        border: '1px solid black'
     }
 }));
 
@@ -173,7 +173,7 @@ export const Contenido = () => {
                 <div style={{margin:15}}>
                                 <table style={{width:'100%', borderCollapse: 'collapse'}}>
                                     <tr>
-                                        <th className={classes.th}>CÓDIGO:</th>
+                                        <th className={classes.th} style={{width:'1%'}}>CÓDIGO:</th>
                                         <th className={classes.th}>{codigo}</th>
                                     </tr>
                                     <tr>
