@@ -41,12 +41,12 @@ export const useStyles = makeStyles((theme) => ({
       },
       [theme.breakpoints.up('md')]: {
         display: 'flex',
-        justifyContent: 'center',
+        justifyContent: 'space-between',
         overflowX: 'auto',
       },
       [theme.breakpoints.up('lg')]: {
         display: 'flex',
-        justifyContent: 'center',
+        justifyContent: 'space-between',
         overflowX: 'auto',
       },
     },

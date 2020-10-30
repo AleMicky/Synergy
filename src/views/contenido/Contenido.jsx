@@ -78,6 +78,11 @@ const useStyles = makeStyles((theme) => ({
         backgroundPosition: 'center',
         color: theme.palette.text.secondary,
     },
+    th: {
+        padding: 10, 
+        textAlign:'left',
+         border: '1px solid black'
+    }
 }));
 
 
@@ -165,7 +170,36 @@ export const Contenido = () => {
                 </Grid>
                 <Grid item xs={12} md={6}> 
                 <div style={{margin:15}}>
-                            <b>CÓDIGO:</b> {codigo}
+                                <table style={{width:'100%', border: '1px solid black', borderCollapse: 'collapse'}}>
+                                    <tr>
+                                        <th className={classes.th} style={{width:'50%'}}>CÓDIGO</th>
+                                        <th className={classes.th}>{codigo}</th>
+                                    </tr>
+                                    <tr>
+                                        <th className={classes.th}>NOMBRE</th>
+                                        <th className={classes.th}>{titulo}</th>
+                                    </tr>
+                                    <tr>
+                                        <th className={classes.th}>MEDIDAS</th>
+                                        <th className={classes.th}>{medida}</th>
+                                    </tr>
+                                    <tr>
+                                        <th className={classes.th}>DESCRIPCIÓN</th>
+                                        <th className={classes.th}>{descripcion}</th>
+                                    </tr>
+                                    <tr>
+                                        <th className={classes.th}>PROYECTOS EN LOS QUE SE UTILIZO ESTE MATERIAL</th>
+                                        <th className={classes.th}>
+                                        <h3><Link href="https://synerx.com.bo/"target="_blank" >
+                                                                                <img className={classes.logotipo}
+                                                                                        src={require('../../assets/ayn.png')}
+                                                                                        alt='logotipo' /> 
+                                                                            </Link></h3>  
+                                        </th>
+                                    </tr>
+                                </table>
+
+                            {/* <b>CÓDIGO:</b> 
                             <hr/>
                             <h4>NOMBRE: {titulo}</h4> 
                             <hr/>
@@ -178,10 +212,8 @@ export const Contenido = () => {
                                                                                 <img className={classes.logotipo}
                                                                                         src={require('../../assets/ayn.png')}
                                                                                         alt='logotipo' /> 
-                                                                            </Link></h3>                                                
-                            {/* <Link>
-                                Lorem, ipsum dolor sit amet consectetur
-                           </Link> */}
+                                                                            </Link></h3>                                                 */}
+            
                         </div>
                 </Grid>
              </Grid>

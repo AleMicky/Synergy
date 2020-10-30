@@ -25,7 +25,11 @@ const useStyles = makeStyles((theme) => ({
         [theme.breakpoints.up('sm')]: {
           fontSize: 35
         },
-      }
+    },
+    listText:{
+        textAlign: 'center'
+    }
+      
 }));
 
 // const mainFeaturedPost = {
@@ -214,68 +218,58 @@ export const Contacto = () => {
                                     }
                                 ].map((t, i) => {
                                     return(
-                                        <TabPanel   key={i} 
-                                                    value={value}
-                                                    index={i}
-                                                    dir={theme.direction}>
-                                                    {
-                                                       t.oficina.map((lugar, index) => {
+                                        <TabPanel key={i}
+                                            value={value}
+                                            index={i}
+                                            dir={theme.direction}>
+                                            {
+                                                t.oficina.map((lugar, index) => {
 
-                                                        return (
-                                                            <ListItem key={index}>
+                                                    return (
+                                                        <ListItem key={index}>
+
                                                             <ListItemText className={classes.listText}
-                                                                          primary={lugar.nombre}
-                                                                          secondary={`Telf.: ${lugar.telefono}`}/>
-                                                              <IconButton aria-label="ubicacion"
-                                                                          color={azul?'primary':'secondary'}
-                                                                        //   onClick={() => alert('url')}
-                                                                          onClick={handleClickMap}
-                                                                          >
-                                                                    <PlaceIcon />
-                                                             </IconButton>
+                                                                primary={lugar.nombre}
+                                                                secondary={`Telf.: ${lugar.telefono}`} />
+
+                                                            <IconButton aria-label="ubicacion"
+                                                                color={azul ? 'primary' : 'secondary'}
+                                                                onClick={handleClickMap}
+                                                            >
+                                                                <PlaceIcon />
+                                                            </IconButton>
+
                                                         </ListItem>
-                                                        )
-                                                       })
-                                                    }
+                                                    )
+                                                })
+                                            }
                                         </TabPanel>
                                     )
-                            })
-                            }
-                        </TabsComponent>
-                        </Grid>
-                        
-                        </Grid>
-                        <Divider />
-                    
-                        <h2 className={classes.titulo}>
-                                        Formulario de contacto
-                                    </h2>
-                            <Grid container spacing={0}>
+                                })
+                                        }
+                                    </TabsComponent>
+                                </Grid>
 
-                                
-                            <Grid item xs={12} sm={6}>
-
-                                <div className={classes.paper}>
-                                
-                                    <FormContacto  handleClick = {handleClick} setMensajes = {setMensajes}azul = {azul}/>
-                                </div>
                             </Grid>
-                            <Grid item xs={12} sm={6}>
-
-                                <div className={classes.paper}>
-                                    <img style={{height:400}} src={ImagenFormContacto} alt='contactos'/>
-                                </div>
+                            <Divider />
+                            <h2 className={classes.titulo}>
+                                Formulario de contacto
+                                    </h2>
+                            <Grid container
+                                  direction="row"
+                                  justify="center"
+                                  alignItems="center">
+                                <Grid item xs={12} sm={6} style={{display:'flex', justifyContent:'flex-end'}}>
+                                    <FormContacto handleClick={handleClick} setMensajes={setMensajes} azul={azul} />
+                                </Grid>
+                                <Grid item xs={12} sm={6} style={{display:'flex', justifyContent:'flex-start'}}>
+                                    <img style={{ height: 400 }} src={ImagenFormContacto} alt='contactos' />
                                 </Grid>
                             </Grid>
-
-
-
-
-
-                        <SimpleSnackbar open = {open}
-                            handleClose = {handleClose}
-                            mensaje ={mensajes}/>
-                    </div>
+                            <SimpleSnackbar open={open}
+                                handleClose={handleClose}
+                                mensaje={mensajes} />
+                        </div>
                     )
                 }
             }

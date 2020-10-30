@@ -1,6 +1,6 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import { Grid, Container, Card, CardActionArea, CardMedia } from '@material-ui/core';
+import { Grid, Container, Card, CardActionArea, CardMedia, CardContent, Typography } from '@material-ui/core';
 import { useFetch } from '../../../../hooks/useFetch';
 import { apiImg, apiURL } from '../../../../config';
 
@@ -16,7 +16,9 @@ const useStyles = makeStyles((theme) => ({
       paddingTop: theme.spacing(2),
       paddingBottom: theme.spacing(2),
     },
-
+    cardContent: {
+      flexGrow: 1,
+    }
 }));
 
 export const DetalleFicha = ({pagina}) => {
@@ -24,7 +26,6 @@ export const DetalleFicha = ({pagina}) => {
   const classes = useStyles();
   
   const { loading, data } = useFetch(`${apiURL}fichas-tecnicas`);
-
   const handleDescargar = (e, url) => {
     e.preventDefault();
     window.open(url, '_blank');   
@@ -48,6 +49,11 @@ export const DetalleFicha = ({pagina}) => {
                     image={apiImg + value.portada.url}
                     title={value.nombre}
                   />
+                    <CardContent className={classes.cardContent}>
+                      <Typography gutterBottom variant="h5" component="h2">
+                        {value.nombre}
+                      </Typography>
+                    </CardContent>
                 </CardActionArea>
               </Card>
           </Grid>

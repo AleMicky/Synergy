@@ -78,6 +78,7 @@ export default function Header({menuSeccion, handleDrawerToggle, azul}) {
                    
                 </Toolbar>
                 <Toolbar component="nav" variant="dense" className={classes.toolbarSecondary}>
+                  <div>
                 {
                     map(menuSeccion, (menu, index) => {
                     if(menu.submenu === undefined ){
@@ -116,9 +117,13 @@ export default function Header({menuSeccion, handleDrawerToggle, azul}) {
                     }
                     })
                  }
+                 </div>
+                 <div>
                  <ButtoActive tabAzul = {tabAzul}
                               tabAzulOut = {tabAzulOut}
                               azul={azul} />
+                 </div>
+               
                 </Toolbar>
             </AppBar>
             <Toolbar id="back-to-top-anchor" />
