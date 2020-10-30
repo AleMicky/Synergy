@@ -21,7 +21,12 @@ export const Home = () => {
   const { loading, data } = useFetch(`${apiURL}carosels`);
 
   const handleOpen = (url) => {
-    history.push(`/home/${url}`);
+
+     if(url.includes('https')){
+      window.open(url, '_blank');   
+     }else{
+      history.push(`/home/${url}`);
+     }
   };
 
   return (

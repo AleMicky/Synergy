@@ -77,7 +77,7 @@ export const caroselRojo = [
     {
         titulo: 'Compras online',
         imagen: Inicio4,
-        ruta: 'contacto'
+        ruta: 'https://www.goboxapp.com/'
     }
  ];
 
@@ -100,7 +100,7 @@ export const caroselRojo = [
  {
      titulo: 'Compras online',
      imagen: azul4,
-     ruta: 'contacto'
+     ruta: 'https://www.goboxapp.com/'
  }
 ];
 
