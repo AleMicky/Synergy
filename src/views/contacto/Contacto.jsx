@@ -260,15 +260,18 @@ export const Contacto = () => {
                                   justify="center"
                                   alignItems="center">
                                 <Grid item xs={12} sm={6} style={{display:'flex', justifyContent:'flex-end'}}>
+                                   
                                     <FormContacto handleClick={handleClick} setMensajes={setMensajes} azul={azul} />
                                 </Grid>
-                                <Grid item xs={12} sm={6} style={{display:'flex', justifyContent:'flex-start'}}>
-                                    <img style={{ height: 400 }} src={ImagenFormContacto} alt='contactos' />
+                                <Grid item xs={12} sm={6} >
+                                    <div style={{margin: 15}}>
+                                        <img style={{ height: 460 }} src={ImagenFormContacto} alt='contactos' />
+                                    </div>                                  
                                 </Grid>
                             </Grid>
                             <SimpleSnackbar open={open}
-                                handleClose={handleClose}
-                                mensaje={mensajes} />
+                                            handleClose={handleClose}
+                                            mensaje={mensajes} />
                         </div>
                     )
                 }

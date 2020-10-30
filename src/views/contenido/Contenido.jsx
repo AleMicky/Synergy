@@ -81,7 +81,8 @@ const useStyles = makeStyles((theme) => ({
     th: {
         padding: 10, 
         textAlign:'left',
-         border: '1px solid black'
+        border: 1,
+        borderBottom: '1px solid black'
     }
 }));
 
@@ -170,107 +171,37 @@ export const Contenido = () => {
                 </Grid>
                 <Grid item xs={12} md={6}> 
                 <div style={{margin:15}}>
-                                <table style={{width:'100%', border: '1px solid black', borderCollapse: 'collapse'}}>
+                                <table style={{width:'100%', borderCollapse: 'collapse'}}>
                                     <tr>
-                                        <th className={classes.th} style={{width:'50%'}}>CÓDIGO</th>
+                                        <th className={classes.th}>CÓDIGO:</th>
                                         <th className={classes.th}>{codigo}</th>
                                     </tr>
                                     <tr>
-                                        <th className={classes.th}>NOMBRE</th>
+                                        <th className={classes.th}>NOMBRE:</th>
                                         <th className={classes.th}>{titulo}</th>
                                     </tr>
                                     <tr>
-                                        <th className={classes.th}>MEDIDAS</th>
+                                        <th className={classes.th}>MEDIDAS:</th>
                                         <th className={classes.th}>{medida}</th>
                                     </tr>
                                     <tr>
-                                        <th className={classes.th}>DESCRIPCIÓN</th>
+                                        <th className={classes.th}>DESCRIPCIÓN:</th>
                                         <th className={classes.th}>{descripcion}</th>
                                     </tr>
                                     <tr>
-                                        <th className={classes.th}>PROYECTOS EN LOS QUE SE UTILIZO ESTE MATERIAL</th>
-                                        <th className={classes.th}>
-                                        <h3><Link href="https://synerx.com.bo/"target="_blank" >
+                                        <th colSpan="2" className={classes.th}>PROYECTOS EN LOS QUE SE UTILIZO ESTE MATERIAL</th>
+                                    </tr>
+                                </table>
+                                <h3><Link href="https://synerx.com.bo/"target="_blank" >
                                                                                 <img className={classes.logotipo}
                                                                                         src={require('../../assets/ayn.png')}
                                                                                         alt='logotipo' /> 
                                                                             </Link></h3>  
-                                        </th>
-                                    </tr>
-                                </table>
-
-                            {/* <b>CÓDIGO:</b> 
-                            <hr/>
-                            <h4>NOMBRE: {titulo}</h4> 
-                            <hr/>
-                            <b>MEDIDAS:</b> {medida}
-                            <hr/>
-                            <h4>DESCRIPCIÓN: {descripcion}</h4>
-                            <hr/>
-                            <h4>PROYECTOS EN LOS QUE SE UTILIZO ESTE MATERIAL:</h4>
-                            <h3><Link href="https://synerx.com.bo/"target="_blank" >
-                                                                                <img className={classes.logotipo}
-                                                                                        src={require('../../assets/ayn.png')}
-                                                                                        alt='logotipo' /> 
-                                                                            </Link></h3>                                                 */}
-            
+                                
                         </div>
                 </Grid>
              </Grid>
-                  
-                
-             </div>
-            {/* <CssBaseline />
-            <div className={classes.contenido}>
-                <Grid container>
-                    <Grid item xs={12} md={6}>
-                        {
-                            loading?(
-                                <h1>loading</h1>
-                            ):( 
-                        }
-                       
-                    </Grid>
-                    <Grid item xs={12} md={6}>
-                        <div style={{margin:15}}>
-                            <h3>Codigo: {codigo}</h3>
-                            <h3>Nombre: {titulo}</h3>
-                            <h3>Medidas: {medida}</h3>
-                            <h3><b>Descripcion:</b>{descripcion}</h3>
-                            <h3>Proyectos en lo que se utilizo estos materiales:</h3>
-                            <h3><Link href="https://synerx.com.bo/"
-                                                                                            target="_blank"
-                                                                                            >
-                                                                                <img className={classes.logotipo}
-                                                                                        src={require('../../assets/ayn.png')}
-                                                                                        alt='logotipo' /> 
-                                                                            </Link></h3>                                                
-                            <Link href="#" onClick={handleOpen}>
-                                Lorem, ipsum dolor sit amet consectetur
-                                
-                           </Link>
-                           
-                            <Modal
-                                aria-labelledby="transition-modal-title"
-                                aria-describedby="transition-modal-description"
-                                className={classes.modal}
-                                open={open}
-                                onClose={handleClose}
-                                closeAfterTransition
-                                BackdropComponent={Backdrop}
-                                BackdropProps={{
-                                    timeout: 500,
-                                }}
-                            >
-                                <Fade in={open}>
-                                  
-                                    <Swipeable />           
-                                </Fade>
-                            </Modal>
-                        </div>
-                    </Grid>
-                </Grid>
-            </div> */}
+            </div>
         </div>
     );
 };
