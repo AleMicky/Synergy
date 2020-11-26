@@ -9,34 +9,38 @@ export const ReporteMadera = ({ resultado, m2Azul, operacion,tipo }) => {
     return (
         <Document>
             <Page style={styles.body}>
-                <Image style={styles.image}
-                    src={logo} />
-                <Text style={styles.title}>Hoja de Cálculo por Rendimiento {titulo(tipo)}</Text>
+            <View style={{display:'flex', 
+                              justifyContent: 'center', 
+                              alignItems:'center',
+                              margin: 10}}>
+                    <Image style={{width: 170, height: 70,}} src={logo}/>
+                    <Text>Hoja de Cálculo por Rendimiento {titulo(tipo)}</Text>
+                </View>          
                 <View style={styles.tbl}>
                     <View style={styles.row}>
-                        <View style={styles.cell}>
-                            <Text style={styles.titulo}>Cantidad</Text>
+                        <View style={styles.colore}>
+                            <Text style={styles.subtitulo}>Cantidad</Text>
                         </View>
-                        <View style={styles.cell}>
-                            <Text style={styles.titulo}>Largo Cm(Veta)</Text>
+                        <View style={styles.colore}>
+                            <Text style={styles.subtitulo}>Largo Cm(Veta)</Text>
                         </View>
-                        <View style={styles.cell}>
-                            <Text style={styles.titulo}>Ancho Cm</Text>
+                        <View style={styles.colore}>
+                            <Text style={styles.subtitulo}>Ancho Cm</Text>
                         </View>
-                        <View style={styles.cell}>
-                            <Text style={styles.titulo}>Tap. Largo</Text>
+                        <View style={styles.colore}>
+                            <Text style={styles.subtitulo}>Tap. Largo</Text>
                         </View>
-                        <View style={styles.cell}>
-                            <Text style={styles.titulo}>Tap. Ancho</Text>
+                        <View style={styles.colore}>
+                            <Text style={styles.subtitulo}>Tap. Ancho</Text>
                         </View>
-                        <View style={styles.cell}>
-                            <Text style={styles.titulo}>Mts Tapacanto</Text>
+                        <View style={styles.colore}>
+                            <Text style={styles.subtitulo}>Mts Tapacanto</Text>
                         </View>
-                        <View style={styles.cell}>
-                            <Text style={styles.titulo}>Total Mts Tapacanto</Text>
+                        <View style={styles.colore}>
+                            <Text style={styles.subtitulo}>Total Mts Tapacanto</Text>
                         </View>
-                        <View style={styles.cell}>
-                            <Text style={styles.titulo}>M2</Text>
+                        <View style={styles.colore}>
+                            <Text style={styles.subtitulo}>M2</Text>
                         </View>
                     </View>
                     {
@@ -105,6 +109,18 @@ const styles = StyleSheet.create({
         fontSize: 15,
         textAlign: 'center',
         marginBottom: 25
+    },
+    colore:{
+        backgroundColor: '#0067b2',
+        flex: '4',
+        borderStyle: "solid", 
+        borderWidth: 1,
+    },
+    subtitulo: {
+        fontSize: 12,
+        color: '#FFFFFF',
+        textAlign: 'center',
+        fontWeight: 'bold'
     },
     tbl: {
         display: 'table',

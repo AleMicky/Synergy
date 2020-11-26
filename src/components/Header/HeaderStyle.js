@@ -36,6 +36,8 @@ export const useStyles = makeStyles((theme) => ({
     },
     toolbarSecondary: {
        display: 'none',
+       marginLeft : 20,
+       marginRight : 20,
       [theme.breakpoints.up('sm')]: {
         display: 'none',
       },

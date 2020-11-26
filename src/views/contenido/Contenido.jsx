@@ -82,8 +82,20 @@ const useStyles = makeStyles((theme) => ({
         padding: 10, 
         textAlign:'left',
         // border: 1,
-        border: '1px solid black'
-    }
+        //border: '1px solid black'
+    },
+    final: {
+        padding: 10, 
+        textAlign:'left',
+        // border: 1,
+       // borderBottom: '1px solid black'
+    },
+    proyecto: {
+        padding: 10, 
+        textAlign:'right',
+        // border: 1,
+        //border: '1px solid black'
+    },
 }));
 
 
@@ -124,15 +136,6 @@ export const Contenido = () => {
         setMedida(m);
         setDescripcion(d);
     }
-
-
-    // const [open, setOpen] = React.useState(false);
-    // const handleOpen = () => {
-    //     setOpen(true);
-    // };
-    // const handleClose = () => {
-    //     setOpen(false);
-    // };
     return (
         <div className={classes.root}>
              <CssBaseline />
@@ -185,19 +188,26 @@ export const Contenido = () => {
                                         <th className={classes.th}>{medida}</th>
                                     </tr>
                                     <tr>
-                                        <th className={classes.th}>DESCRIPCIÓN:</th>
-                                        <th className={classes.th}>{descripcion}</th>
+                                        <th className={classes.final}>DESCRIPCIÓN:</th>
+                                        <th className={classes.final}>{descripcion}</th>
                                     </tr>
-                                    <tr>
-                                        <th colSpan="2" className={classes.th}>PROYECTOS EN LOS QUE SE UTILIZO ESTE MATERIAL</th>
-                                    </tr>
+                                
                                 </table>
-                                <h3><Link href="https://synerx.com.bo/"target="_blank" >
+                               <div style={{
+                                            borderTop: '1px solid black', 
+                                            display: 'flex',
+                                            justifyContent :"flex-end"
+                                            
+                                            }}>
+                                        
+                                             <h3 style={{marginRight:10, marginTop:20}}>VISITA PROYECTOS:</h3>
+                                              <h3 style={{marginRight:10}}><Link href="https://synerx.com.bo/"target="_blank" >
                                                                                 <img className={classes.logotipo}
                                                                                         src={require('../../assets/ayn.png')}
                                                                                         alt='logotipo' /> 
                                                                             </Link></h3>  
-                                
+                                        
+                               </div>
                         </div>
                 </Grid>
              </Grid>

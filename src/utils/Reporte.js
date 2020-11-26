@@ -9,28 +9,32 @@ export const Reporte = ({ resultado, total, tipo, m2 }) => {
     return (
         <Document>
             <Page style={styles.body}>
-                <Image style={styles.image}
-                    src={logo} />
-                <Text style={styles.title}>Hoja de Cálculo por Rendimiento {titulo(tipo)}</Text>
+                <View style={{display:'flex', 
+                              justifyContent: 'center', 
+                              alignItems:'center',
+                              margin: 10}}>
+                    <Image style={{width: 170, height: 70,}} src={logo}/>
+                    <Text>Hoja de Cálculo por Rendimiento {titulo(tipo)}</Text>
+                </View>               
                 <View style={styles.tbl}>
                     <View style={styles.row}>
                         <View style={styles.cell}>
-                            <Text style={styles.titulo}>Item</Text>
+                            <Text style={styles.subtitulo}>Item</Text>
                         </View>
                         <View style={styles.cell}>
-                            <Text style={styles.titulo}>Descripcion</Text>
+                            <Text style={styles.subtitulo}>Descripcion</Text>
                         </View>
                         <View style={styles.cell}>
-                            <Text style={styles.titulo}>Unidad</Text>
+                            <Text style={styles.subtitulo}>Unidad</Text>
                         </View>
                         <View style={styles.cell}>
-                            <Text style={styles.titulo}>Cantidad</Text>
+                            <Text style={styles.subtitulo}>Cantidad</Text>
                         </View>
                         <View style={styles.cell}>
-                            <Text style={styles.titulo}>Precio Venta</Text>
+                            <Text style={styles.subtitulo}>Precio Venta</Text>
                         </View>
                         <View style={styles.cell}>
-                            <Text style={styles.titulo}>Total Bs</Text>
+                            <Text style={styles.subtitulo}>Total Bs</Text>
                         </View>
                     </View>
                     {
@@ -85,6 +89,13 @@ const styles = StyleSheet.create({
         height: 70,
         marginVertical: 15,
         marginHorizontal: 100,
+    },
+    subtitulo: {
+        fontSize: 15,
+        color: '#FFFFFF',
+        backgroundColor: '#FF0000',
+        textAlign: 'center',
+        fontWeight: 'bold'
     },
     title: {
         fontSize: 15,
