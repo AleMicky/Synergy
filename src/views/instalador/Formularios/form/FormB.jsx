@@ -168,7 +168,7 @@ export const FormB = ({handleClick, setMensajes}) => {
             name:'impermeabilizantes'
         },
         {
-            nombre:'Piso Vinilico',
+            nombre:'Piso Vinílico',
             valor:piso_vinilico,
             name:'piso_vinilico'
         },
@@ -301,7 +301,7 @@ export const FormB = ({handleClick, setMensajes}) => {
                     variant="outlined"
                     color="secondary"
                     fullWidth
-                    label="Telefono"
+                    label="Teléfono"
                     name="telefono"
                     value={telefono}
                     onChange={(e) => handleInputChange(e)}
@@ -330,7 +330,7 @@ export const FormB = ({handleClick, setMensajes}) => {
                     variant="outlined"
                     required
                     fullWidth
-                    label="Direccion"
+                    label="Dirección"
                     value={direccion}
                     onChange={(e) => handleInputChange(e)}
                 />
@@ -365,7 +365,7 @@ export const FormB = ({handleClick, setMensajes}) => {
                     color="secondary"
                     required
                     fullWidth
-                    label="Correo Electronico"
+                    label="Correo Electrónico"
                     name="correo"
                     value={correo}
                     onChange={(e) => handleInputChange(e)}
@@ -401,7 +401,7 @@ export const FormB = ({handleClick, setMensajes}) => {
             </Grid>
             <Grid item xs={12}>
                 <FormLabel component="legend">
-                    Experiencia en Sistema de Contrucciones
+                    Experiencia en Sistema de Construcciones
                 </FormLabel>
                 <FormGroup aria-label="position" row>
                 {

@@ -58,7 +58,7 @@ export const MenuRojo = [
         url: '/home/contacto',
     },
     { 
-        title: 'Fabrica', 
+        title: 'Fábrica', 
         url: '/home/fabrica',
     },
 ];

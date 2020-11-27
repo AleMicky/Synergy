@@ -311,7 +311,7 @@ export const FormCDC = ({handleClick, setMensajes}) => {
                     variant="outlined"
                     color="primary"
                     fullWidth
-                    label="Telefono"
+                    label="Teléfono"
                     name="telefono"
                     value={telefono}
                     onChange={(e) => handleInputChange(e)}
@@ -341,7 +341,7 @@ export const FormCDC = ({handleClick, setMensajes}) => {
                     variant="outlined"
                     required
                     fullWidth
-                    label="Direccion"
+                    label="Dirección"
                     value={direccion}
                     onChange={(e) => handleInputChange(e)}
                 />
@@ -376,7 +376,7 @@ export const FormCDC = ({handleClick, setMensajes}) => {
                     color="primary"
                     required
                     fullWidth
-                    label="Correo Electronico"
+                    label="Correo Electrónico"
                     name="correo"
                     value={correo}
                     onChange={(e) => handleInputChange(e)}
