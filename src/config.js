@@ -1,7 +1,7 @@
 // const apiURL = 'http://localhost:1337/';
 // const apiImg = 'http://localhost:1337';
-const apiURL = 'https://banck-end.herokuapp.com/';
-const apiImg = 'https://banck-end.herokuapp.com';
+const apiURL = 'http://backend.yacelly.ml:1337/';
+const apiImg = 'http://backend.yacelly.ml:1337';
 export {
     apiURL,
     apiImg
