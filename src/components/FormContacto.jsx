@@ -121,7 +121,7 @@ export const FormContacto = ({handleClick, setMensajes, azul }) => {
             required
             fullWidth
             id="telefono"
-            label="Telefono"
+            label="Teléfono"
             value={telefono}
             onChange={(e) => handleInputChange(e)}
           />

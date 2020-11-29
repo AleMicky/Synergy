@@ -48,7 +48,7 @@ export default function Footer({sections}) {
                             <Link href="/home/contacto"
                                 className={classes.text}
                                 color="inherit">
-                                {'Asistencia Tecnica '}
+                                {'Asistencia Técnica '}
                             </Link>
                         </div>
                         <div className={classes.asistencia}>

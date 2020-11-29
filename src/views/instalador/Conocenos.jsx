@@ -120,7 +120,7 @@ export const Conocenos = () => {
                                                 </CardActionArea>
                                                 <CardContent CardContent className={azul ? classes.cardContentAzul : classes.cardContent}>
                                                 <Typography style={{ color: '#fafafa' }} gutterBottom variant="h5" component="h2">
-                                                    {'Capacitacion'}
+                                                    {'Capacitación'}
                                                     </Typography>
                                                 </CardContent>
                                             </Card>
@@ -131,12 +131,12 @@ export const Conocenos = () => {
                                                 <CardMedia
                                                     className={classes.cardMedia}
                                                     image={azul ? carpinteriarImg : contructorImg}
-                                                    title="Benificios"
+                                                    title="Beneficios"
                                                 />
                                             </CardActionArea>
                                             <CardContent CardContent className={azul ? classes.cardContentAzul : classes.cardContent}>
                                                 <Typography style={{ color: '#fafafa' }} gutterBottom variant="h5" component="h2">
-                                                    {'Benificios'}
+                                                    {'Beneficios'}
                                                 </Typography>
                                             </CardContent>
                                         </Card>
@@ -147,12 +147,12 @@ export const Conocenos = () => {
                                                 <CardMedia
                                                     className={classes.cardMedia}
                                                     image={azul?carpinterarPoliticaImg:contructorPoliticaImp}
-                                                    title="Politicas"
+                                                    title="Políticas"
                                                 />
                                             </CardActionArea>
                                             <CardContent CardContent className={azul ? classes.cardContentAzul : classes.cardContent}>
                                                 <Typography style={{ color: '#fafafa' }} gutterBottom variant="h5" component="h2">
-                                                    {'Politicas'}
+                                                    {'Políticas'}
                                                 </Typography>
                                             </CardContent>
                                         </Card>
